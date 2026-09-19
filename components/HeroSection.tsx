@@ -48,9 +48,7 @@ export default function HeroSection() {
 
         <div className="mt-12 flex flex-col gap-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 rounded-full border border-zinc-200 px-3 py-1.5 text-xs text-zinc-500 font-medium">
-              Powered by <a href="https://intrface.in" target="_blank" rel="noopener noreferrer" className="font-bold text-zinc-800 hover:underline">intrface</a>
-            </div>
+          
             <div className="hidden items-center gap-2 sm:flex">
               {/* Google Reviews */}
               <a href="https://g.page/r/CbL_ssLkBR47EAI/review" target="_blank" rel="noopener noreferrer" aria-label="Review us on Google"
