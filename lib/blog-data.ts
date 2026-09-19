@@ -55,4 +55,12 @@ export const blogPosts = [
     slug: "/best-signboard-makers-wardha-road-nagpur",
     image: "/blog/Best Signboard Makers on Wardha Road Nagpur — Elevate Your Commercial Presence.png",
   },
+  {
+    title: "Is Your Signboard Killing Your Sales? 7 Signs It's Time to Upgrade",
+    category: "Business Advice",
+    excerpt: "Discover the 7 clear signs your business signboard in Nagpur is losing you customers — and what Prayas Graphics recommends.",
+    date: "March 2025",
+    slug: "/signboard-killing-sales-nagpur-upgrade",
+    image: "/blog/5 Costly Signboard Mistakes Nagpur Businesses Make — And How to Avoid Every One.png",
+  },
 ];

@@ -1,15 +1,37 @@
+import type { Metadata } from "next";
 import GalleryGrid from "@/components/GalleryGrid";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
+import { BUSINESS_INFO } from "@/lib/business-info";
+import { getBreadcrumbSchema } from "@/lib/schemas";
 
-export const metadata = {
-  title: "Galleries – Prayas Graphics Nagpur",
-  description: "Explore our portfolio of premium LED signboards, ACP cladding, building facades, and high-quality digital printing projects across Nagpur.",
+export const metadata: Metadata = {
+  title: "Signboard Projects Gallery — LED Signs & ACP Elevation Work in Nagpur",
+  description:
+    "View our portfolio of installed LED signboards, ACP elevation facades, 3D acrylic letters, and retail storefront branding completed for 500+ businesses in Nagpur.",
+  alternates: {
+    canonical: `${BUSINESS_INFO.url}/gallery`,
+  },
+  openGraph: {
+    title: "Signboard Portfolio Gallery — Prayas Graphics Nagpur",
+    description:
+      "Real photos of completed signboard installations, LED glow boards, and commercial elevation cladding across Nagpur.",
+    url: `${BUSINESS_INFO.url}/gallery`,
+  },
 };
 
 export default function GalleryPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Gallery", url: "/gallery" },
+  ]);
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-zinc-50/50 pb-20 overflow-x-hidden pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <GalleryGrid />
       <CtaSection />
       <Footer />

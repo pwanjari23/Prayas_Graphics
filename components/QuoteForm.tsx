@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { servicesData } from "@/lib/services-data";
 import { useCart, type DimensionUnit } from "@/lib/cart-context";
@@ -20,7 +20,9 @@ export default function QuoteForm({
   const { addItem, openCart } = useCart();
   const router = useRouter();
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(() => 
+    initialService && servicesData.some(s => s.slug === initialService) ? 2 : 1
+  );
   const [selectedService, setSelectedService] = useState<ServiceSlug>(initialService || "");
   const [serviceDetails, setServiceDetails] = useState<Record<string, string>>({});
   
@@ -28,12 +30,6 @@ export default function QuoteForm({
   const [dimensions, setDimensions] = useState({ width: "", height: "", unit: "ft" as DimensionUnit });
   
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    if (initialService && step === 1 && servicesData.some(s => s.slug === initialService)) {
-      setStep(2);
-    }
-  }, [initialService, step]);
 
   const handleNext = () => {
     if (step === 1 && !selectedService) {

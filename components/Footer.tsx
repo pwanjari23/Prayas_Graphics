@@ -1,13 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { BUSINESS_INFO } from "@/lib/business-info";
+import { trackPhoneClick, trackEmailClick } from "@/lib/analytics";
 
 export default function Footer() {
   return (
     <footer className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6">
-      <div className="flex flex-col gap-8 rounded-[32px] bg-white px-8 py-12 shadow-sm md:px-16 md:py-16">
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-start">
+      <div className="flex flex-col gap-10 rounded-[32px] bg-white px-8 py-12 shadow-sm md:px-16 md:py-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
           {/* Brand */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 lg:col-span-2">
             <Link
               href="/"
               aria-label="Prayas Graphics Home"
@@ -28,99 +33,148 @@ export default function Footer() {
                 className="h-8 w-auto sm:h-10 lg:h-12 transition-all object-contain shrink-0"
               />
             </Link>
-            <p className="text-sm font-medium text-zinc-500 max-w-xs">
-              Premium Signboards and Display Advertising Solutions for Every
-              Business.
+            <p className="text-sm font-medium text-zinc-500 max-w-sm leading-relaxed">
+              Nagpur&apos;s premier signboard manufacturer specializing in Acrylic ACP boards, 3D LED letters, ACP elevation cladding, and commercial display solutions.
             </p>
+
+            <div className="flex flex-col gap-2.5 pt-2">
+              <a
+                href={`tel:${BUSINESS_INFO.contact.phoneRaw}`}
+                onClick={() => trackPhoneClick("footer")}
+                className="flex items-center gap-2 text-sm font-semibold text-zinc-700 hover:text-[#800080] transition-colors"
+                aria-label="Call Prayas Graphics"
+              >
+                <Phone className="h-4 w-4 text-[#800080]" />
+                {BUSINESS_INFO.contact.phone}
+              </a>
+              <a
+                href={`mailto:${BUSINESS_INFO.contact.email}`}
+                onClick={() => trackEmailClick("footer")}
+                className="flex items-center gap-2 text-sm font-semibold text-zinc-700 hover:text-[#800080] transition-colors"
+                aria-label="Email Prayas Graphics"
+              >
+                <Mail className="h-4 w-4 text-[#800080]" />
+                {BUSINESS_INFO.contact.email}
+              </a>
+            </div>
           </div>
 
           {/* Nav columns */}
-          <div className="flex flex-wrap gap-12">
-            <div className="flex flex-col gap-3">
-              <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-                Browse
-              </p>
-              <Link
-                href="/services"
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
-              >
-                Services
-              </Link>
-              <Link
-                href="/gallery"
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
-              >
-                Gallery
-              </Link>
+          <div className="flex flex-col gap-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+              Top Services
+            </p>
+            <Link
+              href="/services/acrylic-acp-signboard"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              Acrylic ACP Signboard
+            </Link>
+            <Link
+              href="/services/ss-letter-backlit-golden"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              SS Backlit Letters
+            </Link>
+            <Link
+              href="/services/flex-backlit-signboard"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              Flex Backlit Boards
+            </Link>
+            <Link
+              href="/services/acp-elevation-work"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              ACP Elevation Cladding
+            </Link>
+            <Link
+              href="/services"
+              className="text-sm font-bold text-[#800080] transition-colors hover:underline pt-1"
+            >
+              View All 12 Services &rarr;
+            </Link>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+              Nagpur Guides
+            </p>
+            <Link
+              href="/acp-vs-acrylic-vs-flex-signboard-nagpur"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              ACP vs Acrylic vs Flex
+            </Link>
+            <Link
+              href="/nmc-signboard-rules-nagpur-2025"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              NMC Signboard Rules 2025
+            </Link>
+            <Link
+              href="/best-signboard-makers-wardha-road-nagpur"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              Wardha Road Signages
+            </Link>
+            <Link
+              href="/restaurant-cafe-signboard-ideas-nagpur"
+              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+            >
+              Restaurant Signboards
+            </Link>
+            <Link
+              href="/blog"
+              className="text-sm font-bold text-[#800080] transition-colors hover:underline pt-1"
+            >
+              All Signage Articles &rarr;
+            </Link>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+              Visit Our Shop
+            </p>
+            <p className="text-xs font-medium text-zinc-500 leading-relaxed">
+              {BUSINESS_INFO.address.fullAddress}
+            </p>
+            <div className="overflow-hidden rounded-xl bg-zinc-100 h-28 w-full">
+              <iframe
+                src={BUSINESS_INFO.socials.googleMapsEmbed}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale hover:grayscale-0 transition-all duration-500"
+                title="Prayas Graphics Map"
+              ></iframe>
             </div>
-            <div className="flex flex-col gap-3">
-              <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-                Company
-              </p>
-              <Link
-                href="/about"
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/contact"
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href="/blog"
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
-              >
-                Blog
-              </Link>
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-                Legal
-              </p>
-              <Link
-                href="/disclaimer"
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
-              >
-                Disclaimer
-              </Link>
-              <Link
-                href="/privacy-policy"
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
-              >
-                Privacy &amp; Policy
-              </Link>
-            </div>
-            <div className="flex flex-col gap-4 max-w-[280px]">
-              <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-                Visit Us
-              </p>
-              <p className="text-sm font-medium text-zinc-500 leading-relaxed">
-                Madhuvatsalya Apartment Shop no 3 Tukdoji Sqr, Manewada Rd, opp.
-                MSEB Office, appt, Nagpur, Maharashtra 440027
-              </p>
-              <div className="overflow-hidden rounded-xl bg-zinc-100 h-32 w-full mt-2">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.7443020843207!2d79.10267937420798!3d21.12275798454544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c147e4d218c3%3A0x3b1e05e4c2b2ffb2!2sPRAYAS%20GRAPHICS%20%7C%20ACP%20Sheet%20Work%20%7C%20Signages%20Board%20%7C%20LED%20Glow%20Sign%20Board%20%7C%20Flex%20Printing%20%7C%20Manufacturers%20in%20Nagpur!5e0!3m2!1sen!2sin!4v1775206503124!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale hover:grayscale-0 transition-all duration-500"
-                ></iframe>
-              </div>
-            </div>
+            <a
+              href={BUSINESS_INFO.socials.googleReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#800080] hover:underline"
+            >
+              <MapPin className="h-3.5 w-3.5" /> Rate &amp; Review Us on Google
+            </a>
           </div>
         </div>
 
-        <div className="border-t border-zinc-100 pt-6">
+        <div className="flex flex-col md:flex-row items-center justify-between border-t border-zinc-100 pt-6 gap-4">
           <p className="text-xs font-medium text-zinc-400">
-            © 2026 Prayas Graphics Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} {BUSINESS_INFO.name}. All rights reserved.
           </p>
+          <div className="flex items-center gap-6 text-xs font-medium text-zinc-500">
+            <Link href="/about" className="hover:text-zinc-900">About</Link>
+            <Link href="/contact" className="hover:text-zinc-900">Contact</Link>
+            <Link href="/support" className="hover:text-zinc-900">Support &amp; FAQs</Link>
+            <Link href="/gallery" className="hover:text-zinc-900">Gallery</Link>
+            <Link href="/privacy-policy" className="hover:text-zinc-900">Privacy Policy</Link>
+            <Link href="/disclaimer" className="hover:text-zinc-900">Disclaimer</Link>
+          </div>
         </div>
       </div>
     </footer>
