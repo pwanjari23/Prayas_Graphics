@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContactForm from "@/components/ContactForm";
+import ContactPageTemplate from "@/components/ContactPageTemplate";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import { BUSINESS_INFO } from "@/lib/business-info";
@@ -31,7 +31,17 @@ export default function ContactPage() {
   const faqSchema = getFaqSchema(flatFaqs);
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
+    <main className="relative flex min-h-screen flex-col items-center bg-[#FAFAF9] pb-16 overflow-x-hidden">
+      {/* Subtle light background ambient texture */}
+      <div
+        className="pointer-events-none fixed inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage: "radial-gradient(#18181b 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+        aria-hidden="true"
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -40,8 +50,14 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <ContactForm />
+
+      {/* Redesigned Contact Page Template */}
+      <ContactPageTemplate />
+
+      {/* FAQ Section */}
       <FaqSection />
+
+      {/* Footer */}
       <Footer />
     </main>
   );

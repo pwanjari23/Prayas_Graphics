@@ -28,54 +28,72 @@ export default function BlogPage() {
   ]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
+    <main className="flex min-h-screen flex-col items-center bg-[#FAFAF9] pb-20 overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      
-      {/* Blog Hero */}
-      <section className="mx-auto w-full max-w-7xl px-4 pt-24 pb-8 md:px-6">
-        <div className="flex flex-col items-center justify-center rounded-[32px] bg-white px-6 py-16 shadow-sm md:py-24">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#800080]/10 text-[#800080] text-xs font-bold uppercase tracking-wider mb-4">
-            Nagpur Signage Knowledge Hub
-          </span>
-          <h1 className="text-center font-heading text-4xl font-extrabold tracking-tight text-zinc-900 md:text-5xl">
-            Our Signage Guides &amp; Insights
+
+      {/* Editorial Blog Hero Header - Centered in Middle */}
+      <section className="mx-auto w-full max-w-7xl px-4 pt-20 pb-10 sm:pt-24 sm:pb-12 md:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-4 py-1 text-xs font-bold text-[#800080] mb-2 mt-2">
+            <span>Nagpur Signage Tips & Trends</span>
+          </div>
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold tracking-tight text-zinc-950 leading-[1.12] text-center">
+            Signage Insights &amp;
+            <span className="block">Resources</span>
           </h1>
-          <p className="mt-4 max-w-xl text-center text-[15px] font-medium text-zinc-500">
-            Expert advice on materials, NMC compliance rules, design trends, and cost efficiency for business owners across Nagpur.
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600 font-normal text-center max-w-2xl">
+            Practical insights on heat-resistant signage materials, NMC regulations, design best practices, and cost-effective solutions for businesses in Nagpur.
           </p>
         </div>
       </section>
 
-      {/* Blog Grid */}
-      <section className="mx-auto w-full max-w-7xl px-4 pb-8 md:px-6">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* Blog Cards Grid: 2 cards in a line on mobile, 4 cards on desktop */}
+      <section className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8 pb-16">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 items-stretch">
           {blogPosts.map((post, idx) => (
             <Link
               href={post.slug}
               key={idx}
-              className="group flex flex-col gap-4 rounded-2xl border border-zinc-100 bg-white p-4 transition-all hover:border-zinc-300 hover:shadow-md"
+              className="group flex flex-col justify-between rounded-xl sm:rounded-[24px] border border-zinc-200/90 bg-white p-2.5 sm:p-4 transition-all duration-300 hover:border-zinc-400 hover:shadow-lg hover:-translate-y-1 active:scale-[0.99]"
             >
-              <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl bg-zinc-100">
-                <div className="absolute inset-0 bg-linear-to-b from-transparent to-zinc-900/10 group-hover:to-zinc-900/30 transition-all z-10" />
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className="absolute top-4 right-4 z-20 rounded-full bg-white px-3 py-1 text-xs font-bold text-zinc-800 shadow-sm">
-                  {post.category}
-                </span>
-              </div>
-              <div className="flex flex-col gap-2 px-2 pb-2">
-                <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">{post.date}</span>
-                <h3 className="font-heading text-xl font-bold text-zinc-900 group-hover:text-[#800080] transition-colors leading-tight">
+              <div>
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg sm:rounded-xl bg-zinc-100 mb-2.5 sm:mb-3.5">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                  <span className="absolute top-2 left-2 z-10 inline-flex items-center rounded-full bg-white/95 backdrop-blur-md px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-zinc-900 shadow-xs">
+                    {post.category}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold text-zinc-400 mb-1 sm:mb-1.5 px-0.5">
+                  <span>{post.date}</span>
+                  <span>•</span>
+                  <span>4 min</span>
+                </div>
+
+                <h2 className="font-heading text-xs sm:text-base font-bold text-zinc-950 group-hover:text-[#800080] transition-colors leading-snug mb-1 sm:mb-1.5 px-0.5 line-clamp-2">
                   {post.title}
-                </h3>
-                <p className="text-sm text-zinc-500 line-clamp-2 mt-1">{post.excerpt}</p>
+                </h2>
+
+                <p className="text-[11px] sm:text-xs text-zinc-500 line-clamp-2 leading-relaxed font-normal px-0.5">
+                  {post.excerpt}
+                </p>
+              </div>
+
+              <div className="pt-2.5 sm:pt-3.5 mt-2.5 sm:mt-3.5 border-t border-zinc-100 flex items-center justify-between px-0.5">
+                <span className="text-[10px] sm:text-xs font-bold text-zinc-700 group-hover:text-[#800080] transition-colors">
+                  Read Guide
+                </span>
+                <div className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 group-hover:bg-zinc-950 group-hover:text-white transition-all duration-200">
+                  <span className="text-[10px] sm:text-xs font-bold">→</span>
+                </div>
               </div>
             </Link>
           ))}
