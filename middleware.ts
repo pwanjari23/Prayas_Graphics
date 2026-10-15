@@ -7,9 +7,7 @@ const MAX_REQUESTS_PER_WINDOW = 30; // 30 requests per minute per IP
 
 const BLOCKED_USER_AGENTS = [
   'scriptexbot',
-  'curl',
   'python-requests',
-  'postmanruntime',
 ];
 
 export function middleware(request: NextRequest) {
