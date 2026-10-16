@@ -66,17 +66,23 @@ export default function FaqSection() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-8 items-start">
           {/* LEFT: FAQ Category Tabs & Accordion (8 cols) */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* 3 Category Tabs in One Line (Guaranteed Single Line) */}
-            <div className="flex items-center gap-2 sm:gap-2.5 mb-6 overflow-x-auto pb-1 no-scrollbar">
+            {/* 3 Category Tabs: 3-Column Grid on Mobile (Zero Horizontal Scroll), Flex Row on Laptop/Desktop */}
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 sm:flex sm:items-center mb-6">
               {faqsData.map((category, idx) => {
                 const isActive = activeCategory === idx;
+                const shortLabels: Record<string, string> = {
+                  "Services & Quality": "Services",
+                  "Process & Delivery": "Process",
+                  "Payments & Support": "Support",
+                };
+
                 return (
                   <button
                     key={category.category}
                     type="button"
                     onClick={() => handleCategoryChange(idx)}
                     className={cn(
-                      "group relative shrink-0 inline-flex items-center gap-2 rounded-full px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 active:scale-[0.98]",
+                      "group relative flex items-center justify-center gap-1 sm:gap-2 rounded-full px-1.5 py-2 sm:px-4 sm:py-2.5 text-[11px] sm:text-sm font-bold whitespace-nowrap transition-all duration-200 cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 active:scale-[0.98]",
                       isActive
                         ? "bg-zinc-950 text-white shadow-md"
                         : "bg-white text-zinc-600 border border-zinc-200/90 hover:border-zinc-400 hover:text-zinc-950 hover:bg-zinc-50"
@@ -84,11 +90,14 @@ export default function FaqSection() {
                     aria-selected={isActive}
                     role="tab"
                   >
-                    {getCategoryIcon(category.iconName, isActive)}
-                    <span>{category.category}</span>
+                    <span className="shrink-0">{getCategoryIcon(category.iconName, isActive)}</span>
+                    <span className="truncate">
+                      <span className="sm:hidden">{shortLabels[category.category] || category.category}</span>
+                      <span className="hidden sm:inline">{category.category}</span>
+                    </span>
                     <span
                       className={cn(
-                        "ml-0.5 flex h-4.5 min-w-[18px] sm:h-5 sm:min-w-[20px] items-center justify-center rounded-full px-1 text-[11px] font-bold tabular-nums transition-colors",
+                        "ml-0.5 flex h-4 min-w-[16px] sm:h-5 sm:min-w-[20px] items-center justify-center rounded-full px-1 text-[10px] sm:text-[11px] font-bold tabular-nums transition-colors shrink-0",
                         isActive ? "bg-white/20 text-white" : "bg-zinc-100 text-zinc-500 group-hover:bg-zinc-200"
                       )}
                     >

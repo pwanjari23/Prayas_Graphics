@@ -1,5 +1,3 @@
-"use client";
-
 import { Package, Truck, RotateCcw, Lock } from "lucide-react";
 
 export default function FeaturesSection() {

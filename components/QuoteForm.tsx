@@ -10,10 +10,12 @@ type ServiceSlug = string;
 
 export default function QuoteForm({ 
   inlineService, 
-  onComplete 
+  onComplete,
+  isDrawer = false
 }: { 
   inlineService?: string; 
   onComplete?: () => void; 
+  isDrawer?: boolean;
 } = {}) {
   const searchParams = useSearchParams();
   const initialService = inlineService || searchParams.get("service");
@@ -448,8 +450,8 @@ export default function QuoteForm({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white rounded-[32px] border border-zinc-100 shadow-xl overflow-hidden mt-8 mb-20">
-      <div className="p-8 md:p-12">
+    <div className={isDrawer ? "w-full flex-1 flex flex-col justify-between overflow-hidden" : "w-full max-w-3xl mx-auto bg-white rounded-[32px] border border-zinc-100 shadow-xl overflow-hidden mt-8 mb-20"}>
+      <div className={isDrawer ? "p-4 sm:p-6 overflow-y-auto flex-1" : "p-8 md:p-12"}>
         {error && (
           <div className="mb-6 p-4 rounded-xl bg-red-50 text-red-600 text-sm font-medium border border-red-100">
             {error}
@@ -459,20 +461,20 @@ export default function QuoteForm({
         {/* Step 1: Select Service */}
         {step === 1 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-2xl font-heading font-extrabold text-zinc-900 mb-2">What do you need a quote for?</h2>
-            <p className="text-zinc-500 mb-8 font-medium">Select a service below to configure your specific requirements.</p>
+            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-zinc-900 mb-2">What do you need a quote for?</h2>
+            <p className="text-zinc-500 mb-6 font-medium text-sm">Select a service below to configure your specific requirements.</p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               {servicesData.map((s) => (
                 <button
                   key={s.slug}
                   onClick={() => setSelectedService(s.slug)}
-                  className={`text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-4 ${selectedService === s.slug ? "border-[#800080] bg-[#800080]/5 ring-4 ring-[#800080]/10" : "border-zinc-100 hover:border-zinc-300 bg-white"}`}
+                  className={`text-left p-3.5 sm:p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-3.5 ${selectedService === s.slug ? "border-[#800080] bg-[#800080]/5 ring-4 ring-[#800080]/10" : "border-zinc-100 hover:border-zinc-300 bg-white"}`}
                 >
                   <div className={`p-2 rounded-lg ${selectedService === s.slug ? "bg-[#800080] text-white" : "bg-zinc-100 text-zinc-600"}`}>
                      <s.icon className="w-5 h-5" />
                   </div>
-                  <span className="font-semibold text-zinc-900">{s.title}</span>
+                  <span className="font-semibold text-zinc-900 text-sm sm:text-base">{s.title}</span>
                 </button>
               ))}
             </div>
@@ -482,8 +484,8 @@ export default function QuoteForm({
         {/* Step 2: Service Specific Fields */}
         {step === 2 && (
           <div className="animate-in fade-in slide-in-from-right-8 duration-500">
-            <h2 className="text-2xl font-heading font-extrabold text-zinc-900 mb-2">Configure Details</h2>
-            <p className="text-zinc-500 mb-8 font-medium">Tell us a bit more about what you want for the <strong className="text-zinc-900">{servicesData.find(s=>s.slug===selectedService)?.title}</strong>.</p>
+            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-zinc-900 mb-2">Configure Details</h2>
+            <p className="text-zinc-500 mb-6 font-medium text-xs sm:text-sm">Tell us a bit more about what you want for the <strong className="text-zinc-900">{servicesData.find(s=>s.slug===selectedService)?.title}</strong>.</p>
             
             {renderServiceFields()}
           </div>
@@ -491,19 +493,19 @@ export default function QuoteForm({
       </div>
       
       {/* Footer Navigation */}
-      <div className="bg-zinc-50 border-t border-zinc-100 px-6 py-4 flex items-center justify-between">
+      <div className={isDrawer ? "bg-white border-t border-zinc-100 px-4 sm:px-6 py-4 flex items-center justify-between shrink-0" : "bg-zinc-50 border-t border-zinc-100 px-6 py-4 flex items-center justify-between"}>
         {step === 2 && !initialService ? (
-          <button onClick={handleBack} className="flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-zinc-600 hover:bg-zinc-200 transition-colors">
+          <button onClick={handleBack} className="flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-zinc-600 hover:bg-zinc-200 transition-colors text-sm">
             <ArrowLeft className="w-4 h-4" /> Back
           </button>
         ) : <div></div>}
 
         {step === 1 ? (
-          <button onClick={handleNext} className="flex items-center gap-2 px-8 py-3 rounded-full font-bold text-white bg-[#800080] hover:bg-[#800080]/90 transition-colors shadow-lg shadow-[#800080]/20 hover:scale-[1.02]">
+          <button onClick={handleNext} className="flex items-center gap-2 px-7 py-3 rounded-full font-bold text-white bg-[#800080] hover:bg-[#800080]/90 transition-colors shadow-lg shadow-[#800080]/20 hover:scale-[1.02] text-sm">
             Continue Details <ChevronRight className="w-4 h-4" />
           </button>
         ) : (
-          <button onClick={handleAddToCart} className="flex items-center gap-2 px-8 py-3 rounded-full font-bold text-white bg-zinc-900 hover:bg-zinc-950 transition-colors shadow-lg hover:scale-[1.02]">
+          <button onClick={handleAddToCart} className="flex items-center gap-2 px-7 py-3 rounded-full font-bold text-white bg-zinc-900 hover:bg-zinc-950 transition-colors shadow-lg hover:scale-[1.02] text-sm">
             Add to Quote Cart
           </button>
         )}

@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection";
+import BrandLogosMarquee from "@/components/BrandLogosMarquee";
 import PopularPosters from "@/components/PopularPosters";
 import StorySection from "@/components/StorySection";
 import FeaturesSection from "@/components/FeaturesSection";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
       <HeroSection />
+      <BrandLogosMarquee />
       <PopularPosters />
       <StorySection />
       <FeaturesSection />

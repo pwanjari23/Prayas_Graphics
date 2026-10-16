@@ -6,8 +6,8 @@ import { ArrowUpRight, ArrowRight, Clock, BookOpen } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
 
 export default function BlogSection() {
-  // Take 4 curated posts to fit cleanly in one 4-column row
-  const posts = blogPosts.slice(0, 4);
+  // Take 3 curated posts to fit cleanly in one 3-column row
+  const posts = blogPosts.slice(0, 3);
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-16 md:px-6 lg:px-8">
@@ -30,13 +30,13 @@ export default function BlogSection() {
           </p>
         </div>
 
-        {/* 4 Cards: 2 cards in a line on mobile, 4 cards on desktop */}
-        <div className="grid w-full grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 items-stretch">
+        {/* 3 Cards: 1 on mobile, 2 on tablet, 3 on desktop */}
+        <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 items-stretch max-w-6xl mx-auto">
           {posts.map((post, idx) => (
             <Link
               href={post.slug}
               key={post.slug || idx}
-              className="group flex flex-col justify-between rounded-xl sm:rounded-[24px] border border-zinc-200/80 bg-zinc-50/50 p-2.5 sm:p-4 transition-all duration-300 hover:border-zinc-400 hover:bg-white hover:shadow-lg hover:-translate-y-1"
+              className="group flex flex-col justify-between rounded-2xl sm:rounded-[26px] border border-zinc-200/80 bg-zinc-50/50 p-4 sm:p-5 transition-all duration-300 hover:border-zinc-400 hover:bg-white hover:shadow-lg hover:-translate-y-1"
             >
               <div>
                 {/* Image Frame */}

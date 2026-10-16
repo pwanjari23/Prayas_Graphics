@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { sendContactEmail } from "@/app/actions/contact";
 import {
   Loader2,
@@ -57,8 +58,13 @@ export default function ContactPageTemplate() {
         aria-hidden="true"
       />
 
-      {/* Hero Header Section - Centered */}
-      <div className="mb-10 max-w-3xl mx-auto flex flex-col items-center justify-center text-center">
+      {/* Hero Header Section - Animated Centered */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-10 max-w-3xl mx-auto flex flex-col items-center justify-center text-center"
+      >
         <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-4 py-1 text-xs font-bold text-[#800080] mb-2 mt-2">
           <span>Get In Touch</span>
         </div>
@@ -68,10 +74,70 @@ export default function ContactPageTemplate() {
         <p className="mt-3.5 text-base sm:text-lg leading-relaxed text-zinc-600 font-normal text-center max-w-2xl">
           From eye-catching shop boards to 3D backlit letters and ACP elevations, we deliver creative, durable signage solutions that bring your brand vision to life across Nagpur.
         </p>
-      </div>
+      </motion.div>
 
-      {/* Quick Highlights Row (Response Time, Location, Hours) */}
-      <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+      {/* Mobile Screen Only: Unified Compact 3-Column Strip (Zero Horizontal Scroll) */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="mb-6 block sm:hidden rounded-2xl border border-zinc-200/90 bg-white p-3 shadow-2xs"
+      >
+        <div className="grid grid-cols-3 divide-x divide-zinc-100 items-center">
+          {/* Response Time */}
+          <div className="flex flex-col items-center gap-1.5 px-1 text-center">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-[#800080]">
+              <Zap className="h-4 w-4" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                Response
+              </span>
+              <span className="text-[11px] font-semibold text-zinc-900 leading-tight">
+                &lt; 14 Hours
+              </span>
+            </div>
+          </div>
+
+          {/* Central Location */}
+          <div className="flex flex-col items-center gap-1.5 px-1 text-center">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-[#800080]">
+              <MapPin className="h-4 w-4" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                Location
+              </span>
+              <span className="text-[11px] font-semibold text-zinc-900 leading-tight">
+                Tukdoji Sq, Nagpur
+              </span>
+            </div>
+          </div>
+
+          {/* Store Hours */}
+          <div className="flex flex-col items-center gap-1.5 px-1 text-center">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-[#800080]">
+              <Clock className="h-4 w-4" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                Hours
+              </span>
+              <span className="text-[11px] font-semibold text-zinc-900 leading-tight">
+                10am – 8pm
+              </span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Laptop / Desktop Screen Only: 3 Distinct Separate Boxes in One Line (As it was before) */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="mb-10 hidden sm:grid sm:grid-cols-3 sm:gap-4"
+      >
         {/* Response Time */}
         <div className="flex items-center gap-3.5 rounded-2xl border border-zinc-200/90 bg-white p-4 shadow-2xs">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-[#800080]">
@@ -104,12 +170,17 @@ export default function ContactPageTemplate() {
             <span className="text-xs sm:text-sm font-semibold text-zinc-900">{BUSINESS_INFO.hours.displayHours}</span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main 2-Column Interface: LEFT = Inquiry Form, RIGHT = Direct Info & Map */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-8 items-start">
         {/* LEFT COLUMN: Architectural Inquiry Form (7 cols) */}
-        <div className="flex flex-col rounded-[28px] sm:rounded-[32px] border border-zinc-200/90 bg-white p-6 sm:p-8 md:p-10 shadow-sm lg:col-span-7">
+        <motion.div
+          initial={{ opacity: 0, x: -25 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col rounded-[28px] sm:rounded-[32px] border border-zinc-200/90 bg-white p-6 sm:p-8 md:p-10 shadow-sm lg:col-span-7"
+        >
           <div className="mb-6 flex flex-col">
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight mt-1">
               Send Us a Message
@@ -216,10 +287,15 @@ export default function ContactPageTemplate() {
               <span>Direct delivery to our master signmakers in Nagpur. Zero third-party handoffs.</span>
             </div>
           </form>
-        </div>
+        </motion.div>
 
         {/* RIGHT COLUMN: Direct Communication Channels & Google Map (5 cols) */}
-        <div className="flex flex-col gap-5 lg:col-span-5">
+        <motion.div
+          initial={{ opacity: 0, x: 25 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col gap-5 lg:col-span-5"
+        >
           {/* Direct Communication Cards */}
           <div className="flex flex-col gap-3.5 rounded-[28px] border border-zinc-200/90 bg-white p-6 shadow-sm">
             <h2 className="font-heading text-lg font-bold text-zinc-950">Direct Communication</h2>
@@ -300,7 +376,7 @@ export default function ContactPageTemplate() {
               <MapPin className="h-3.5 w-3.5" /> Rate &amp; Review Us on Google
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ export default function GalleryPage() {
   ]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-zinc-50/50 pb-20 overflow-x-hidden pt-20">
+    <main className="flex min-h-screen flex-col items-center bg-white pb-20 overflow-x-hidden pt-24 sm:pt-28">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

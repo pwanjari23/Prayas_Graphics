@@ -11,18 +11,18 @@ interface CalloutProps {
 }
 export function Callout({ variant, icon, title, children }: CalloutProps) {
   const styles = {
-    red: "bg-[#fdf3f2] border-red-600",
-    gold: "bg-[#fdf8ec] border-amber-500",
-    green: "bg-[#f0f9f4] border-emerald-600",
-    blue: "bg-[#800080]/5 border-[#800080]",
+    red: "bg-purple-50/70 border-[#800080]",
+    gold: "bg-amber-50/70 border-amber-500",
+    green: "bg-emerald-50/70 border-emerald-600",
+    blue: "bg-zinc-50 border-zinc-400",
   };
   return (
-    <div className={"rounded-xl p-6 my-8 border-l-4 " + styles[variant]}>
+    <div className={"rounded-2xl p-5 sm:p-6 my-6 border-l-4 " + styles[variant]}>
       <h4 className="text-sm font-bold text-zinc-950 mb-2 flex items-center gap-2">
         {icon && <span>{icon}</span>}
         {title}
       </h4>
-      <div className="text-sm text-zinc-600 font-light leading-relaxed [&>p]:mb-2 [&>ul]:pl-5 [&>ul]:list-disc [&>ul]:mt-2">
+      <div className="text-sm text-zinc-600 font-normal leading-relaxed [&>p]:mb-2 [&>ul]:pl-5 [&>ul]:list-disc [&>ul]:mt-2">
         {children}
       </div>
     </div>
@@ -33,20 +33,20 @@ export function Callout({ variant, icon, title, children }: CalloutProps) {
 export function FaqItem({ question, answer }: { question: string; answer: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-zinc-200 rounded-xl mb-3 overflow-hidden bg-white">
+    <div className="border border-zinc-200/90 rounded-2xl mb-3 overflow-hidden bg-white shadow-2xs">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-4 md:px-5 font-medium text-[15px] text-zinc-900 text-left hover:bg-stone-50 transition-colors"
+        className="w-full flex items-center justify-between p-4 md:px-5 font-semibold text-sm sm:text-[15px] text-zinc-900 text-left hover:bg-zinc-50 transition-colors"
       >
         <span>{question}</span>
-        <span className="text-red-600 text-xl font-light w-6 h-6 flex items-center justify-center shrink-0">
+        <span className="text-[#800080] text-lg font-bold w-6 h-6 flex items-center justify-center shrink-0">
           {open ? "−" : "+"}
         </span>
       </button>
       <div
         className={"overflow-hidden transition-all duration-300 ease-in-out " + (open ? "max-h-[500px]" : "max-h-0")}
       >
-        <div className="p-4 md:px-5 pt-0 text-sm text-zinc-600 font-light leading-relaxed bg-stone-50 border-t border-zinc-200/60">
+        <div className="p-4 md:px-5 pt-0 text-sm text-zinc-600 font-normal leading-relaxed bg-zinc-50/50 border-t border-zinc-100">
           {answer}
         </div>
       </div>
@@ -57,20 +57,20 @@ export function FaqItem({ question, answer }: { question: string; answer: React.
 // --- MISTAKE BOX ---
 export function MistakeBox({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white border border-zinc-200 rounded-xl p-5 md:p-6 mb-5 flex flex-col sm:flex-row gap-4 sm:gap-6 shadow-sm">
-      <div className="font-heading text-4xl md:text-5xl font-black text-[#f0d5d3] leading-none shrink-0 w-12 hidden sm:block">
+    <div className="bg-white border border-zinc-200/90 rounded-2xl p-5 md:p-6 mb-5 flex flex-col sm:flex-row gap-4 sm:gap-6 shadow-2xs">
+      <div className="font-heading text-4xl md:text-5xl font-black text-purple-200/80 leading-none shrink-0 w-12 hidden sm:block">
         {num}
       </div>
       <div>
         <div className="flex items-center gap-3 mb-2">
-          <span className="font-heading text-2xl font-black text-[#f0d5d3] leading-none block sm:hidden">
+          <span className="font-heading text-2xl font-black text-purple-200/80 leading-none block sm:hidden">
             {num}
           </span>
-          <h5 className="text-[15px] font-bold text-red-600 leading-tight">
+          <h5 className="text-[15px] font-bold text-zinc-950 leading-tight">
             {title}
           </h5>
         </div>
-        <div className="text-sm text-zinc-600 font-light leading-relaxed">
+        <div className="text-sm text-zinc-600 font-normal leading-relaxed">
           {children}
         </div>
       </div>
@@ -89,12 +89,12 @@ interface PriceCardProps {
 export function PriceCard({ name, price, unit, life, featured }: PriceCardProps) {
   return (
     <div
-      className={"border rounded-xl p-5 bg-white text-center transition-transform hover:-translate-y-1 " + (featured ? "border-red-600 border-2 shadow-md shadow-red-600/5" : "border-zinc-200 shadow-sm")}
+      className={"border rounded-2xl p-5 bg-white text-center transition-all hover:-translate-y-1 " + (featured ? "border-[#800080] border-2 shadow-md shadow-purple-900/5" : "border-zinc-200/90 shadow-2xs")}
     >
       <div className="text-[13px] font-bold text-zinc-950 mb-1.5">{name}</div>
-      <div className="font-heading text-[22px] font-black text-red-600 mb-1">{price}</div>
+      <div className="font-heading text-[22px] font-extrabold text-[#800080] mb-1">{price}</div>
       <div className="text-[11px] text-zinc-500 mb-3">{unit}</div>
-      <div className="text-xs font-semibold text-emerald-600 bg-emerald-50 inline-block px-3 py-1 rounded-full">
+      <div className="text-xs font-semibold text-emerald-700 bg-emerald-50 inline-block px-3 py-1 rounded-full border border-emerald-100">
         {life}
       </div>
     </div>
@@ -104,13 +104,13 @@ export function PriceCard({ name, price, unit, life, featured }: PriceCardProps)
 // --- STEP BOX ---
 export function StepBox({ num, title, desc }: { num: number; title: string; desc: string }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-8 items-start group">
-      <div className="w-10 h-10 rounded-full bg-red-600 text-white text-sm font-bold flex items-center justify-center shrink-0 shadow-md shadow-red-600/20 group-hover:scale-110 transition-transform">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-6 items-start group">
+      <div className="w-9 h-9 rounded-full bg-[#800080] text-white text-xs font-bold flex items-center justify-center shrink-0 shadow-sm shadow-purple-900/20 group-hover:scale-105 transition-transform">
         {num}
       </div>
       <div>
-        <h5 className="text-[15px] font-bold text-zinc-900 mb-1.5">{title}</h5>
-        <p className="text-sm m-0 text-zinc-600 font-light leading-relaxed">{desc}</p>
+        <h5 className="text-[15px] font-bold text-zinc-900 mb-1">{title}</h5>
+        <p className="text-sm m-0 text-zinc-600 font-normal leading-relaxed">{desc}</p>
       </div>
     </div>
   );
@@ -124,39 +124,39 @@ interface VsOption {
 }
 export function VsGrid({ optionA, optionB }: { optionA: VsOption; optionB: VsOption }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] my-8 border border-zinc-200 rounded-xl overflow-hidden shadow-sm">
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] my-8 border border-zinc-200/90 rounded-2xl overflow-hidden shadow-2xs">
       <div className="p-6 md:p-8 bg-white">
-        <div className="text-[11px] font-bold tracking-[0.15em] uppercase text-zinc-400 mb-3">
+        <div className="text-[11px] font-bold tracking-[0.15em] uppercase text-zinc-400 mb-2.5">
           {optionA.label}
         </div>
-        <div className="font-heading text-xl md:text-2xl font-black text-zinc-950 mb-5">
+        <div className="font-heading text-lg md:text-xl font-extrabold text-zinc-950 mb-4">
           {optionA.name}
         </div>
         <ul className="space-y-2.5">
           {optionA.points.map((pt, i) => (
-            <li key={i} className="text-[13px] text-zinc-600 font-light leading-relaxed flex items-start gap-2">
-              <span className="text-red-500 shrink-0 mt-0.5">•</span>
+            <li key={i} className="text-[13px] text-zinc-600 font-normal leading-relaxed flex items-start gap-2">
+              <span className="text-[#800080] shrink-0 mt-0.5">•</span>
               {pt}
             </li>
           ))}
         </ul>
       </div>
       
-      <div className="bg-zinc-950 flex md:flex-col items-center justify-center py-2 md:py-0 md:px-4 text-white font-bold tracking-widest text-sm md:text-base md:[writing-mode:vertical-rl]">
+      <div className="bg-zinc-950 flex md:flex-col items-center justify-center py-2 md:py-0 md:px-4 text-white font-bold tracking-widest text-xs md:text-sm md:[writing-mode:vertical-rl]">
         VS
       </div>
 
-      <div className="p-6 md:p-8 bg-stone-50">
-        <div className="text-[11px] font-bold tracking-[0.15em] uppercase text-zinc-400 mb-3">
+      <div className="p-6 md:p-8 bg-zinc-50/70">
+        <div className="text-[11px] font-bold tracking-[0.15em] uppercase text-zinc-400 mb-2.5">
           {optionB.label}
         </div>
-        <div className="font-heading text-xl md:text-2xl font-black text-zinc-950 mb-5">
+        <div className="font-heading text-lg md:text-xl font-extrabold text-zinc-950 mb-4">
           {optionB.name}
         </div>
         <ul className="space-y-2.5">
           {optionB.points.map((pt, i) => (
-            <li key={i} className="text-[13px] text-zinc-600 font-light leading-relaxed flex items-start gap-2">
-              <span className="text-red-500 shrink-0 mt-0.5">•</span>
+            <li key={i} className="text-[13px] text-zinc-600 font-normal leading-relaxed flex items-start gap-2">
+              <span className="text-[#800080] shrink-0 mt-0.5">•</span>
               {pt}
             </li>
           ))}
@@ -165,3 +165,4 @@ export function VsGrid({ optionA, optionB }: { optionA: VsOption; optionB: VsOpt
     </div>
   );
 }
+

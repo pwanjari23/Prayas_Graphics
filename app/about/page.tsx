@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/AboutHero";
 import MeetTheMaker from "@/components/MeetTheMaker";
-import AboutStory from "@/components/AboutStory";
-import FeaturesSection from "@/components/FeaturesSection";
-import BlogSection from "@/components/BlogSection";
-import CtaSection from "@/components/CtaSection";
+import AboutCtaFeatures from "@/components/AboutCtaFeatures";
 import Footer from "@/components/Footer";
 import { BUSINESS_INFO } from "@/lib/business-info";
 import { getBreadcrumbSchema } from "@/lib/schemas";
@@ -38,10 +35,7 @@ export default function AboutPage() {
       />
       <AboutHero />
       <MeetTheMaker />
-      <AboutStory />
-      <FeaturesSection />
-      <BlogSection />
-      <CtaSection />
+      <AboutCtaFeatures />
       <Footer />
     </main>
   );
