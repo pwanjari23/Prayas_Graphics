@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Sparkles,
   Star,
-  Lightbulb,
   ShieldCheck,
   MessageSquare,
 } from "lucide-react";
@@ -15,20 +14,6 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 overflow-hidden bg-white">
-      {/* SVG Definitions for the Organic Wave Clip Path & Glowing Stroke */}
-      <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
-        <defs>
-          <clipPath id="heroOrganicWaveClip" clipPathUnits="objectBoundingBox">
-            <path d="M 0.22,0 C 0.04,0.22 0.0,0.48 0.12,0.72 C 0.2,0.88 0.38,0.98 0.5,1 L 1,1 L 1,0 Z" />
-          </clipPath>
-          <linearGradient id="purpleWaveGlow" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#C084FC" stopOpacity="0.85" />
-            <stop offset="50%" stopColor="#A855F7" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#818CF8" stopOpacity="0.4" />
-          </linearGradient>
-        </defs>
-      </svg>
-
       {/* Ambient background glows & technical blueprint grid texture */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         {/* Subtle CAD grid watermark across the left side */}
@@ -38,7 +23,7 @@ export default function HeroSection() {
         />
         {/* Soft atmospheric lavender bloom behind the wave */}
         <div
-          className="absolute top-1/4 right-1/4 h-[420px] w-[420px] rounded-full bg-purple-200/40 blur-[100px]"
+          className="absolute top-1/4 right-1/4 h-[480px] w-[480px] rounded-full bg-purple-200/45 blur-[110px]"
           aria-hidden="true"
         />
         <div
@@ -168,102 +153,28 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Storefront Showcase with Organic Wave Mask & Floating Badges */}
+          {/* RIGHT COLUMN: Exact Storefront Showcase matching the reference mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 xl:col-span-6 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] p-2 sm:p-4 lg:p-0"
+            className="lg:col-span-6 xl:col-span-6 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[580px]"
           >
             {/* Ambient Backing Glow & Blueprint Dimension Annotations */}
-            <div className="pointer-events-none absolute -inset-6 bg-purple-400/20 blur-3xl rounded-full" />
-            <span className="hidden lg:block absolute top-1/4 left-3 text-[11px] font-mono text-purple-400/70 tracking-widest -rotate-90 select-none z-10">
-              120mm
-            </span>
-            <span className="hidden lg:block absolute bottom-1/5 left-14 text-[11px] font-mono text-purple-400/70 tracking-widest select-none z-10">
-              340mm
-            </span>
+            <div className="pointer-events-none absolute -inset-6 bg-purple-400/25 blur-3xl rounded-full" />
 
-            {/* Organic Wave / Arc Shape Container for the Storefront Photo */}
-            <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] rounded-3xl lg:rounded-none overflow-hidden [clip-path:none] lg:[clip-path:url(#heroOrganicWaveClip)] shadow-2xl">
-              {/* Real Prayas Graphics Storefront Image */}
-              <Image
-                src="/hero/hero (7).webp"
-                alt="Prayas Graphics 3D Illuminated Storefront & ACP Elevation"
-                fill
-                priority
-                className="object-cover object-center lg:object-[68%_center] scale-105"
-              />
-
-              {/* Vignette Gradient Overlay to highlight illuminated letters & badges */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/35 z-10" />
-
-              {/* Floating Badge 1: 3D LED Letters (Top-Left pointing to illuminated signage) */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="absolute top-8 left-6 sm:top-10 sm:left-12 z-20 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-white/80"
-              >
-                <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-purple-100 text-[#800080] shrink-0">
-                  <Lightbulb className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
-                </div>
-                <div>
-                  <h4 className="text-xs sm:text-[13px] font-bold text-zinc-900 leading-tight">
-                    3D LED Letters
-                  </h4>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">
-                    Brighter. Bolder. Better.
-                  </p>
-                </div>
-                {/* Pointer Connector Line & Dot */}
-                <div className="hidden sm:flex items-center absolute -right-12 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <div className="w-10 h-[1.5px] bg-white/90 shadow-sm" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#800080] border-2 border-white shadow-[0_0_8px_#a855f7]" />
-                </div>
-              </motion.div>
-
-              {/* Floating Badge 2: Built to Last (Bottom-Right pointing to facade) */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.5 }}
-                className="absolute bottom-8 right-6 sm:bottom-12 sm:right-10 z-20 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-white/80"
-              >
-                <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-purple-100 text-[#800080] shrink-0">
-                  <ShieldCheck className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
-                </div>
-                <div>
-                  <h4 className="text-xs sm:text-[13px] font-bold text-zinc-900 leading-tight">
-                    Built to Last
-                  </h4>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">
-                    Weather resistant & durable.
-                  </p>
-                </div>
-                {/* Pointer Connector Line & Dot */}
-                <div className="hidden sm:flex items-center absolute -left-12 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#800080] border-2 border-white shadow-[0_0_8px_#a855f7]" />
-                  <div className="w-10 h-[1.5px] bg-white/90 shadow-sm" />
-                </div>
-              </motion.div>
+            {/* Container for the exact reference mockup storefront showcase */}
+            <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[560px] flex items-center justify-center">
+              <div className="relative w-full aspect-[538/433] max-w-[680px] rounded-3xl lg:rounded-[36px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+                <Image
+                  src="/hero/urbannest_showcase_perfect.png"
+                  alt="UrbanNest 3D Illuminated Storefront & ACP Elevation Signage"
+                  fill
+                  priority
+                  className="object-cover object-center"
+                />
+              </div>
             </div>
-
-            {/* Glowing Purple Stroke along the wave boundary on desktop */}
-            <svg
-              className="pointer-events-none absolute inset-0 w-full h-full z-15 hidden lg:block"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M 22,0 C 4,22 0,48 12,72 C 20,88 38,98 50,100"
-                fill="none"
-                stroke="url(#purpleWaveGlow)"
-                strokeWidth="1.8"
-                filter="drop-shadow(0 0 8px rgba(168,85,247,0.5))"
-              />
-            </svg>
           </motion.div>
         </div>
       </div>
@@ -297,7 +208,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Right: 3 Quick Service Teaser Cards */}
+            {/* Right: 3 Quick Service Teaser Cards matching exact mockup images */}
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
               {/* Card 1: 3D Acrylic Letters */}
               <Link
@@ -306,7 +217,7 @@ export default function HeroSection() {
               >
                 <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
                   <Image
-                    src="/services/Golden Acrylic Letters.png"
+                    src="/hero/card_3d_acrylic_a.png"
                     alt="3D Acrylic Letters"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -332,7 +243,7 @@ export default function HeroSection() {
               >
                 <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
                   <Image
-                    src="/services/acp-elevation-work.png"
+                    src="/hero/card_acp_elevation.png"
                     alt="ACP Elevations"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -358,7 +269,7 @@ export default function HeroSection() {
               >
                 <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
                   <Image
-                    src="/gallery/led-displays/storefront-led-display.webp"
+                    src="/hero/card_led_open.png"
                     alt="LED Signage"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
