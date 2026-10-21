@@ -104,7 +104,7 @@ export default function HeroSection() {
                 </Link>
 
                 <Link
-                  href="/quote"
+                  href="/services"
                   className="inline-flex items-center justify-center rounded-full border border-zinc-300/80 bg-white/90 backdrop-blur-md px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-zinc-900 transition-all hover:bg-white hover:border-zinc-400 shadow-2xs hover:shadow-sm cursor-pointer"
                 >
                   Get a Quote

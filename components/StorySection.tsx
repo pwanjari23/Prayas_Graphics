@@ -74,7 +74,7 @@ export default function StorySection() {
               </Link>
 
               <Link
-                href="/quote"
+                href="/services"
                 className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-zinc-800 transition-colors hover:bg-zinc-50 hover:border-zinc-300 shadow-2xs cursor-pointer"
               >
                 Get a Quote
