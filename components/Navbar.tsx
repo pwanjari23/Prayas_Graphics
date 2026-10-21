@@ -41,13 +41,13 @@ export default function Navbar() {
     <>
       <header
         role="banner"
-        className="fixed top-2.5 sm:top-3.5 left-0 right-0 z-50 pointer-events-none flex justify-center px-6 md:px-10"
+        className="fixed top-2.5 sm:top-3.5 left-0 right-0 z-50 pointer-events-none flex justify-center px-4 md:px-6"
       >
         <motion.div
           initial={{ y: -70, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-[1220px] flex items-center justify-between gap-2 sm:gap-4"
+          className="relative w-full max-w-7xl flex items-center justify-between gap-2.5 sm:gap-4"
         >
           {/* Island 1: Left Brand Identity (Slightly more compact length) */}
           <div
