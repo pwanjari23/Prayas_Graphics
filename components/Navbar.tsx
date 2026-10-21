@@ -41,18 +41,18 @@ export default function Navbar() {
     <>
       <header
         role="banner"
-        className="fixed top-2.5 sm:top-3.5 left-0 right-0 z-50 pointer-events-none flex justify-center px-4 md:px-6"
+        className="fixed top-2.5 sm:top-3.5 left-0 right-0 z-50 pointer-events-none flex justify-center px-6 md:px-10"
       >
         <motion.div
           initial={{ y: -70, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-7xl flex items-center justify-between gap-2.5 sm:gap-4"
+          className="relative w-full max-w-[1220px] flex items-center justify-between gap-2 sm:gap-4"
         >
-          {/* Island 1: Left Brand Identity (Aligned with left edge of Hero Section) */}
+          {/* Island 1: Left Brand Identity (Slightly more compact length) */}
           <div
             className={cn(
-              "pointer-events-auto flex items-center h-14 sm:h-[58px] px-3.5 sm:px-5 rounded-full border",
+              "pointer-events-auto flex items-center h-14 sm:h-[58px] px-3 sm:px-4 rounded-full border",
               "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
               scrolled
                 ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
@@ -64,7 +64,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Prayas Graphics Home"
               prefetch={true}
-              className="group flex items-center gap-2.5 sm:gap-3 transition-opacity duration-150 hover:opacity-90"
+              className="group flex items-center gap-2 sm:gap-2.5 transition-opacity duration-150 hover:opacity-90"
             >
               {/* Logo Emblem */}
               <div className="relative flex items-center justify-center shrink-0">
@@ -121,10 +121,10 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Island 3: Right Action Island in a round capsule with rich floating shadow */}
+          {/* Island 3: Right Action Island in a round capsule (slightly more compact length) */}
           <div
             className={cn(
-              "pointer-events-auto flex items-center gap-2 h-14 sm:h-[58px] px-2.5 sm:px-3.5 rounded-full border",
+              "pointer-events-auto flex items-center gap-1.5 h-14 sm:h-[58px] px-2 sm:px-2.5 rounded-full border",
               "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
               scrolled
                 ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
@@ -136,7 +136,7 @@ export default function Navbar() {
               type="button"
               onClick={openCart}
               aria-label={`Open cart, ${totalCount} items selected`}
-              className="group relative flex items-center gap-1.5 sm:gap-2 rounded-full border border-zinc-200/80 bg-zinc-50 hover:bg-zinc-100 px-3 py-1.5 sm:px-3.5 sm:py-1.5 text-zinc-700 transition-all duration-150 cursor-pointer shadow-2xs hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080]"
+              className="group relative flex items-center gap-1.5 sm:gap-2 rounded-full border border-zinc-200/80 bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 sm:px-3 sm:py-1.5 text-zinc-700 transition-all duration-150 cursor-pointer shadow-2xs hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080]"
             >
               <ShoppingCart className="h-4 w-4 text-[#800080] transition-transform duration-150 group-hover:scale-110" />
               <span className="hidden sm:inline text-xs font-bold text-zinc-800">Cart</span>
