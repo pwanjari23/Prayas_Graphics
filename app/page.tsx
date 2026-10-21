@@ -11,7 +11,7 @@ import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
+    <main className="relative flex min-h-screen flex-col items-center bg-white pb-20 overflow-x-hidden">
       {/* Background Shapes strictly isolated at -z-10 */}
       <AngledBackgroundShapes />
 

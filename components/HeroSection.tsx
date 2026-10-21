@@ -14,36 +14,49 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pt-24 pb-8 md:px-6">
-      {/* Main Hero Card Container */}
-      <motion.div
-        initial={{ y: 24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative flex w-full flex-col overflow-hidden rounded-[32px] sm:rounded-[40px] bg-white border border-zinc-200/90 shadow-sm"
-      >
-        {/* Ambient background glow & subtle blueprint texture in hero background */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          {/* Subtle blueprint grid watermark on left */}
-          <div
-            className="absolute inset-y-0 left-0 w-full lg:w-3/5 opacity-[0.035] bg-[radial-gradient(#800080_1px,transparent_1px)] [background-size:20px_20px]"
-            aria-hidden="true"
-          />
-          {/* Ambient purple bloom on the transition curve */}
-          <div
-            className="absolute top-1/4 right-1/4 h-96 w-96 rounded-full bg-purple-200/35 blur-3xl"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-indigo-100/40 blur-3xl"
-            aria-hidden="true"
-          />
-        </div>
+    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 overflow-hidden bg-white">
+      {/* SVG Definitions for the Organic Wave Clip Path & Glowing Stroke */}
+      <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
+        <defs>
+          <clipPath id="heroOrganicWaveClip" clipPathUnits="objectBoundingBox">
+            <path d="M 0.22,0 C 0.04,0.22 0.0,0.48 0.12,0.72 C 0.2,0.88 0.38,0.98 0.5,1 L 1,1 L 1,0 Z" />
+          </clipPath>
+          <linearGradient id="purpleWaveGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#C084FC" stopOpacity="0.85" />
+            <stop offset="50%" stopColor="#A855F7" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#818CF8" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-        {/* TOP HERO ROW: Left Content + Right Storefront Showcase */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 min-h-[520px] lg:min-h-[560px]">
+      {/* Ambient background glows & technical blueprint grid texture */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        {/* Subtle CAD grid watermark across the left side */}
+        <div
+          className="absolute inset-y-0 left-0 w-full lg:w-3/5 opacity-[0.035] bg-[radial-gradient(#800080_1.5px,transparent_1.5px)] [background-size:24px_24px]"
+          aria-hidden="true"
+        />
+        {/* Soft atmospheric lavender bloom behind the wave */}
+        <div
+          className="absolute top-1/4 right-1/4 h-[420px] w-[420px] rounded-full bg-purple-200/40 blur-[100px]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute bottom-12 right-12 h-80 w-80 rounded-full bg-indigo-100/40 blur-[90px]"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* TOP & MIDDLE HERO SECTION: Left Content + Right Storefront Showcase */}
+      <div className="relative z-10 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 flex-1 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center min-h-[500px] lg:min-h-[560px]">
           {/* LEFT COLUMN: Headings, Subtitle, Dual CTAs, Social Proof */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center items-start p-7 sm:p-10 md:p-12 lg:pr-4 z-20">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center items-start py-4 lg:py-6 lg:pr-6 z-20"
+          >
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50/70 backdrop-blur-xs px-3.5 py-1 text-[11px] sm:text-xs font-bold text-[#800080] shadow-2xs tracking-wider uppercase mb-5">
               <Sparkles className="h-3.5 w-3.5 text-[#800080]" />
@@ -53,14 +66,14 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight text-zinc-950 leading-[1.08] mb-4">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[62px] font-extrabold tracking-tight text-zinc-950 leading-[1.08] mb-5">
               Signage That Makes <br />
               Your Brand <br />
               <span className="relative inline-block bg-gradient-to-r from-[#800080] via-purple-700 to-indigo-600 bg-clip-text text-transparent pb-1">
                 Impossible to Miss
                 {/* Purple curved brush underline accent */}
                 <svg
-                  className="absolute -bottom-1 left-0 w-full h-3 text-[#990099] pointer-events-none"
+                  className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-3 sm:h-4 text-[#990099] pointer-events-none"
                   viewBox="0 0 250 12"
                   fill="none"
                   preserveAspectRatio="none"
@@ -77,16 +90,16 @@ export default function HeroSection() {
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-xl text-sm sm:text-base text-zinc-600 font-normal leading-relaxed mb-6">
+            <p className="max-w-xl text-base sm:text-lg text-zinc-600 font-normal leading-relaxed mb-7">
               Premium 3D letters, ACP elevations, LED signage and custom shop boards
               that elevate your brand and create a lasting impression.
             </p>
 
             {/* Dual CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 mb-8">
+            <div className="flex flex-wrap items-center gap-3.5 mb-9">
               <Link
                 href="/services"
-                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-zinc-950 px-7 py-3.5 text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:bg-zinc-900 shadow-md hover:shadow-xl hover:shadow-zinc-950/25 active:scale-[0.98] cursor-pointer"
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-zinc-950 px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:bg-zinc-900 shadow-md hover:shadow-xl hover:shadow-zinc-950/25 active:scale-[0.98] cursor-pointer"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Explore Our Services
@@ -99,14 +112,14 @@ export default function HeroSection() {
 
               <Link
                 href="/quote"
-                className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-zinc-900 transition-all hover:bg-zinc-50 hover:border-zinc-400 shadow-2xs hover:shadow-sm cursor-pointer"
+                className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-zinc-900 transition-all hover:bg-zinc-50 hover:border-zinc-400 shadow-2xs hover:shadow-sm cursor-pointer"
               >
                 Get a Quote
               </Link>
             </div>
 
             {/* Social Proof Row */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-zinc-100 w-full text-xs text-zinc-600">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-5 border-t border-zinc-100 w-full text-xs sm:text-sm text-zinc-600">
               {/* Google Rating */}
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
@@ -129,7 +142,7 @@ export default function HeroSection() {
                 </svg>
                 <div className="flex items-center text-amber-400">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 fill-current" />
+                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
                   ))}
                 </div>
                 <span className="font-bold text-zinc-900">4.9/5</span>
@@ -140,7 +153,7 @@ export default function HeroSection() {
 
               {/* Reviews */}
               <div className="flex items-center gap-1.5 font-medium text-zinc-700">
-                <MessageSquare className="h-3.5 w-3.5 text-[#800080]" />
+                <MessageSquare className="h-4 w-4 text-[#800080]" />
                 <span className="font-bold text-zinc-900">120+</span>
                 <span>reviews</span>
               </div>
@@ -149,55 +162,63 @@ export default function HeroSection() {
 
               {/* NMC Compliant */}
               <div className="flex items-center gap-1.5 font-medium text-zinc-700">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#800080]" />
+                <ShieldCheck className="h-4 w-4 text-[#800080]" />
                 <span>NMC compliant</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT COLUMN: Storefront Showcase with Organic Wave Mask & Floating Badges */}
-          <div className="lg:col-span-6 xl:col-span-6 relative flex items-center justify-center min-h-[380px] sm:min-h-[460px] lg:min-h-full overflow-hidden p-3 sm:p-4 lg:p-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 xl:col-span-6 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] p-2 sm:p-4 lg:p-0"
+          >
+            {/* Ambient Backing Glow & Blueprint Dimension Annotations */}
+            <div className="pointer-events-none absolute -inset-6 bg-purple-400/20 blur-3xl rounded-full" />
+            <span className="hidden lg:block absolute top-1/4 left-3 text-[11px] font-mono text-purple-400/70 tracking-widest -rotate-90 select-none z-10">
+              120mm
+            </span>
+            <span className="hidden lg:block absolute bottom-1/5 left-14 text-[11px] font-mono text-purple-400/70 tracking-widest select-none z-10">
+              340mm
+            </span>
+
             {/* Organic Wave / Arc Shape Container for the Storefront Photo */}
-            <div className="relative w-full h-full min-h-[380px] sm:min-h-[460px] lg:min-h-[540px] rounded-2xl lg:rounded-none lg:rounded-l-[80px] overflow-hidden shadow-inner">
+            <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] rounded-3xl lg:rounded-none overflow-hidden [clip-path:none] lg:[clip-path:url(#heroOrganicWaveClip)] shadow-2xl">
               {/* Real Prayas Graphics Storefront Image */}
               <Image
                 src="/hero/hero (7).webp"
                 alt="Prayas Graphics 3D Illuminated Storefront & ACP Elevation"
                 fill
                 priority
-                className="object-cover object-center lg:object-[65%_center] scale-105"
+                className="object-cover object-center lg:object-[68%_center] scale-105"
               />
 
-              {/* Subtle architectural blueprint guide lines watermark along left border */}
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-purple-900/40 via-purple-900/10 to-transparent z-10 hidden lg:block" />
-
-              {/* Soft vignette overlay to make floating badges pop */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-10" />
-
-              {/* Sweeping organic wave glow border on the left edge (desktop) */}
-              <div className="pointer-events-none absolute -inset-y-4 -left-1 w-12 bg-gradient-to-r from-white via-purple-300/30 to-transparent blur-md z-15 hidden lg:block" />
+              {/* Vignette Gradient Overlay to highlight illuminated letters & badges */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/35 z-10" />
 
               {/* Floating Badge 1: 3D LED Letters (Top-Left pointing to illuminated signage) */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="absolute top-6 left-5 sm:top-8 sm:left-8 z-20 flex items-center gap-3 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-xl border border-white/80"
+                className="absolute top-8 left-6 sm:top-10 sm:left-12 z-20 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-white/80"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-purple-100 text-[#800080] shrink-0">
-                  <Lightbulb className="h-4 w-4" />
+                <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-purple-100 text-[#800080] shrink-0">
+                  <Lightbulb className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-zinc-900 leading-tight">
+                  <h4 className="text-xs sm:text-[13px] font-bold text-zinc-900 leading-tight">
                     3D LED Letters
                   </h4>
-                  <p className="text-[10px] text-zinc-500 font-medium">
+                  <p className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">
                     Brighter. Bolder. Better.
                   </p>
                 </div>
                 {/* Pointer Connector Line & Dot */}
-                <div className="hidden sm:flex items-center absolute -right-10 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <div className="w-8 h-[1.5px] bg-white/90 shadow-sm" />
+                <div className="hidden sm:flex items-center absolute -right-12 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <div className="w-10 h-[1.5px] bg-white/90 shadow-sm" />
                   <div className="w-2.5 h-2.5 rounded-full bg-[#800080] border-2 border-white shadow-[0_0_8px_#a855f7]" />
                 </div>
               </motion.div>
@@ -207,31 +228,49 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45, duration: 0.5 }}
-                className="absolute bottom-6 right-5 sm:bottom-8 sm:right-8 z-20 flex items-center gap-3 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-xl border border-white/80"
+                className="absolute bottom-8 right-6 sm:bottom-12 sm:right-10 z-20 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-white/80"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-purple-100 text-[#800080] shrink-0">
-                  <ShieldCheck className="h-4 w-4" />
+                <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-purple-100 text-[#800080] shrink-0">
+                  <ShieldCheck className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-zinc-900 leading-tight">
+                  <h4 className="text-xs sm:text-[13px] font-bold text-zinc-900 leading-tight">
                     Built to Last
                   </h4>
-                  <p className="text-[10px] text-zinc-500 font-medium">
+                  <p className="text-[10px] sm:text-[11px] text-zinc-500 font-medium">
                     Weather resistant & durable.
                   </p>
                 </div>
                 {/* Pointer Connector Line & Dot */}
-                <div className="hidden sm:flex items-center absolute -left-10 top-1/2 -translate-y-1/2 pointer-events-none">
+                <div className="hidden sm:flex items-center absolute -left-12 top-1/2 -translate-y-1/2 pointer-events-none">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#800080] border-2 border-white shadow-[0_0_8px_#a855f7]" />
-                  <div className="w-8 h-[1.5px] bg-white/90 shadow-sm" />
+                  <div className="w-10 h-[1.5px] bg-white/90 shadow-sm" />
                 </div>
               </motion.div>
             </div>
-          </div>
-        </div>
 
-        {/* BOTTOM SECTION: End-to-End Signage Solutions Under One Roof + 3 Quick Service Cards */}
-        <div className="relative z-20 border-t border-zinc-200/80 bg-zinc-50/70 p-6 sm:p-8 lg:px-12 backdrop-blur-xs">
+            {/* Glowing Purple Stroke along the wave boundary on desktop */}
+            <svg
+              className="pointer-events-none absolute inset-0 w-full h-full z-15 hidden lg:block"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M 22,0 C 4,22 0,48 12,72 C 20,88 38,98 50,100"
+                fill="none"
+                stroke="url(#purpleWaveGlow)"
+                strokeWidth="1.8"
+                filter="drop-shadow(0 0 8px rgba(168,85,247,0.5))"
+              />
+            </svg>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* BOTTOM SECTION: End-to-End Signage Solutions Under One Roof + 3 Quick Service Cards */}
+      <div className="relative z-20 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 pt-8 sm:pt-12">
+        <div className="pt-6 border-t border-zinc-200/80">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* Left Header info */}
             <div className="lg:col-span-4 flex flex-col gap-2">
@@ -241,7 +280,7 @@ export default function HeroSection() {
                 </span>
                 <span className="h-0.5 w-6 bg-purple-300 rounded-full" />
               </div>
-              <h2 className="text-lg sm:text-xl font-extrabold text-zinc-950 tracking-tight leading-tight">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-zinc-950 tracking-tight leading-tight">
                 End-to-End Signage Solutions <br />
                 <span className="bg-gradient-to-r from-[#800080] to-purple-600 bg-clip-text text-transparent">
                   Under One Roof
@@ -250,7 +289,7 @@ export default function HeroSection() {
               <div className="mt-1">
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-700 hover:text-[#800080] transition-colors group cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-zinc-700 hover:text-[#800080] transition-colors group cursor-pointer"
                 >
                   <span>View All Services</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -259,11 +298,11 @@ export default function HeroSection() {
             </div>
 
             {/* Right: 3 Quick Service Teaser Cards */}
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
               {/* Card 1: 3D Acrylic Letters */}
               <Link
                 href="/services"
-                className="group flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl bg-white border border-zinc-200/80 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
                   <Image
@@ -289,7 +328,7 @@ export default function HeroSection() {
               {/* Card 2: ACP Elevations */}
               <Link
                 href="/services"
-                className="group flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl bg-white border border-zinc-200/80 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
                   <Image
@@ -315,7 +354,7 @@ export default function HeroSection() {
               {/* Card 3: LED Signage */}
               <Link
                 href="/services"
-                className="group flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl bg-white border border-zinc-200/80 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
                   <Image
@@ -340,32 +379,6 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-      </motion.div>
-
-      {/* Light-colored Angled Background Shapes beneath hero */}
-      <div
-        className="pointer-events-none absolute -bottom-10 left-0 right-0 h-28 -z-10 overflow-hidden"
-        aria-hidden="true"
-      >
-        <svg
-          className="w-full h-full opacity-60"
-          viewBox="0 0 1440 120"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="heroSectionBottomRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FAF5FF" stopOpacity="0.8" />
-              <stop offset="35%" stopColor="#F3E8FF" stopOpacity="0.5" />
-              <stop offset="70%" stopColor="#EDE9FE" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.1" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M-50,30 L380,85 L820,20 L1220,75 L1500,15 L1500,120 L-50,120 Z"
-            fill="url(#heroSectionBottomRibbon)"
-          />
-        </svg>
       </div>
     </section>
   );
