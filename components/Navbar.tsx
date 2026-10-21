@@ -41,15 +41,15 @@ export default function Navbar() {
     <>
       <header
         role="banner"
-        className="fixed top-2.5 sm:top-3.5 left-0 right-0 z-50 pointer-events-none flex justify-center px-3 sm:px-6"
+        className="fixed top-2.5 sm:top-3.5 left-0 right-0 z-50 pointer-events-none flex justify-center px-4 md:px-6"
       >
         <motion.div
           initial={{ y: -70, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-6xl flex items-center justify-between gap-2.5 sm:gap-4"
+          className="relative w-full max-w-7xl flex items-center justify-between gap-2.5 sm:gap-4"
         >
-          {/* Island 1: Left Brand Identity (Logo + Name + Subtitle in a round capsule with rich floating shadow) */}
+          {/* Island 1: Left Brand Identity (Aligned with left edge of Hero Section) */}
           <div
             className={cn(
               "pointer-events-auto flex items-center h-14 sm:h-[58px] px-3.5 sm:px-5 rounded-full border",
@@ -90,11 +90,11 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Island 2: Middle Navigation Links in a round capsule with rich floating shadow */}
+          {/* Island 2: Middle Navigation Links (Untouched styles, perfectly centered) */}
           <nav
             aria-label="Main Navigation"
             className={cn(
-              "pointer-events-auto hidden md:flex items-center gap-1 h-14 sm:h-[58px] px-3 sm:px-3.5 rounded-full border",
+              "pointer-events-auto hidden md:flex items-center gap-1 h-14 sm:h-[58px] px-3 sm:px-3.5 rounded-full border absolute left-1/2 -translate-x-1/2",
               "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
               scrolled
                 ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
