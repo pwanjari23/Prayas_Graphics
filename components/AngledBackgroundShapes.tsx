@@ -9,24 +9,37 @@ export default function AngledBackgroundShapes() {
       aria-hidden="true"
     >
       {/* ========================================================
-          OPTION 3: LUMINOUS AURORA GRADIENT MESH GLOWS
-          Soft, atmospheric neon ambient lighting in background
+          LUMINOUS AURORA GRADIENT MESH GLOWS
+          Evenly distributed at varied vertical elevations
           ======================================================== */}
-      <div className="absolute top-10 left-1/4 w-[900px] h-[650px] rounded-full bg-gradient-to-br from-purple-300/30 via-violet-200/25 to-pink-100/15 blur-3xl" />
-      <div className="absolute top-[1200px] -right-20 w-[800px] h-[600px] rounded-full bg-gradient-to-bl from-purple-200/35 via-violet-100/20 to-transparent blur-3xl" />
-      <div className="absolute top-[2400px] -left-20 w-[850px] h-[650px] rounded-full bg-gradient-to-tr from-purple-200/30 via-violet-100/25 to-transparent blur-3xl" />
-      <div className="absolute top-[3700px] right-1/4 w-[900px] h-[600px] rounded-full bg-gradient-to-tl from-purple-200/35 via-violet-100/20 to-transparent blur-3xl" />
+      {/* 1. Top Section Glow */}
+      <div className="absolute top-10 left-1/4 w-[850px] h-[580px] rounded-full bg-gradient-to-br from-purple-300/25 via-violet-200/20 to-pink-100/10 blur-3xl" />
+      
+      {/* 2. Upper-Mid Glow (Right side) */}
+      <div className="absolute top-[850px] -right-24 w-[750px] h-[550px] rounded-full bg-gradient-to-bl from-purple-200/30 via-violet-100/20 to-transparent blur-3xl" />
+      
+      {/* 3. Mid / Subpage Above-Footer Glow (Left side) */}
+      <div className="absolute top-[1650px] -left-20 w-[800px] h-[580px] rounded-full bg-gradient-to-tr from-purple-200/28 via-violet-100/20 to-transparent blur-3xl" />
+      
+      {/* 4. Lower-Mid Glow (Right side) */}
+      <div className="absolute top-[2500px] -right-20 w-[850px] h-[600px] rounded-full bg-gradient-to-tl from-purple-200/30 via-violet-100/20 to-transparent blur-3xl" />
+      
+      {/* 5. Lower Page Glow (Left side) */}
+      <div className="absolute top-[3350px] -left-20 w-[800px] h-[550px] rounded-full bg-gradient-to-br from-purple-200/28 via-violet-100/18 to-transparent blur-3xl" />
+      
+      {/* 6. Deep Homepage Above-Footer Glow (Center-Right) */}
+      <div className="absolute top-[4100px] right-1/4 w-[850px] h-[580px] rounded-full bg-gradient-to-tl from-purple-200/30 via-violet-100/20 to-transparent blur-3xl" />
 
       {/* ========================================================
-          OPTION 3: LUMINOUS NEON WAVE RIBBONS
-          Graceful fluid waves with glowing neon boundary ribbons
+          MULTI-TIER MISMATCHED NEON WAVE RIBBONS
+          Alternating crests, dips, and angles throughout all sections
           ======================================================== */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-75"
+        className="absolute inset-0 w-full h-full opacity-70"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Luminous Neon Contour Gradient */}
+          {/* Luminous Neon Contour Gradient 1 (Purple - Violet) */}
           <linearGradient id="neonGlow1" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#c084fc" stopOpacity="0.1" />
             <stop offset="30%" stopColor="#a855f7" stopOpacity="0.8" />
@@ -34,16 +47,31 @@ export default function AngledBackgroundShapes() {
             <stop offset="100%" stopColor="#c084fc" stopOpacity="0.1" />
           </linearGradient>
 
+          {/* Luminous Neon Contour Gradient 2 (Fuchsia - Deep Purple Accent) */}
+          <linearGradient id="neonGlow2" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#d946ef" stopOpacity="0.1" />
+            <stop offset="35%" stopColor="#800080" stopOpacity="0.8" />
+            <stop offset="65%" stopColor="#9333ea" stopOpacity="0.75" />
+            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.1" />
+          </linearGradient>
+
           {/* Fluid Translucent Light Wave Fill */}
           <linearGradient id="waveFill1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FAF5FF" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#F3E8FF" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#EDE9FE" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#FAF5FF" stopOpacity="0.85" />
+            <stop offset="50%" stopColor="#F3E8FF" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#EDE9FE" stopOpacity="0.25" />
+          </linearGradient>
+
+          {/* Secondary Soft Translucent Fill */}
+          <linearGradient id="waveFill2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#FDF4FF" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#FAF5FF" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#F3E8FF" stopOpacity="0.2" />
           </linearGradient>
 
           {/* Neon Glow Diffusion Filter */}
           <filter id="neonBlur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="7" result="blur" />
+            <feGaussianBlur stdDeviation="6" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -51,41 +79,91 @@ export default function AngledBackgroundShapes() {
           </filter>
         </defs>
 
-        {/* 1. Hero to Marquee Fluid Wave Ribbon (Lifted above text) */}
+        {/* -----------------------------------------------------------------
+            TIER 1 (y: ~560px): High Wave arching cleanly above Marquee/Header
+            ----------------------------------------------------------------- */}
         <path
-          d="M-50,580 C320,680 680,540 1050,600 C1250,640 1400,610 1500,590 L1500,1050 C1350,1150 1100,1000 850,1120 C550,1260 200,1050 -50,1180 Z"
-          fill="url(#waveFill1)"
-        />
-        {/* Razor Neon Edge */}
-        <path
-          d="M-50,580 C320,680 680,540 1050,600 C1250,640 1400,610 1500,590"
-          stroke="url(#neonGlow1)"
-          strokeWidth="3"
-          fill="none"
-          filter="url(#neonBlur)"
-        />
-
-        {/* 2. Mid-Page Wave Ribbon (Behind Featured Services & Story) */}
-        <path
-          d="M-50,2100 C350,1950 750,2250 1150,2050 C1320,1960 1450,2020 1500,2060 L1500,2400 C1350,2480 1050,2300 750,2460 C450,2600 150,2420 -50,2500 Z"
+          d="M-50,560 C320,660 680,520 1050,580 C1250,620 1400,590 1500,570 L1500,850 C1350,920 1100,810 850,910 C550,1010 200,880 -50,960 Z"
           fill="url(#waveFill1)"
         />
         <path
-          d="M-50,2100 C350,1950 750,2250 1150,2050 C1320,1960 1450,2020 1500,2060"
+          d="M-50,560 C320,660 680,520 1050,580 C1250,620 1400,590 1500,570"
           stroke="url(#neonGlow1)"
           strokeWidth="2.5"
           fill="none"
           filter="url(#neonBlur)"
         />
 
-        {/* 3. Lower Page Wave Ribbon (Behind How It Works & Blogs) */}
+        {/* -----------------------------------------------------------------
+            TIER 2 (y: ~1180px): Mismatched Inverted Wave rising across Grid
+            ----------------------------------------------------------------- */}
         <path
-          d="M-50,3500 C400,3700 800,3450 1200,3650 C1380,3740 1460,3680 1500,3650 L1500,3950 C1350,4020 1100,3880 750,4020 C400,4160 150,3980 -50,4050 Z"
+          d="M-50,1280 C360,1190 740,1290 1120,1150 C1290,1090 1420,1140 1500,1120 L1500,1460 C1350,1540 1060,1380 760,1520 C450,1640 160,1480 -50,1560 Z"
+          fill="url(#waveFill2)"
+        />
+        <path
+          d="M-50,1280 C360,1190 740,1290 1120,1150 C1290,1090 1420,1140 1500,1120"
+          stroke="url(#neonGlow2)"
+          strokeWidth="2.5"
+          fill="none"
+          filter="url(#neonBlur)"
+        />
+
+        {/* -----------------------------------------------------------------
+            TIER 3 (y: ~1820px): Sweeping Wave right above Footer on Subpages
+            ----------------------------------------------------------------- */}
+        <path
+          d="M-50,1830 C290,1750 670,1890 1040,1770 C1260,1710 1390,1790 1500,1760 L1500,2100 C1350,2180 1100,2040 820,2160 C520,2280 180,2120 -50,2200 Z"
           fill="url(#waveFill1)"
         />
         <path
-          d="M-50,3500 C400,3700 800,3450 1200,3650 C1380,3740 1460,3680 1500,3650"
+          d="M-50,1830 C290,1750 670,1890 1040,1770 C1260,1710 1390,1790 1500,1760"
           stroke="url(#neonGlow1)"
+          strokeWidth="2.5"
+          fill="none"
+          filter="url(#neonBlur)"
+        />
+
+        {/* -----------------------------------------------------------------
+            TIER 4 (y: ~2540px): Mismatched Wave through Story & Capabilities
+            ----------------------------------------------------------------- */}
+        <path
+          d="M-50,2530 C380,2660 800,2490 1160,2630 C1340,2710 1440,2580 1500,2550 L1500,2860 C1350,2940 1080,2780 780,2920 C480,3040 160,2880 -50,2960 Z"
+          fill="url(#waveFill2)"
+        />
+        <path
+          d="M-50,2530 C380,2660 800,2490 1160,2630 C1340,2710 1440,2580 1500,2550"
+          stroke="url(#neonGlow2)"
+          strokeWidth="2.5"
+          fill="none"
+          filter="url(#neonBlur)"
+        />
+
+        {/* -----------------------------------------------------------------
+            TIER 5 (y: ~3340px): Dynamic Wave through How It Works & Blogs
+            ----------------------------------------------------------------- */}
+        <path
+          d="M-50,3420 C340,3310 700,3450 1080,3330 C1290,3250 1420,3350 1500,3310 L1500,3660 C1350,3740 1100,3590 800,3720 C500,3840 180,3680 -50,3780 Z"
+          fill="url(#waveFill1)"
+        />
+        <path
+          d="M-50,3420 C340,3310 700,3450 1080,3330 C1290,3250 1420,3350 1500,3310"
+          stroke="url(#neonGlow1)"
+          strokeWidth="2.5"
+          fill="none"
+          filter="url(#neonBlur)"
+        />
+
+        {/* -----------------------------------------------------------------
+            TIER 6 (y: ~4160px): Grand Finale Wave above Homepage Footer
+            ----------------------------------------------------------------- */}
+        <path
+          d="M-50,4220 C360,4110 760,4270 1140,4150 C1320,4090 1430,4170 1500,4140 L1500,4500 C1350,4580 1050,4410 750,4550 C450,4660 150,4520 -50,4600 Z"
+          fill="url(#waveFill2)"
+        />
+        <path
+          d="M-50,4220 C360,4110 760,4270 1140,4150 C1320,4090 1430,4170 1500,4140"
+          stroke="url(#neonGlow2)"
           strokeWidth="2.5"
           fill="none"
           filter="url(#neonBlur)"
