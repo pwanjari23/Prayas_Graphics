@@ -51,14 +51,14 @@ export default function AngledBackgroundShapes() {
           </filter>
         </defs>
 
-        {/* 1. Hero to Marquee Fluid Wave Ribbon */}
+        {/* 1. Hero to Marquee Fluid Wave Ribbon (Lifted above text) */}
         <path
-          d="M-50,680 C320,850 680,620 1050,780 C1250,860 1400,750 1500,700 L1500,1050 C1350,1150 1100,1000 850,1120 C550,1260 200,1050 -50,1180 Z"
+          d="M-50,580 C320,680 680,540 1050,600 C1250,640 1400,610 1500,590 L1500,1050 C1350,1150 1100,1000 850,1120 C550,1260 200,1050 -50,1180 Z"
           fill="url(#waveFill1)"
         />
         {/* Razor Neon Edge */}
         <path
-          d="M-50,680 C320,850 680,620 1050,780 C1250,860 1400,750 1500,700"
+          d="M-50,580 C320,680 680,540 1050,600 C1250,640 1400,610 1500,590"
           stroke="url(#neonGlow1)"
           strokeWidth="3"
           fill="none"
