@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ShoppingCart, Menu, X, ChevronRight, ArrowRight } from "lucide-react";
+import { ShoppingCart, Menu, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/cart-context";
@@ -122,24 +122,43 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Island 3: Right Action Capsule: 🛒 Get a Quote → */}
+          {/* Island 3: Right Action Island in a round capsule (slightly more compact length) */}
           <div
             className={cn(
-              "pointer-events-auto flex items-center gap-1.5 h-14 sm:h-[58px] px-2 sm:px-3 rounded-full border",
+              "pointer-events-auto flex items-center gap-1.5 h-14 sm:h-[58px] px-2 sm:px-2.5 rounded-full border",
               "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
               scrolled
                 ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
                 : "bg-white/95 border-zinc-200/90 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.1),0_4px_14px_-2px_rgba(128,0,128,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
             )}
           >
-            <Link
-              href="/quote"
-              className="group flex items-center gap-2 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-zinc-900 transition-colors cursor-pointer"
+            {/* Shopping Cart Button */}
+            <button
+              type="button"
+              onClick={openCart}
+              aria-label={`Open cart, ${totalCount} items selected`}
+              className="group relative flex items-center gap-1.5 sm:gap-2 rounded-full border border-zinc-200/80 bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 sm:px-3 sm:py-1.5 text-zinc-700 transition-all duration-150 cursor-pointer shadow-2xs hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080]"
             >
               <ShoppingCart className="h-4 w-4 text-[#800080] transition-transform duration-150 group-hover:scale-110" />
-              <span className="text-xs sm:text-[13px] font-bold">Get a Quote</span>
-              <ArrowRight className="h-3.5 w-3.5 text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5" />
-            </Link>
+              <span className="hidden sm:inline text-xs font-bold text-zinc-800">Cart</span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={totalCount}
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.6, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                  className={cn(
+                    "flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[11px] font-bold tabular-nums transition-colors",
+                    totalCount > 0
+                      ? "bg-[#800080] text-white shadow-xs"
+                      : "bg-zinc-200 text-zinc-500"
+                  )}
+                >
+                  {totalCount}
+                </motion.span>
+              </AnimatePresence>
+            </button>
 
             {/* Mobile Menu Toggle Button */}
             <button
