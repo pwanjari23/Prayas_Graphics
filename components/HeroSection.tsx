@@ -13,8 +13,8 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 overflow-hidden bg-white">
-      {/* Ambient background glows & technical blueprint grid texture */}
+    <section className="relative w-full min-h-[90vh] flex flex-col justify-between pt-24 sm:pt-28 pb-6 overflow-hidden bg-white">
+      {/* Ambient background glows */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         {/* Subtle CAD grid watermark across the left side */}
         <div
@@ -23,24 +23,24 @@ export default function HeroSection() {
         />
         {/* Soft atmospheric lavender bloom behind the wave */}
         <div
-          className="absolute top-1/4 right-1/4 h-[480px] w-[480px] rounded-full bg-purple-200/45 blur-[110px]"
+          className="absolute top-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-purple-200/40 blur-[120px]"
           aria-hidden="true"
         />
         <div
-          className="absolute bottom-12 right-12 h-80 w-80 rounded-full bg-indigo-100/40 blur-[90px]"
+          className="absolute bottom-16 right-10 h-80 w-80 rounded-full bg-indigo-100/40 blur-[100px]"
           aria-hidden="true"
         />
       </div>
 
       {/* TOP & MIDDLE HERO SECTION: Left Content + Right Storefront Showcase */}
-      <div className="relative z-10 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 flex-1 flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center min-h-[500px] lg:min-h-[560px]">
+      <div className="relative z-10 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 flex-1 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center min-h-[480px] lg:min-h-[520px]">
           {/* LEFT COLUMN: Headings, Subtitle, Dual CTAs, Social Proof */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center items-start py-4 lg:py-6 lg:pr-6 z-20"
+            className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center items-start py-4 lg:py-6 lg:pr-4 z-20"
           >
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50/70 backdrop-blur-xs px-3.5 py-1 text-[11px] sm:text-xs font-bold text-[#800080] shadow-2xs tracking-wider uppercase mb-5">
@@ -51,7 +51,7 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[62px] font-extrabold tracking-tight text-zinc-950 leading-[1.08] mb-5">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[60px] font-extrabold tracking-tight text-zinc-950 leading-[1.08] mb-5">
               Signage That Makes <br />
               Your Brand <br />
               <span className="relative inline-block bg-gradient-to-r from-[#800080] via-purple-700 to-indigo-600 bg-clip-text text-transparent pb-1">
@@ -75,13 +75,13 @@ export default function HeroSection() {
             </h1>
 
             {/* Subtitle */}
-            <p className="max-w-xl text-base sm:text-lg text-zinc-600 font-normal leading-relaxed mb-7">
+            <p className="max-w-xl text-sm sm:text-base md:text-[17px] text-zinc-600 font-normal leading-relaxed mb-7">
               Premium 3D letters, ACP elevations, LED signage and custom shop boards
               that elevate your brand and create a lasting impression.
             </p>
 
             {/* Dual CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 mb-9">
+            <div className="flex flex-wrap items-center gap-3.5 mb-8">
               <Link
                 href="/services"
                 className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-zinc-950 px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:bg-zinc-900 shadow-md hover:shadow-xl hover:shadow-zinc-950/25 active:scale-[0.98] cursor-pointer"
@@ -153,25 +153,22 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Exact Storefront Showcase matching the reference mockup */}
+          {/* RIGHT COLUMN: Seamless Storefront Showcase with organic wave and pointer badges */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 xl:col-span-6 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[580px]"
+            className="lg:col-span-6 xl:col-span-6 relative flex items-center justify-end min-h-[380px] sm:min-h-[460px] lg:min-h-[520px]"
           >
-            {/* Ambient Backing Glow & Blueprint Dimension Annotations */}
-            <div className="pointer-events-none absolute -inset-6 bg-purple-400/25 blur-3xl rounded-full" />
-
-            {/* Container for the exact reference mockup storefront showcase */}
-            <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[560px] flex items-center justify-center">
-              <div className="relative w-full aspect-[538/433] max-w-[680px] rounded-3xl lg:rounded-[36px] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+            {/* Seamless Image with soft alpha faded wave edge */}
+            <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[520px] flex items-center justify-end">
+              <div className="relative w-full h-full">
                 <Image
-                  src="/hero/urbannest_showcase_perfect.png"
+                  src="/hero/urbannest_hero_faded.png"
                   alt="UrbanNest 3D Illuminated Storefront & ACP Elevation Signage"
                   fill
                   priority
-                  className="object-cover object-center"
+                  className="object-contain object-right drop-shadow-sm"
                 />
               </div>
             </div>
@@ -179,115 +176,136 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* FLOWING LAVENDER WAVE RIBBON separating Hero Content from Bottom Services */}
+      <div className="relative w-full h-12 sm:h-16 pointer-events-none overflow-hidden -my-2">
+        <svg
+          className="w-full h-full opacity-70"
+          viewBox="0 0 1440 80"
+          fill="none"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,35 C320,65 650,15 1020,45 C1220,60 1360,25 1440,20 L1440,80 L0,80 Z"
+            fill="url(#heroWaveRibbonGradient)"
+          />
+          <defs>
+            <linearGradient id="heroWaveRibbonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#F5F0FF" stopOpacity="0.85" />
+              <stop offset="50%" stopColor="#EDE5FF" stopOpacity="0.65" />
+              <stop offset="100%" stopColor="#E9D8FD" stopOpacity="0.35" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
       {/* BOTTOM SECTION: End-to-End Signage Solutions Under One Roof + 3 Quick Service Cards */}
-      <div className="relative z-20 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 pt-8 sm:pt-12">
-        <div className="pt-6 border-t border-zinc-200/80">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            {/* Left Header info */}
-            <div className="lg:col-span-4 flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#800080]">
-                  OUR SERVICES
-                </span>
-                <span className="h-0.5 w-6 bg-purple-300 rounded-full" />
-              </div>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-zinc-950 tracking-tight leading-tight">
-                End-to-End Signage Solutions <br />
-                <span className="bg-gradient-to-r from-[#800080] to-purple-600 bg-clip-text text-transparent">
-                  Under One Roof
-                </span>
-              </h2>
-              <div className="mt-1">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-zinc-700 hover:text-[#800080] transition-colors group cursor-pointer"
-                >
-                  <span>View All Services</span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
-              </div>
+      <div className="relative z-20 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 pt-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          {/* Left Header info */}
+          <div className="lg:col-span-4 flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#800080]">
+                OUR SERVICES
+              </span>
+              <span className="h-0.5 w-6 bg-purple-300 rounded-full" />
             </div>
-
-            {/* Right: 3 Quick Service Teaser Cards matching exact mockup images */}
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
-              {/* Card 1: 3D Acrylic Letters */}
+            <h2 className="text-xl sm:text-2xl font-extrabold text-zinc-950 tracking-tight leading-tight">
+              End-to-End Signage Solutions <br />
+              <span className="bg-gradient-to-r from-[#800080] to-purple-600 bg-clip-text text-transparent">
+                Under One Roof
+              </span>
+            </h2>
+            <div className="mt-1">
               <Link
                 href="/services"
-                className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-zinc-200/90 bg-white hover:bg-zinc-50 text-xs sm:text-[13px] font-semibold text-zinc-700 hover:text-zinc-950 transition-all shadow-2xs group cursor-pointer w-fit"
               >
-                <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
-                  <Image
-                    src="/hero/card_3d_acrylic_a.png"
-                    alt="3D Acrylic Letters"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-xs sm:text-[13px] font-bold text-zinc-900 group-hover:text-[#800080] transition-colors truncate">
-                    3D Acrylic Letters
-                  </h3>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-500 truncate mt-0.5">
-                    Premium finish. Maximum impact.
-                  </p>
-                </div>
-                <div className="w-6 h-6 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 group-hover:border-[#800080] group-hover:bg-[#800080] group-hover:text-white transition-all shrink-0">
-                  <ArrowRight className="h-3 w-3" />
-                </div>
-              </Link>
-
-              {/* Card 2: ACP Elevations */}
-              <Link
-                href="/services"
-                className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
-              >
-                <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
-                  <Image
-                    src="/hero/card_acp_elevation.png"
-                    alt="ACP Elevations"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-xs sm:text-[13px] font-bold text-zinc-900 group-hover:text-[#800080] transition-colors truncate">
-                    ACP Elevations
-                  </h3>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-500 truncate mt-0.5">
-                    Modern facades. Lasting value.
-                  </p>
-                </div>
-                <div className="w-6 h-6 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 group-hover:border-[#800080] group-hover:bg-[#800080] group-hover:text-white transition-all shrink-0">
-                  <ArrowRight className="h-3 w-3" />
-                </div>
-              </Link>
-
-              {/* Card 3: LED Signage */}
-              <Link
-                href="/services"
-                className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
-              >
-                <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
-                  <Image
-                    src="/hero/card_led_open.png"
-                    alt="LED Signage"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-xs sm:text-[13px] font-bold text-zinc-900 group-hover:text-[#800080] transition-colors truncate">
-                    LED Signage
-                  </h3>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-500 truncate mt-0.5">
-                    Bright ideas. Greater visibility.
-                  </p>
-                </div>
-                <div className="w-6 h-6 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 group-hover:border-[#800080] group-hover:bg-[#800080] group-hover:text-white transition-all shrink-0">
-                  <ArrowRight className="h-3 w-3" />
-                </div>
+                <span>View All Services</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </div>
+          </div>
+
+          {/* Right: 3 Quick Service Teaser Cards matching exact mockup images */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+            {/* Card 1: 3D Acrylic Letters */}
+            <Link
+              href="/services"
+              className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
+            >
+              <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
+                <Image
+                  src="/hero/card_3d_acrylic_a.png"
+                  alt="3D Acrylic Letters"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xs sm:text-[13px] font-bold text-zinc-900 group-hover:text-[#800080] transition-colors truncate">
+                  3D Acrylic Letters
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-zinc-500 truncate mt-0.5">
+                  Premium finish. Maximum impact.
+                </p>
+              </div>
+              <div className="w-6 h-6 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 group-hover:border-[#800080] group-hover:bg-[#800080] group-hover:text-white transition-all shrink-0">
+                <ArrowRight className="h-3 w-3" />
+              </div>
+            </Link>
+
+            {/* Card 2: ACP Elevations */}
+            <Link
+              href="/services"
+              className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
+            >
+              <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
+                <Image
+                  src="/hero/card_acp_elevation.png"
+                  alt="ACP Elevations"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xs sm:text-[13px] font-bold text-zinc-900 group-hover:text-[#800080] transition-colors truncate">
+                  ACP Elevations
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-zinc-500 truncate mt-0.5">
+                  Modern facades. Lasting value.
+                </p>
+              </div>
+              <div className="w-6 h-6 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 group-hover:border-[#800080] group-hover:bg-[#800080] group-hover:text-white transition-all shrink-0">
+                <ArrowRight className="h-3 w-3" />
+              </div>
+            </Link>
+
+            {/* Card 3: LED Signage */}
+            <Link
+              href="/services"
+              className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-zinc-200/90 hover:border-purple-300 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
+            >
+              <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-xl overflow-hidden shrink-0 bg-purple-50 border border-purple-100">
+                <Image
+                  src="/hero/card_led_open.png"
+                  alt="LED Signage"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xs sm:text-[13px] font-bold text-zinc-900 group-hover:text-[#800080] transition-colors truncate">
+                  LED Signage
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-zinc-500 truncate mt-0.5">
+                  Bright ideas. Greater visibility.
+                </p>
+              </div>
+              <div className="w-6 h-6 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 group-hover:border-[#800080] group-hover:bg-[#800080] group-hover:text-white transition-all shrink-0">
+                <ArrowRight className="h-3 w-3" />
+              </div>
+            </Link>
           </div>
         </div>
       </div>
