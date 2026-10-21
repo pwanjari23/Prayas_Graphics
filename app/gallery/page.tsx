@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import GalleryGrid from "@/components/GalleryGrid";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
+import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
 import { BUSINESS_INFO } from "@/lib/business-info";
 import { getBreadcrumbSchema } from "@/lib/schemas";
 
@@ -27,14 +28,20 @@ export default function GalleryPage() {
   ]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-white pb-20 overflow-x-hidden pt-24 sm:pt-28">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <GalleryGrid />
-      <CtaSection />
-      <Footer />
+    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden pt-24 sm:pt-28">
+      {/* Background Shapes strictly isolated at z-0 */}
+      <AngledBackgroundShapes />
+
+      {/* Main Content strictly in front at z-10 */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <GalleryGrid />
+        <CtaSection />
+        <Footer />
+      </div>
     </main>
   );
 }

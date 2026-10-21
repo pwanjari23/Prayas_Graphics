@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ContactPageTemplate from "@/components/ContactPageTemplate";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
+import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
 import { BUSINESS_INFO } from "@/lib/business-info";
 import { getBreadcrumbSchema, getFaqSchema } from "@/lib/schemas";
 import { faqsData } from "@/lib/faqs-data";
@@ -31,34 +32,30 @@ export default function ContactPage() {
   const faqSchema = getFaqSchema(flatFaqs);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-[#FAFAF9] pb-16 overflow-x-hidden">
-      {/* Subtle light background ambient texture */}
-      <div
-        className="pointer-events-none fixed inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage: "radial-gradient(#18181b 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-        aria-hidden="true"
-      />
+    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-16 overflow-x-hidden">
+      {/* Background Shapes strictly isolated at z-0 */}
+      <AngledBackgroundShapes />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {/* Main Content strictly in front at z-10 */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
 
-      {/* Redesigned Contact Page Template */}
-      <ContactPageTemplate />
+        {/* Redesigned Contact Page Template */}
+        <ContactPageTemplate />
 
-      {/* FAQ Section */}
-      <FaqSection />
+        {/* FAQ Section */}
+        <FaqSection />
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </div>
     </main>
   );
 }

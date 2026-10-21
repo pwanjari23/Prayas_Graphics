@@ -3,6 +3,7 @@ import { servicesData, getServiceBySlug } from "@/lib/services-data";
 import { getServiceSchema, getBreadcrumbSchema } from "@/lib/schemas";
 import { BUSINESS_INFO } from "@/lib/business-info";
 import ServiceDetailView from "@/components/ServiceDetailView";
+import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -69,18 +70,24 @@ export default async function ServiceDetailPage({
   ]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-stone-50 pb-20 pt-24 overflow-x-hidden">
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-20 pt-24 overflow-x-hidden">
+      {/* Background Shapes strictly isolated at z-0 */}
+      <AngledBackgroundShapes />
 
-      <ServiceDetailView slug={service.slug} />
+      {/* Main Content strictly in front at z-10 */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        {/* Schema.org Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+
+        <ServiceDetailView slug={service.slug} />
+      </div>
     </main>
   );
 }
