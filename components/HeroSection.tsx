@@ -1,102 +1,159 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowRight,
+  Sparkles,
+  Star,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="mx-auto flex w-full max-w-7xl flex-col px-4 pt-24 pb-8 md:px-6">
+    <section className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pt-24 pb-8 md:px-6">
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative flex min-h-[420px] w-full flex-col justify-between overflow-hidden rounded-[32px] sm:rounded-[40px] bg-white p-8 sm:p-12 md:p-16 shadow-xs border border-zinc-200/80"
+        className="relative flex w-full flex-col justify-center overflow-hidden rounded-[32px] sm:rounded-[40px] bg-white p-7 sm:p-10 md:p-12 shadow-sm border border-zinc-200/90"
       >
-        {/* Subtle ambient gradient in the background */}
-        <div
-          className="pointer-events-none absolute -top-24 right-0 h-[380px] w-[500px] rounded-full bg-gradient-to-bl from-purple-100/40 via-purple-50/20 to-transparent blur-3xl -z-10"
-          aria-hidden="true"
-        />
+        {/* CAD Blueprint Background Texture: Natural orientation with 3D design on the RIGHT */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/hero/hero-blueprint-bg.jpg"
+            alt="Architectural Signage Blueprint Background"
+            fill
+            priority
+            className="object-cover object-right md:object-right-top opacity-85 transition-opacity duration-700"
+          />
+          {/* Directional gradient: clean smooth white on left behind text, translucent to reveal design on right */}
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-45% to-white/10 sm:from-white sm:via-white/80 sm:via-48% sm:to-transparent"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30"
+            aria-hidden="true"
+          />
+          {/* Ambient soft glow on the design side */}
+          <div
+            className="absolute top-1/4 right-10 h-72 w-72 rounded-full bg-purple-200/20 blur-3xl"
+            aria-hidden="true"
+          />
 
-        <div className="flex flex-col gap-6 max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-200/80 bg-purple-50 px-3.5 py-1 text-xs font-bold text-[#800080] w-fit">
-            <span>NAGPUR&apos;S PREMIER SIGNAGE MANUFACTURER</span>
-          </div>
-
-          <h1 className="font-heading text-3xl font-extrabold leading-[1.12] tracking-tight text-zinc-900 sm:text-4xl md:text-5xl lg:text-[56px]">
-            High-Quality Signboards for Every Business.
-          </h1>
-
-          <p className="max-w-2xl text-base sm:text-lg text-zinc-500 font-medium leading-relaxed">
-            Transform your brand&apos;s visibility with stunning, durable, and captivating signage solutions! From 3D acrylic letters to ACP elevations, we craft impressions that last.
-          </p>
+          {/* Subtle Angled / Geometric Light Facet in background */}
+          <svg
+            className="pointer-events-none absolute -bottom-10 left-0 w-2/3 h-44 opacity-35 scale-x-[-1]"
+            viewBox="0 0 800 180"
+            fill="none"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M0,140 L260,70 L520,130 L800,50 L800,180 L0,180 Z"
+              fill="url(#heroCardAngledFacet)"
+            />
+            <defs>
+              <linearGradient id="heroCardAngledFacet" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#FAF5FF" stopOpacity="0.8" />
+                <stop offset="45%" stopColor="#F3E8FF" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#EDE9FE" stopOpacity="0.2" />
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-8 border-t border-zinc-100">
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            <Link
-              href="/services"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-zinc-950 px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-zinc-900 shadow-sm hover:shadow-xl hover:shadow-zinc-900/20 active:scale-[0.98]"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                Explore Our Services
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <div className="absolute inset-0 z-0 flex h-full w-full justify-center transform-[skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:transform-[skew(-12deg)_translateX(100%)]">
-                <div className="relative h-full w-8 bg-white/20" />
+        {/* Main Content Area: Left side contains Heading & CTAs, Right side showcases CAD design */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-2 sm:py-4">
+          {/* Left Column: Heading, Subtitle & CTAs on the LEFT */}
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start gap-5 sm:gap-6 text-left lg:pr-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-purple-200/90 bg-white/90 backdrop-blur-md px-3.5 py-1 text-[11px] sm:text-xs font-bold text-[#800080] w-fit shadow-2xs">
+              <Sparkles className="h-3.5 w-3.5 text-[#800080]" />
+              <span>NAGPUR&apos;S PREMIER SIGNAGE MANUFACTURER</span>
+              <span className="hidden sm:inline text-purple-300">•</span>
+              <span className="hidden sm:inline text-zinc-600 font-semibold">NMC COMPLIANT</span>
+            </div>
+
+            <h1 className="font-heading text-3xl font-extrabold leading-[1.12] tracking-tight text-zinc-950 sm:text-4xl md:text-5xl lg:text-[52px]">
+              High-Quality{" "}
+              <span className="bg-gradient-to-r from-[#800080] via-purple-700 to-[#990099] bg-clip-text text-transparent">
+                Signboards
+              </span>{" "}
+              for Every Business.
+            </h1>
+
+            <p className="max-w-xl text-sm sm:text-base md:text-lg text-zinc-600 font-medium leading-relaxed">
+              Transform your brand&apos;s visibility with stunning, durable, and captivating signage solutions! From 3D acrylic letters to ACP elevations, we craft impressions that last.
+            </p>
+
+            {/* CTAs & Social Proof */}
+            <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/services"
+                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-zinc-950 px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:bg-zinc-900 shadow-md hover:shadow-xl hover:shadow-zinc-950/25 active:scale-[0.98] cursor-pointer"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Explore Our Services
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                  <div className="absolute inset-0 z-0 flex h-full w-full justify-center transform-[skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:transform-[skew(-12deg)_translateX(100%)]">
+                    <div className="relative h-full w-8 bg-white/20" />
+                  </div>
+                </Link>
+
+                <Link
+                  href="/quote"
+                  className="inline-flex items-center justify-center rounded-full border border-zinc-300/80 bg-white/90 backdrop-blur-md px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-zinc-900 transition-all hover:bg-white hover:border-zinc-400 shadow-2xs hover:shadow-sm cursor-pointer"
+                >
+                  Get a Quote
+                </Link>
               </div>
-            </Link>
 
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-7 py-4 text-sm font-bold text-zinc-800 transition-colors hover:bg-zinc-50 hover:border-zinc-300"
-            >
-              Get a Quote
-            </Link>
+              {/* Star Rating Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 border border-zinc-200/70 backdrop-blur-xs w-fit shadow-2xs">
+                <div className="flex items-center text-amber-500">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                  ))}
+                </div>
+                <span className="text-xs font-bold text-zinc-800">4.9/5</span>
+                <span className="text-[11px] text-zinc-500 hidden sm:inline">(120+ Google Reviews)</span>
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 mr-1 hidden sm:inline">Connect:</span>
-            {/* Google Reviews */}
-            <a
-              href="https://g.page/r/CbL_ssLkBR47EAI/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Review us on Google"
-              className="group flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-500 transition-all duration-200 hover:bg-[#4285F4] hover:text-white hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-2.21 5.39-7.84 5.39-4.84 0-8.79-4.01-8.79-8.97s3.95-8.97 8.79-8.97c2.75 0 4.59 1.17 5.65 2.18l2.58-2.49c-1.66-1.55-3.82-2.5-8.23-2.5-6.63 0-12 5.37-12 12s5.37 12 12 12c6.92 0 11.52-4.87 11.52-11.72 0-.79-.08-1.39-.18-1.99h-11.34z" />
-              </svg>
-            </a>
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/prayas_graphics_77/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow us on Instagram"
-              className="group flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-500 transition-all duration-200 hover:bg-linear-to-br hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 hover:text-white hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-              </svg>
-            </a>
-            {/* Facebook */}
-            <a
-              href="https://www.facebook.com/prayasgraphics/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow us on Facebook"
-              className="group flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-500 transition-all duration-200 hover:bg-[#1877F2] hover:text-white hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8.55 9.8V14.8h-2.6v-2.8h2.6v-2.15c0-2.57 1.52-3.98 3.86-3.98 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.27 0-1.67.79-1.67 1.6v1.8h2.85l-.45 2.8h-2.4V21.8c5.11-.93 8.55-4.96 8.55-9.8z" />
-              </svg>
-            </a>
-          </div>
+          {/* Right Column: Visual space allowing the 3D architectural CAD design to shine on the RIGHT */}
+          <div className="hidden lg:block lg:col-span-5 xl:col-span-5" aria-hidden="true" />
         </div>
       </motion.div>
+
+      {/* Light-colored Angled / Subtle Zigzag Background Shapes starting at the end of the Hero Section */}
+      <div
+        className="pointer-events-none absolute -bottom-10 left-0 right-0 h-28 -z-10 overflow-hidden"
+        aria-hidden="true"
+      >
+        <svg
+          className="w-full h-full opacity-60"
+          viewBox="0 0 1440 120"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="heroSectionBottomRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FAF5FF" stopOpacity="0.8" />
+              <stop offset="35%" stopColor="#F3E8FF" stopOpacity="0.5" />
+              <stop offset="70%" stopColor="#EDE9FE" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.1" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M-50,30 L380,85 L820,20 L1220,75 L1500,15 L1500,120 L-50,120 Z"
+            fill="url(#heroSectionBottomRibbon)"
+          />
+        </svg>
+      </div>
     </section>
   );
 }
