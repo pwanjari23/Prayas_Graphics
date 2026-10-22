@@ -8,6 +8,7 @@ import {
   Star,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import HeroVerticalCarousel from "./HeroVerticalCarousel";
 
 export default function HeroSection() {
   return (
@@ -36,9 +37,9 @@ export default function HeroSection() {
             className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30"
             aria-hidden="true"
           />
-          {/* Ambient soft glow on the design side */}
+          {/* Ambient soft glow on the carousel side */}
           <div
-            className="absolute top-1/4 right-10 h-72 w-72 rounded-full bg-purple-200/20 blur-3xl"
+            className="absolute top-1/2 -translate-y-1/2 right-4 lg:right-10 h-80 w-80 rounded-full bg-purple-300/25 blur-3xl pointer-events-none"
             aria-hidden="true"
           />
 
@@ -64,10 +65,10 @@ export default function HeroSection() {
           </svg>
         </div>
 
-        {/* Main Content Area: Left side contains Heading & CTAs, Right side showcases CAD design */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-2 sm:py-4">
+        {/* Main Content Area: Left side contains Heading & CTAs */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center py-2 sm:py-4">
           {/* Left Column: Heading, Subtitle & CTAs on the LEFT */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start gap-5 sm:gap-6 text-left lg:pr-6">
+          <div className="lg:col-span-8 xl:col-span-8 flex flex-col items-start gap-5 sm:gap-6 text-left lg:pr-8 xl:pr-12">
             <div className="inline-flex items-center gap-2 rounded-full border border-purple-200/90 bg-white/90 backdrop-blur-md px-3.5 py-1 text-[11px] sm:text-xs font-bold text-[#800080] w-fit shadow-2xs">
               <Sparkles className="h-3.5 w-3.5 text-[#800080]" />
               <span>NAGPUR&apos;S PREMIER SIGNAGE MANUFACTURER</span>
@@ -124,8 +125,13 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Visual space allowing the 3D architectural CAD design to shine on the RIGHT */}
-          <div className="hidden lg:block lg:col-span-5 xl:col-span-5" aria-hidden="true" />
+          {/* Spacer for desktop layout grid */}
+          <div className="hidden lg:block lg:col-span-4 xl:col-span-4" aria-hidden="true" />
+        </div>
+
+        {/* Desktop Carousel: Spans FULL component height on desktop (hidden on mobile/tablet) */}
+        <div className="hidden lg:flex absolute top-0 bottom-0 right-6 xl:right-10 w-[220px] xl:w-[240px] h-full items-center justify-center z-20 pointer-events-auto">
+          <HeroVerticalCarousel />
         </div>
       </motion.div>
 

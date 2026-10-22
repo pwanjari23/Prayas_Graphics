@@ -10,25 +10,25 @@ export default function AngledBackgroundShapes() {
     >
       {/* ========================================================
           LUMINOUS AURORA GRADIENT MESH GLOWS
-          Evenly distributed at varied vertical elevations
+          Evenly distributed with GPU acceleration & mobile optimization
           ======================================================== */}
       {/* 1. Top Section Glow */}
-      <div className="absolute top-10 left-1/4 w-[850px] h-[580px] rounded-full bg-gradient-to-br from-purple-300/25 via-violet-200/20 to-pink-100/10 blur-3xl" />
+      <div className="absolute top-10 left-1/4 w-[360px] sm:w-[650px] lg:w-[850px] h-[340px] sm:h-[480px] lg:h-[580px] rounded-full bg-gradient-to-br from-purple-300/20 via-violet-200/15 to-transparent blur-2xl lg:blur-3xl transform-gpu pointer-events-none" />
       
       {/* 2. Upper-Mid Glow (Right side) */}
-      <div className="absolute top-[850px] -right-24 w-[750px] h-[550px] rounded-full bg-gradient-to-bl from-purple-200/30 via-violet-100/20 to-transparent blur-3xl" />
+      <div className="absolute top-[850px] -right-24 w-[360px] sm:w-[600px] lg:w-[750px] h-[340px] sm:h-[450px] lg:h-[550px] rounded-full bg-gradient-to-bl from-purple-200/25 via-violet-100/15 to-transparent blur-2xl lg:blur-3xl transform-gpu pointer-events-none" />
       
       {/* 3. Mid / Subpage Above-Footer Glow (Left side) */}
-      <div className="absolute top-[1650px] -left-20 w-[800px] h-[580px] rounded-full bg-gradient-to-tr from-purple-200/28 via-violet-100/20 to-transparent blur-3xl" />
+      <div className="hidden sm:block absolute top-[1650px] -left-20 w-[800px] h-[580px] rounded-full bg-gradient-to-tr from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
       
       {/* 4. Lower-Mid Glow (Right side) */}
-      <div className="absolute top-[2500px] -right-20 w-[850px] h-[600px] rounded-full bg-gradient-to-tl from-purple-200/30 via-violet-100/20 to-transparent blur-3xl" />
+      <div className="hidden sm:block absolute top-[2500px] -right-20 w-[850px] h-[600px] rounded-full bg-gradient-to-tl from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
       
       {/* 5. Lower Page Glow (Left side) */}
-      <div className="absolute top-[3350px] -left-20 w-[800px] h-[550px] rounded-full bg-gradient-to-br from-purple-200/28 via-violet-100/18 to-transparent blur-3xl" />
+      <div className="hidden sm:block absolute top-[3350px] -left-20 w-[800px] h-[550px] rounded-full bg-gradient-to-br from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
       
       {/* 6. Deep Homepage Above-Footer Glow (Center-Right) */}
-      <div className="absolute top-[4100px] right-1/4 w-[850px] h-[580px] rounded-full bg-gradient-to-tl from-purple-200/30 via-violet-100/20 to-transparent blur-3xl" />
+      <div className="hidden sm:block absolute top-[4100px] right-1/4 w-[850px] h-[580px] rounded-full bg-gradient-to-tl from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
 
       {/* ========================================================
           MULTI-TIER MISMATCHED NEON WAVE RIBBONS
@@ -69,9 +69,9 @@ export default function AngledBackgroundShapes() {
             <stop offset="100%" stopColor="#F3E8FF" stopOpacity="0.2" />
           </linearGradient>
 
-          {/* Neon Glow Diffusion Filter */}
-          <filter id="neonBlur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="6" result="blur" />
+          {/* Lightweight Neon Glow Diffusion Filter */}
+          <filter id="neonBlur" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />

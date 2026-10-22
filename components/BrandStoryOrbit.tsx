@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 interface OrbitLogo {
   src: string;
@@ -43,20 +42,19 @@ export default function BrandStoryOrbit() {
   const R3 = 105;
 
   return (
-    <div className="relative flex items-center justify-center w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] md:w-[480px] md:h-[480px] select-none pointer-events-auto mx-auto overflow-visible">
+    <div className="relative flex items-center justify-center w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] md:w-[480px] md:h-[480px] select-none pointer-events-auto mx-auto overflow-visible transform-gpu">
       {/* Soft Ambient Neon Glow Behind Rings */}
-      <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-purple-300/30 via-violet-200/25 to-pink-200/20 blur-3xl pointer-events-none" />
+      <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-purple-300/30 via-violet-200/25 to-pink-200/20 blur-3xl pointer-events-none transform-gpu" />
 
       {/* Scaled Orbit Container: preserves perfect mathematical alignment across all screens */}
-      <div className="relative flex items-center justify-center w-[480px] h-[480px] scale-[0.68] sm:scale-[0.85] md:scale-100 origin-center">
+      <div className="relative flex items-center justify-center w-[480px] h-[480px] scale-[0.68] sm:scale-[0.85] md:scale-100 origin-center transform-gpu">
         {/* ========================================================
             RING 1: DARK RING (Outer - Diameter: 420px, Clockwise 55s)
             Border cuts through the exact center of all 5 mini circles
             ======================================================== */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[420px] h-[420px] rounded-full border-2 border-purple-800/80 shadow-[0_0_24px_rgba(128,0,128,0.35)] flex items-center justify-center"
+        <div
+          style={{ "--spin-duration": "55s" } as React.CSSProperties}
+          className="absolute w-[420px] h-[420px] rounded-full border-2 border-purple-800/80 shadow-[0_0_24px_rgba(128,0,128,0.35)] flex items-center justify-center gpu-spin-cw"
         >
           {/* Subtle neon pulse nodes on ring line */}
           <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#800080] shadow-[0_0_8px_#c084fc]" />
@@ -78,10 +76,9 @@ export default function BrandStoryOrbit() {
                 }}
                 className="absolute top-0 left-0"
               >
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
-                  className="w-15 h-15 rounded-full bg-white p-2.5 shadow-xl shadow-zinc-950/20 border-2 border-purple-300 hover:border-[#800080] hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/35 transition-all flex items-center justify-center cursor-pointer group"
+                <div
+                  style={{ "--spin-duration": "55s" } as React.CSSProperties}
+                  className="w-15 h-15 rounded-full bg-white p-2.5 shadow-xl shadow-zinc-950/20 border-2 border-purple-300 hover:border-[#800080] hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/35 transition-all flex items-center justify-center cursor-pointer group gpu-spin-ccw"
                   title={logo.name}
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
@@ -93,20 +90,19 @@ export default function BrandStoryOrbit() {
                       className="object-contain rounded-full transition-transform group-hover:scale-105"
                     />
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* ========================================================
             RING 2: LIGHT RING (Middle-Outer - Diameter: 310px, Counter-Clockwise 42s)
             Border cuts through the exact center of all 3 mini circles
             ======================================================== */}
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[310px] h-[310px] rounded-full border border-zinc-300 shadow-[0_0_14px_rgba(216,180,254,0.35)] flex items-center justify-center"
+        <div
+          style={{ "--spin-duration": "42s" } as React.CSSProperties}
+          className="absolute w-[310px] h-[310px] rounded-full border border-zinc-300 shadow-[0_0_14px_rgba(216,180,254,0.35)] flex items-center justify-center gpu-spin-ccw"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_6px_#c084fc]" />
 
@@ -126,10 +122,9 @@ export default function BrandStoryOrbit() {
                 }}
                 className="absolute top-0 left-0"
               >
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
-                  className="w-14 h-14 rounded-full bg-white p-2 shadow-lg shadow-zinc-950/15 border-2 border-purple-200/90 hover:border-[#800080] hover:scale-110 hover:shadow-xl hover:shadow-purple-500/30 transition-all flex items-center justify-center cursor-pointer group"
+                <div
+                  style={{ "--spin-duration": "42s" } as React.CSSProperties}
+                  className="w-14 h-14 rounded-full bg-white p-2 shadow-lg shadow-zinc-950/15 border-2 border-purple-200/90 hover:border-[#800080] hover:scale-110 hover:shadow-xl hover:shadow-purple-500/30 transition-all flex items-center justify-center cursor-pointer group gpu-spin-cw"
                   title={logo.name}
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
@@ -141,20 +136,19 @@ export default function BrandStoryOrbit() {
                       className="object-contain rounded-full transition-transform group-hover:scale-105"
                     />
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* ========================================================
             RING 3: DARK RING (Middle-Inner - Diameter: 210px, Clockwise 30s)
             Border cuts through the exact center of all 3 mini circles
             ======================================================== */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[210px] h-[210px] rounded-full border-2 border-purple-800/80 shadow-[0_0_18px_rgba(168,85,247,0.35)] flex items-center justify-center"
+        <div
+          style={{ "--spin-duration": "30s" } as React.CSSProperties}
+          className="absolute w-[210px] h-[210px] rounded-full border-2 border-purple-800/80 shadow-[0_0_18px_rgba(168,85,247,0.35)] flex items-center justify-center gpu-spin-cw"
         >
           {/* Mini Circles placed directly ON the Ring 3 line */}
           {ring3Logos.map((logo, idx) => (
@@ -172,10 +166,9 @@ export default function BrandStoryOrbit() {
                 }}
                 className="absolute top-0 left-0"
               >
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="w-12.5 h-12.5 rounded-full bg-white p-2 shadow-md shadow-zinc-950/15 border-2 border-purple-200 hover:border-[#800080] hover:scale-110 hover:shadow-lg transition-all flex items-center justify-center cursor-pointer group"
+                <div
+                  style={{ "--spin-duration": "30s" } as React.CSSProperties}
+                  className="w-12.5 h-12.5 rounded-full bg-white p-2 shadow-md shadow-zinc-950/15 border-2 border-purple-200 hover:border-[#800080] hover:scale-110 hover:shadow-lg transition-all flex items-center justify-center cursor-pointer group gpu-spin-ccw"
                   title={logo.name}
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
@@ -187,24 +180,23 @@ export default function BrandStoryOrbit() {
                       className="object-contain rounded-full transition-transform group-hover:scale-105"
                     />
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* ========================================================
             RING 4: LIGHT RING (Inner - Diameter: 120px, Counter-Clockwise 22s)
             Clean delicate lavender boundary ring directly surrounding center logo
             ======================================================== */}
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[120px] h-[120px] rounded-full border border-purple-300/70 shadow-[0_0_12px_rgba(216,180,254,0.35)]"
+        <div
+          style={{ "--spin-duration": "22s" } as React.CSSProperties}
+          className="absolute w-[120px] h-[120px] rounded-full border border-purple-300/70 shadow-[0_0_12px_rgba(216,180,254,0.35)] gpu-spin-ccw"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_6px_#c084fc]" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_6px_#c084fc]" />
-        </motion.div>
+        </div>
 
         {/* ========================================================
             CENTER CORE: ORIGINAL PRAYAS GRAPHICS LOGO
@@ -212,14 +204,7 @@ export default function BrandStoryOrbit() {
             ======================================================== */}
         <div className="relative z-20 flex items-center justify-center">
           {/* Soft pulsing halo */}
-          <motion.div
-            animate={{
-              scale: [1, 1.18, 1],
-              opacity: [0.4, 0.75, 0.4],
-            }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute w-24 h-24 rounded-full bg-gradient-to-r from-purple-400/35 via-violet-400/25 to-pink-400/30 blur-lg pointer-events-none"
-          />
+          <div className="absolute w-24 h-24 rounded-full bg-gradient-to-r from-purple-400/35 via-violet-400/25 to-pink-400/30 blur-lg pointer-events-none animate-pulse transform-gpu" />
 
           {/* Central Orb with Official Prayas Graphics Logo */}
           <div className="relative w-18 h-18 rounded-full bg-white border-2 border-[#800080]/30 shadow-2xl shadow-purple-950/20 flex items-center justify-center p-3 hover:scale-105 transition-transform cursor-pointer">

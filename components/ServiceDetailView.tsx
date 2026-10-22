@@ -7,7 +7,6 @@ import {
   ArrowRight,
   ArrowLeft,
   CheckCircle2,
-  ChevronDown,
   Layers,
   Building2,
   Tag,
@@ -23,15 +22,6 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  // Accordion state for Concept 2 mobile view (Pricing open, others closed by default)
-  const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({
-    pricing: true,
-  });
-
-  const toggleAccordion = (key: string) => {
-    setOpenAccordions((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
   if (!service) return null;
 
   return (
@@ -39,7 +29,7 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
       {/* ============================================================== */}
       {/* MOBILE SCREEN VIEW (CONCEPT 2: iOS-STYLE INTERACTIVE SHEET)    */}
       {/* ============================================================== */}
-      <div className="block lg:hidden w-full -mt-4 pb-28">
+      <div className="block lg:hidden w-full -mt-4">
         {/* Cinematic Backdrop Hero */}
         <div className="relative w-full aspect-[4/3.2] min-h-[300px] sm:min-h-[360px] overflow-hidden bg-zinc-950">
           <Image
@@ -83,7 +73,7 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
         </div>
 
         {/* Overlapping Curved Interactive Bottom Sheet */}
-        <div className="-mt-7 relative z-20 rounded-t-[32px] bg-white px-4 sm:px-6 pt-3 pb-8 shadow-2xl border-t border-zinc-100">
+        <div className="-mt-7 relative z-20 rounded-t-[32px] bg-white px-4 sm:px-6 pt-3 pb-24 shadow-2xl border-t border-zinc-100 min-h-[calc(100vh-260px)]">
           {/* Sheet Handle */}
           <div className="w-12 h-1.5 rounded-full bg-zinc-300 mx-auto my-2" />
 
@@ -103,146 +93,102 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
             </div>
           </div>
 
-          {/* Expandable Accordion List */}
+          {/* Service Details Cards List */}
           <div className="mt-3 space-y-3">
-            {/* Accordion 1: Pricing */}
+            {/* Card 1: Pricing */}
             <div className="rounded-2xl border border-zinc-200/90 bg-white overflow-hidden shadow-xs">
-              <button
-                type="button"
-                onClick={() => toggleAccordion("pricing")}
-                className="w-full flex items-center justify-between p-4 text-left font-heading font-bold text-zinc-900 cursor-pointer bg-zinc-50/50"
-              >
+              <div className="w-full flex items-center p-4 text-left font-heading font-bold text-zinc-900 bg-zinc-50/50">
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#800080]/10 text-[#800080]">
                     <Tag className="h-4 w-4" />
                   </div>
                   <span className="text-sm font-extrabold text-zinc-900">Pricing & Rates</span>
                 </div>
-                <ChevronDown
-                  className={`h-4 w-4 text-zinc-500 transition-transform duration-200 ${
-                    openAccordions.pricing ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+              </div>
 
-              {openAccordions.pricing && (
-                <div className="p-4 pt-1 border-t border-zinc-100 bg-white">
-                  {service.originalPrice && (
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">Original Rate:</span>
-                      <span className="text-xs text-zinc-400 line-through font-semibold">
-                        ₹{service.originalPrice.toLocaleString("en-IN")}
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-lg font-black text-[#800080]">
-                      {service.pricing}
+              <div className="p-4 pt-1 border-t border-zinc-100 bg-white">
+                {service.originalPrice && (
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">Original Rate:</span>
+                    <span className="text-xs text-zinc-400 line-through font-semibold">
+                      ₹{service.originalPrice.toLocaleString("en-IN")}
                     </span>
                   </div>
-                  <p className="mt-2 text-xs text-zinc-500 leading-relaxed font-normal">
-                    Estimates vary based on installation complexity, size, and material tier.
-                  </p>
+                )}
+                <div className="flex items-baseline gap-2">
+                  <span className="text-lg font-black text-[#800080]">
+                    {service.pricing}
+                  </span>
                 </div>
-              )}
+                <p className="mt-2 text-xs text-zinc-500 leading-relaxed font-normal">
+                  Estimates vary based on installation complexity, size, and material tier.
+                </p>
+              </div>
             </div>
 
-            {/* Accordion 2: Materials & Specifications */}
+            {/* Card 2: Materials & Specifications */}
             <div className="rounded-2xl border border-zinc-200/90 bg-white overflow-hidden shadow-xs">
-              <button
-                type="button"
-                onClick={() => toggleAccordion("specs")}
-                className="w-full flex items-center justify-between p-4 text-left font-heading font-bold text-zinc-900 cursor-pointer bg-zinc-50/50"
-              >
+              <div className="w-full flex items-center p-4 text-left font-heading font-bold text-zinc-900 bg-zinc-50/50">
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-purple-100 text-[#800080]">
                     <Layers className="h-4 w-4" />
                   </div>
                   <span className="text-sm font-extrabold text-zinc-900">Materials & Finish</span>
                 </div>
-                <ChevronDown
-                  className={`h-4 w-4 text-zinc-500 transition-transform duration-200 ${
-                    openAccordions.specs ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+              </div>
 
-              {openAccordions.specs && (
-                <div className="p-4 pt-2 border-t border-zinc-100 bg-white">
-                  <ul className="space-y-2">
-                    {service.materials.map((mat, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-700 font-medium">
-                        <div className="h-1.5 w-1.5 rounded-full bg-[#800080] shrink-0 mt-1.5" />
-                        <span>{mat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <div className="p-4 pt-2 border-t border-zinc-100 bg-white">
+                <ul className="space-y-2">
+                  {service.materials.map((mat, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-700 font-medium">
+                      <div className="h-1.5 w-1.5 rounded-full bg-[#800080] shrink-0 mt-1.5" />
+                      <span>{mat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Accordion 3: Common Use Cases */}
+            {/* Card 3: Common Use Cases */}
             <div className="rounded-2xl border border-zinc-200/90 bg-white overflow-hidden shadow-xs">
-              <button
-                type="button"
-                onClick={() => toggleAccordion("useCases")}
-                className="w-full flex items-center justify-between p-4 text-left font-heading font-bold text-zinc-900 cursor-pointer bg-zinc-50/50"
-              >
+              <div className="w-full flex items-center p-4 text-left font-heading font-bold text-zinc-900 bg-zinc-50/50">
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-green-100 text-green-700">
                     <Building2 className="h-4 w-4" />
                   </div>
                   <span className="text-sm font-extrabold text-zinc-900">Where It&apos;s Used</span>
                 </div>
-                <ChevronDown
-                  className={`h-4 w-4 text-zinc-500 transition-transform duration-200 ${
-                    openAccordions.useCases ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+              </div>
 
-              {openAccordions.useCases && (
-                <div className="p-4 pt-2 border-t border-zinc-100 bg-white">
-                  <ul className="space-y-2">
-                    {service.useCases.map((useCase, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-zinc-700 font-medium">
-                        <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" />
-                        <span>{useCase}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <div className="p-4 pt-2 border-t border-zinc-100 bg-white">
+                <ul className="space-y-2">
+                  {service.useCases.map((useCase, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-xs text-zinc-700 font-medium">
+                      <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" />
+                      <span>{useCase}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Accordion 4: About / Description */}
+            {/* Card 4: About / Description */}
             {service.longDescription && (
               <div className="rounded-2xl border border-zinc-200/90 bg-white overflow-hidden shadow-xs">
-                <button
-                  type="button"
-                  onClick={() => toggleAccordion("overview")}
-                  className="w-full flex items-center justify-between p-4 text-left font-heading font-bold text-zinc-900 cursor-pointer bg-zinc-50/50"
-                >
+                <div className="w-full flex items-center p-4 text-left font-heading font-bold text-zinc-900 bg-zinc-50/50">
                   <div className="flex items-center gap-2.5">
                     <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700">
                       <FileText className="h-4 w-4" />
                     </div>
                     <span className="text-sm font-extrabold text-zinc-900">About this Signboard</span>
                   </div>
-                  <ChevronDown
-                    className={`h-4 w-4 text-zinc-500 transition-transform duration-200 ${
-                      openAccordions.overview ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
+                </div>
 
-                {openAccordions.overview && (
-                  <div className="p-4 pt-2 border-t border-zinc-100 bg-white">
-                    <p className="text-xs text-zinc-600 leading-relaxed font-normal whitespace-pre-line">
-                      {service.longDescription}
-                    </p>
-                  </div>
-                )}
+                <div className="p-4 pt-2 border-t border-zinc-100 bg-white">
+                  <p className="text-xs text-zinc-600 leading-relaxed font-normal whitespace-pre-line">
+                    {service.longDescription}
+                  </p>
+                </div>
               </div>
             )}
           </div>

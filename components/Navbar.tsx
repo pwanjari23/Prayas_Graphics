@@ -53,8 +53,8 @@ export default function Navbar() {
           {/* Island 1: Left Brand Identity (Slightly more compact length) */}
           <div
             className={cn(
-              "pointer-events-auto flex items-center h-14 sm:h-[58px] px-3 sm:px-4 rounded-full border",
-              "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
+              "pointer-events-auto flex items-center h-14 sm:h-[58px] px-3 sm:px-4 rounded-full border transform-gpu",
+              "backdrop-blur-md md:backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
               scrolled
                 ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
                 : "bg-white/95 border-zinc-200/90 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.1),0_4px_14px_-2px_rgba(128,0,128,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
@@ -125,8 +125,8 @@ export default function Navbar() {
           {/* Island 3: Right Action Island in a round capsule (slightly more compact length) */}
           <div
             className={cn(
-              "pointer-events-auto flex items-center gap-1.5 h-14 sm:h-[58px] px-2 sm:px-2.5 rounded-full border",
-              "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
+              "pointer-events-auto flex items-center gap-1.5 h-14 sm:h-[58px] px-2 sm:px-2.5 rounded-full border transform-gpu",
+              "backdrop-blur-md md:backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
               scrolled
                 ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
                 : "bg-white/95 border-zinc-200/90 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.1),0_4px_14px_-2px_rgba(128,0,128,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"

@@ -132,18 +132,7 @@ export default function TestimonialsSection() {
       </div>
 
       <div className="relative flex overflow-x-hidden group">
-        <motion.div 
-          className="flex gap-6 animate-marquee py-12"
-          animate={{
-            x: [0, -1 * (350 * testimonials.length + 24 * testimonials.length)]
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{ width: "fit-content" }}
-        >
+        <div className="flex gap-6 animate-gpu-marquee py-12">
           {/* First set */}
           {testimonials.map((t, idx) => (
             <TestimonialCard key={`first-${idx}`} testimonial={t} />
@@ -152,7 +141,7 @@ export default function TestimonialsSection() {
           {testimonials.map((t, idx) => (
             <TestimonialCard key={`second-${idx}`} testimonial={t} />
           ))}
-        </motion.div>
+        </div>
 
         {/* Gradient overlays for smooth fade */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />

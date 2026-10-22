@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 export const brandLogos = [
   { src: "/clients/logo (1).jpeg", alt: "Chola Finance Signage Client", name: "Chola Finance" },
@@ -36,18 +35,7 @@ export default function BrandLogosMarquee() {
       </div>
 
       <div className="relative w-full flex overflow-x-hidden group py-4">
-        <motion.div
-          className="flex gap-4 sm:gap-6 items-center"
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{ width: "max-content" }}
-        >
+        <div className="flex gap-4 sm:gap-6 items-center animate-gpu-marquee">
           {marqueeLogos.map((logo, i) => (
             <div
               key={`${logo.name}-${i}`}
@@ -64,7 +52,7 @@ export default function BrandLogosMarquee() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Left & Right Gradient Overlays for Smooth Edge Fade */}
         <div className="absolute inset-y-0 left-0 w-16 sm:w-28 md:w-36 bg-gradient-to-r from-stone-50 via-stone-50/70 to-transparent pointer-events-none z-10" />

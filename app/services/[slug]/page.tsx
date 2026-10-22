@@ -70,7 +70,7 @@ export default async function ServiceDetailPage({
   ]);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-20 pt-24 overflow-x-hidden">
+    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-0 lg:pb-20 pt-24 overflow-x-hidden">
       {/* Background Shapes strictly isolated at z-0 */}
       <AngledBackgroundShapes />
 
