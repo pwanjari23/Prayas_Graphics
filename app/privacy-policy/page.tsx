@@ -1,9 +1,14 @@
 import LegalContent from "@/components/LegalContent";
 import Footer from "@/components/Footer";
 
+import { BUSINESS_INFO } from "@/lib/business-info";
+
 export const metadata = {
-  title: "Privacy & Policy – Prayas Graphics",
+  title: "Privacy Policy — Prayas Graphics",
   description: "Learn how Prayas Graphics collects, uses, and protects your personal information.",
+  alternates: {
+    canonical: `${BUSINESS_INFO.url}/privacy-policy`,
+  },
 };
 
 const sections = [

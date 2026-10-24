@@ -38,8 +38,9 @@ export default function AboutCtaFeatures() {
   ];
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6 lg:px-8">
-      <motion.div
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#faf8fc] via-white to-[#faf8fc] py-14 sm:py-18">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8">
+        <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
@@ -121,6 +122,7 @@ export default function AboutCtaFeatures() {
           </a>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 }

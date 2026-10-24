@@ -14,30 +14,38 @@ import {
 
 export default function MeetTheMaker() {
   return (
-    <section className="relative mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#0c0617] via-[#090412] to-[#0c0617] py-16 sm:py-20 md:py-24">
       {/* Background ambient light */}
-      <div
-        className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 h-80 w-[600px] rounded-full bg-purple-100/30 blur-3xl -z-10"
-        aria-hidden="true"
-      />
+      <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-purple-600/[0.10] blur-[150px] rounded-full transform-gpu" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-fuchsia-600/[0.08] blur-[140px] rounded-full transform-gpu" />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:radial-gradient(#a855f7_0.75px,transparent_0.75px)] [background-size:28px_28px]" />
+      </div>
 
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-8 sm:mb-10 text-center flex flex-col items-center justify-center"
-      >
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 sm:mb-10 text-center flex flex-col items-center justify-center"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-950/60 px-4 py-1.5 text-xs font-bold text-purple-300 mb-3.5 backdrop-blur-md">
+            <Sparkles className="h-3.5 w-3.5 text-purple-400" />
+            <span>OUR HERITAGE &amp; MISSION</span>
+          </div>
 
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-zinc-950 tracking-tight leading-[1.12]">
-          Our Identity, <br className="hidden sm:inline" />
-          Vision and Values
-        </h2>
-      </motion.div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.12]">
+            Our Identity,{" "}
+            <span className="bg-gradient-to-r from-purple-300 via-fuchsia-300 to-white bg-clip-text text-transparent">
+              Vision &amp; Values
+            </span>
+          </h2>
+        </motion.div>
 
-      {/* Wrapper for the overlapping pill card and bottom card */}
-      <div className="relative mx-auto w-full max-w-6xl">
+        {/* Wrapper for the overlapping pill card and bottom card */}
+        <div className="relative mx-auto w-full max-w-6xl">
         {/* TOP FLOATING PILL CARD: Black & White Theme (replacing green in reference) */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -204,6 +212,7 @@ export default function MeetTheMaker() {
 
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import ContactPageTemplate from "@/components/ContactPageTemplate";
+import DiagonalSlantedDivider from "@/components/DiagonalSlantedDivider";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
-import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
 import { BUSINESS_INFO } from "@/lib/business-info";
 import { getBreadcrumbSchema, getFaqSchema } from "@/lib/schemas";
 import { faqsData } from "@/lib/faqs-data";
@@ -32,10 +32,7 @@ export default function ContactPage() {
   const faqSchema = getFaqSchema(flatFaqs);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-16 overflow-x-hidden">
-      {/* Background Shapes strictly isolated at z-0 */}
-      <AngledBackgroundShapes />
-
+    <main className="relative flex min-h-screen flex-col items-center bg-[#faf8fc] overflow-x-hidden pt-20 sm:pt-24">
       {/* Main Content strictly in front at z-10 */}
       <div className="relative z-10 w-full flex flex-col items-center">
         <script
@@ -50,8 +47,24 @@ export default function ContactPage() {
         {/* Redesigned Contact Page Template */}
         <ContactPageTemplate />
 
-        {/* FAQ Section */}
+        {/* Slanted Divider 1: Light Contact to Dark FAQ */}
+        <DiagonalSlantedDivider
+          id="contact-to-faq-slant"
+          topColor="#faf8fc"
+          bottomColor="#0c0617"
+          reverse={false}
+        />
+
+        {/* Dark Obsidian FAQ Section */}
         <FaqSection />
+
+        {/* Slanted Divider 2: Dark FAQ to Light Footer */}
+        <DiagonalSlantedDivider
+          id="faq-to-footer-slant"
+          topColor="#0c0617"
+          bottomColor="#faf8fc"
+          reverse={true}
+        />
 
         {/* Footer */}
         <Footer />

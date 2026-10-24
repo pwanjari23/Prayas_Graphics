@@ -1,63 +1,137 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
+import { CLIENT_BRANDS, ClientBrand } from "@/lib/client-projects";
+import ClientBrandModal from "./ClientBrandModal";
 
-export const brandLogos = [
-  { src: "/clients/logo (1).jpeg", alt: "Chola Finance Signage Client", name: "Chola Finance" },
-  { src: "/clients/logo (2).jpeg", alt: "SMFG India Credit Signage Client", name: "SMFG India Credit" },
-  { src: "/clients/logo (3).jpeg", alt: "Fortune Oil & Foods Signage Client", name: "Fortune" },
-  { src: "/clients/logo (4).jpeg", alt: "NoBroker Branding Client", name: "NoBroker" },
-  { src: "/clients/logo (5).jpeg", alt: "Punjab National Bank Signage Client", name: "PNB" },
-  { src: "/clients/logo (6).jpeg", alt: "Quickclean Signage Client", name: "Quickclean" },
-  { src: "/clients/logo (7).jpeg", alt: "Cube Highways Trust Signage Client", name: "Cube Highways" },
-  { src: "/clients/logo (8).jpeg", alt: "EazyDiner Signage Client", name: "EazyDiner" },
-  { src: "/clients/logo (9).jpeg", alt: "Samsung Electronics Signage Client", name: "Samsung" },
-  { src: "/clients/logo (10).jpeg", alt: "Terex Corporation Signage Client", name: "Terex" },
-  { src: "/clients/logo (11).jpeg", alt: "Mankind Pharma Signage Client", name: "Mankind Pharma" },
+export interface BrandLogoItem {
+  id: string;
+  src: string;
+  alt: string;
+  name: string;
+}
+
+export const brandLogos: BrandLogoItem[] = [
+  { id: "chola-finance", src: "/clients/logo (1).jpeg", alt: "Chola Finance Signage Client", name: "Chola Finance" },
+  { id: "smfg-india-credit", src: "/clients/logo (2).jpeg", alt: "SMFG India Credit Signage Client", name: "SMFG India Credit" },
+  { id: "fortune", src: "/clients/logo (3).jpeg", alt: "Fortune Oil & Foods Signage Client", name: "Fortune" },
+  { id: "nobroker", src: "/clients/logo (4).jpeg", alt: "NoBroker Branding Client", name: "NoBroker" },
+  { id: "pnb", src: "/clients/logo (5).jpeg", alt: "Punjab National Bank Signage Client", name: "PNB" },
+  { id: "quickclean", src: "/clients/logo (6).jpeg", alt: "Quickclean Signage Client", name: "Quickclean" },
+  { id: "cube-highways", src: "/clients/logo (7).jpeg", alt: "Cube Highways Trust Signage Client", name: "Cube Highways" },
+  { id: "eazydiner", src: "/clients/logo (8).jpeg", alt: "EazyDiner Signage Client", name: "EazyDiner" },
+  { id: "samsung", src: "/clients/logo (9).jpeg", alt: "Samsung Electronics Signage Client", name: "Samsung" },
+  { id: "terex", src: "/clients/logo (10).jpeg", alt: "Terex Corporation Signage Client", name: "Terex" },
+  { id: "mankind-pharma", src: "/clients/logo (11).jpeg", alt: "Mankind Pharma Signage Client", name: "Mankind Pharma" },
+  { id: "adani-gas", src: "/clients/adani-gas-logo.webp", alt: "Adani Gas Commercial Signage Client", name: "Adani Gas" },
 ];
 
 export default function BrandLogosMarquee() {
+  const [selectedBrand, setSelectedBrand] = useState<ClientBrand | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const activeTriggerRef = useRef<HTMLElement | null>(null);
+
   // Quadrupled list ensures seamless continuous looping across any screen size without gaps
   const marqueeLogos = [...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos];
 
-  return (
-    <section className="relative w-full py-8 sm:py-12 overflow-hidden">
-      <div className="flex flex-col items-center justify-center text-center mb-8 px-4 max-w-7xl mx-auto">
-        <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#800080]/10 text-[#800080] text-xs font-bold uppercase tracking-wider mb-3">
-          500+ Businesses Served
-        </span>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-zinc-900 tracking-tight">
-          Trusted by Leading Brands Across Nagpur
-        </h2>
-        <p className="mt-2 text-sm text-zinc-500 max-w-md">
-          From national finance enterprises and banks to local retail leaders, we engineer signage that commands attention.
-        </p>
-      </div>
+  const handleCardClick = (brandId: string, e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
+    activeTriggerRef.current = e.currentTarget;
+    const brand = CLIENT_BRANDS[brandId] || {
+      id: brandId,
+      name: brandLogos.find((b) => b.id === brandId)?.name || "Client",
+      logo: brandLogos.find((b) => b.id === brandId)?.src || "",
+      subtitle: "Valued Client",
+      projects: [],
+    };
+    setSelectedBrand(brand);
+    setIsModalOpen(true);
+  };
 
-      <div className="relative w-full flex overflow-x-hidden group py-4">
-        <div className="flex gap-4 sm:gap-6 items-center animate-gpu-marquee">
-          {marqueeLogos.map((logo, i) => (
-            <div
-              key={`${logo.name}-${i}`}
-              className="relative aspect-square w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-2xl border border-zinc-200/85 bg-white p-3.5 sm:p-4 shadow-xs hover:shadow-xl hover:border-[#800080]/30 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shrink-0 group/card cursor-pointer"
-            >
-              <div className="relative h-full w-full flex items-center justify-center">
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  fill
-                  sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, 144px"
-                  className="object-contain p-1 filter grayscale-[15%] contrast-105 opacity-85 group-hover/card:grayscale-0 group-hover/card:opacity-100 group-hover/card:scale-105 transition-all duration-300"
-                />
-              </div>
-            </div>
-          ))}
+  const handleKeyDown = (brandId: string, e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleCardClick(brandId, e);
+    }
+  };
+
+  return (
+    <>
+      <section className="relative w-full pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-18 md:pb-20 overflow-hidden bg-gradient-to-b from-[#0c0617] via-[#090412] to-[#0c0617]">
+        {/* Ambient Volumetric Glows */}
+        <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
+          <div className="absolute top-1/4 left-1/3 w-[600px] h-[350px] bg-purple-600/[0.08] blur-[140px] rounded-full transform-gpu" />
+          <div className="absolute bottom-1/4 -right-16 w-[500px] h-[300px] bg-fuchsia-600/[0.06] blur-[130px] rounded-full transform-gpu" />
         </div>
 
-        {/* Left & Right Gradient Overlays for Smooth Edge Fade */}
-        <div className="absolute inset-y-0 left-0 w-16 sm:w-28 md:w-36 bg-gradient-to-r from-stone-50 via-stone-50/70 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-y-0 right-0 w-16 sm:w-28 md:w-36 bg-gradient-to-l from-stone-50 via-stone-50/70 to-transparent pointer-events-none z-10" />
-      </div>
-    </section>
+        {/* ========================================================
+            SECTION HEADER: Centered Heading & Supporting Subtitle
+            ======================================================== */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center mb-7 sm:mb-9 px-4 max-w-7xl mx-auto">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/80 border border-purple-500/40 text-purple-300 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
+            Our Valued Clients
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-heading font-extrabold text-white tracking-tight leading-tight">
+            Trusted by Leading Brands Across Nagpur
+          </h2>
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-zinc-400 max-w-lg leading-relaxed">
+            From national finance enterprises and banks to local retail leaders, we engineer signage that commands attention.
+          </p>
+          <p className="mt-1 text-[11px] sm:text-xs text-purple-300 font-semibold">
+            Click any client card to view completed signage projects
+          </p>
+        </div>
+
+        {/* ========================================================
+            INTERACTIVE LOGO CAROUSEL: Clickable Brand Cards
+            Pauses on hover and keyboard focus for effortless clicks
+            ======================================================== */}
+        <div className="relative z-10 w-full flex overflow-x-hidden group py-3">
+          <div className="flex gap-3.5 sm:gap-5 md:gap-6 items-center animate-gpu-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]">
+            {marqueeLogos.map((logo, i) => (
+              <div
+                key={`${logo.id}-${i}`}
+                role="button"
+                tabIndex={0}
+                aria-label={`View signage projects completed for ${logo.name}`}
+                onClick={(e) => handleCardClick(logo.id, e)}
+                onKeyDown={(e) => handleKeyDown(logo.id, e)}
+                className="relative aspect-square w-26 h-26 sm:w-30 sm:h-30 md:w-34 md:h-34 rounded-2xl border border-zinc-700/80 bg-white p-3 sm:p-3.5 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-purple-400 hover:scale-105 hover:-translate-y-1 active:scale-95 flex flex-col items-center justify-center shrink-0 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080] focus-visible:ring-offset-2 group/card"
+              >
+                {/* Logo Image */}
+                <div className="relative h-full w-full flex items-center justify-center">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    fill
+                    sizes="(max-width: 640px) 104px, (max-width: 768px) 120px, 136px"
+                    className="object-contain p-1 filter contrast-105 opacity-90 transition-all duration-300 group-hover/card:opacity-100 group-hover/card:scale-105"
+                  />
+                </div>
+
+                {/* Subtle Hover / Active Indicator */}
+                <span className="absolute bottom-1 text-[9px] font-bold text-[#800080] opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity whitespace-nowrap">
+                  View Work &rarr;
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Left & Right Gradient Overlays for Smooth Edge Fade */}
+          <div className="absolute inset-y-0 left-0 w-14 sm:w-24 md:w-32 bg-gradient-to-r from-[#0e0717] via-[#0e0717]/85 to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 right-0 w-14 sm:w-24 md:w-32 bg-gradient-to-l from-[#0e0717] via-[#0e0717]/85 to-transparent pointer-events-none z-10" />
+        </div>
+      </section>
+
+      {/* ========================================================
+          PORTFOLIO MODAL: Accessible Dialog with Case Studies
+          ======================================================== */}
+      <ClientBrandModal
+        brand={selectedBrand}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        triggerElementRef={activeTriggerRef.current}
+      />
+    </>
   );
 }

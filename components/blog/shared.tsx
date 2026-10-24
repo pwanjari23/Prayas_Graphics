@@ -102,15 +102,29 @@ export function PriceCard({ name, price, unit, life, featured }: PriceCardProps)
 }
 
 // --- STEP BOX ---
-export function StepBox({ num, title, desc }: { num: number; title: string; desc: string }) {
+export function StepBox({
+  num,
+  number,
+  title,
+  desc,
+  description,
+}: {
+  num?: number;
+  number?: number;
+  title: string;
+  desc?: string;
+  description?: string;
+}) {
+  const displayNum = num ?? number ?? 1;
+  const displayDesc = desc ?? description ?? "";
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-6 items-start group">
       <div className="w-9 h-9 rounded-full bg-[#800080] text-white text-xs font-bold flex items-center justify-center shrink-0 shadow-sm shadow-purple-900/20 group-hover:scale-105 transition-transform">
-        {num}
+        {displayNum}
       </div>
       <div>
         <h5 className="text-[15px] font-bold text-zinc-900 mb-1">{title}</h5>
-        <p className="text-sm m-0 text-zinc-600 font-normal leading-relaxed">{desc}</p>
+        <p className="text-sm m-0 text-zinc-600 font-normal leading-relaxed">{displayDesc}</p>
       </div>
     </div>
   );

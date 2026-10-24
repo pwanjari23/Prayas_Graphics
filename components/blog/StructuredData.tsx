@@ -1,4 +1,5 @@
 import React from "react";
+import { BUSINESS_INFO } from "@/lib/business-info";
 
 interface StructuredDataProps {
   title: string;
@@ -14,43 +15,40 @@ export default function StructuredData({
   title,
   description,
   url,
-  image = "https://prayasgraphics.com/og-image.jpg",
+  image = `${BUSINESS_INFO.url}/hero/hero (1).jpg`,
   datePublished,
   dateModified,
-  authorName = "Prayas Graphics",
+  authorName = BUSINESS_INFO.name,
 }: StructuredDataProps) {
-  const websiteStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Prayas Graphics",
-    url: "https://prayasgraphics.com/",
-  };
+  const cleanPath = url.startsWith("/") ? url : `/${url}`;
+  const fullUrl = `${BUSINESS_INFO.url}${cleanPath.replace(/\/+/g, "/")}`;
+  const imageUrl = image.startsWith("http") ? image : `${BUSINESS_INFO.url}${image.startsWith("/") ? image : `/${image}`}`;
 
   const articleStructuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": ["Article", "BlogPosting"],
     headline: title,
     description: description,
-    image: image,
+    image: imageUrl,
     datePublished: datePublished || new Date().toISOString(),
     dateModified: dateModified || new Date().toISOString(),
     author: {
       "@type": "Organization",
       name: authorName,
-      url: "https://prayasgraphics.com",
+      url: BUSINESS_INFO.url,
     },
     publisher: {
       "@type": "Organization",
-      name: "Prayas Graphics",
-      url: "https://prayasgraphics.com",
+      name: BUSINESS_INFO.name,
+      url: BUSINESS_INFO.url,
       logo: {
         "@type": "ImageObject",
-        url: "https://prayasgraphics.com/logo.png",
+        url: BUSINESS_INFO.logo,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://prayasgraphics.com" + url,
+      "@id": fullUrl,
     },
   };
 
@@ -62,29 +60,25 @@ export default function StructuredData({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://prayasgraphics.com",
+        item: BUSINESS_INFO.url,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://prayasgraphics.com/blog",
+        item: `${BUSINESS_INFO.url}/blog`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: title,
-        item: "https://prayasgraphics.com" + url,
+        item: fullUrl,
       },
     ],
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}

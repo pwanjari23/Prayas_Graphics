@@ -51,12 +51,14 @@ export default function ContactPageTemplate() {
   }
 
   return (
-    <div className="relative w-full max-w-7xl px-4 pt-20 pb-6 sm:px-6 md:pt-24 md:pb-8 lg:px-8">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#faf8fc] pt-6 sm:pt-10 pb-14 sm:pb-20">
       {/* Subtle light background ambient glow */}
       <div
         className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 h-[380px] w-[650px] rounded-full bg-gradient-to-b from-purple-100/50 via-stone-100/30 to-transparent blur-3xl -z-10"
         aria-hidden="true"
       />
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {/* Hero Header Section - Animated Centered */}
       <motion.div
@@ -378,6 +380,7 @@ export default function ContactPageTemplate() {
           </div>
         </motion.div>
       </div>
-    </div>
+      </div>
+    </section>
   );
 }

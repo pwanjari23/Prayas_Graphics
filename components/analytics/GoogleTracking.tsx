@@ -23,11 +23,11 @@ export default function GoogleTracking() {
       )}
 
       {/* Google Ads / GA4 gtag.js */}
-      {googleAdsId && (
+      {(googleAdsId || gaId) && (
         <>
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId || gaId}`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -35,10 +35,8 @@ export default function GoogleTracking() {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${googleAdsId}', {
-                  page_path: window.location.pathname,
-                });
-                ${gaId ? `gtag('config', '${gaId}');` : ""}
+                ${googleAdsId ? `gtag('config', '${googleAdsId}', { page_path: window.location.pathname });` : ""}
+                ${gaId ? `gtag('config', '${gaId}', { page_path: window.location.pathname });` : ""}
               `,
             }}
           />

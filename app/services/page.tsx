@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicesSection from "@/components/ServicesSection";
+import DiagonalSlantedDivider from "@/components/DiagonalSlantedDivider";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
@@ -28,18 +29,26 @@ export default function ServicesPage() {
   ]);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden">
-      {/* Background Shapes strictly isolated at z-0 */}
-      <AngledBackgroundShapes />
-
-      {/* Main Content strictly in front at z-10 */}
+    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 overflow-x-hidden">
       <div className="relative z-10 w-full flex flex-col items-center">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
         <ServicesSection />
+        <DiagonalSlantedDivider
+          id="services-to-cta-slant"
+          topColor="#faf8fc"
+          bottomColor="#0c0617"
+          reverse={false}
+        />
         <CtaSection />
+        <DiagonalSlantedDivider
+          id="cta-to-footer-slant"
+          topColor="#0c0617"
+          bottomColor="#faf8fc"
+          reverse={true}
+        />
         <Footer />
       </div>
     </main>

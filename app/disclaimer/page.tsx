@@ -1,9 +1,14 @@
 import LegalContent from "@/components/LegalContent";
 import Footer from "@/components/Footer";
 
+import { BUSINESS_INFO } from "@/lib/business-info";
+
 export const metadata = {
-  title: "Disclaimer – Prayas Graphics",
+  title: "Disclaimer — Prayas Graphics",
   description: "Read our full disclaimer regarding the use of the Prayas Graphics website and products.",
+  alternates: {
+    canonical: `${BUSINESS_INFO.url}/disclaimer`,
+  },
 };
 
 const sections = [
@@ -13,7 +18,7 @@ const sections = [
   },
   {
     heading: "Product Colours & Representation",
-    body: "We make every effort to display the colours and textures of our posters as accurately as possible on screen. However, due to variations in monitors, devices, and individual colour calibration settings, we cannot guarantee that the colours displayed are perfectly accurate representations of the physical product. Slight variations may occur.",
+    body: "We make every effort to display the colours, textures, and finishes of our signboards, 3D acrylic letters, and materials as accurately as possible on screen. However, due to variations in monitors, devices, lighting conditions, and individual colour calibration settings, we cannot guarantee that the colours displayed on your screen are exact representations of the physical fabricated product. Slight variations may occur naturally.",
   },
   {
     heading: "Third-Party Links",

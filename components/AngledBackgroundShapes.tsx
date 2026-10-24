@@ -79,20 +79,7 @@ export default function AngledBackgroundShapes() {
           </filter>
         </defs>
 
-        {/* -----------------------------------------------------------------
-            TIER 1 (y: ~560px): High Wave arching cleanly above Marquee/Header
-            ----------------------------------------------------------------- */}
-        <path
-          d="M-50,560 C320,660 680,520 1050,580 C1250,620 1400,590 1500,570 L1500,850 C1350,920 1100,810 850,910 C550,1010 200,880 -50,960 Z"
-          fill="url(#waveFill1)"
-        />
-        <path
-          d="M-50,560 C320,660 680,520 1050,580 C1250,620 1400,590 1500,570"
-          stroke="url(#neonGlow1)"
-          strokeWidth="2.5"
-          fill="none"
-          filter="url(#neonBlur)"
-        />
+        {/* Tier 1 removed from hero/marquee boundary to keep Hero and Clients section clean */}
 
         {/* -----------------------------------------------------------------
             TIER 2 (y: ~1180px): Mismatched Inverted Wave rising across Grid

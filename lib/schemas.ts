@@ -7,7 +7,7 @@ import type { ServiceData } from "./services-data";
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@type": ["LocalBusiness", "ProfessionalService", "SignShop"],
     "@id": `${BUSINESS_INFO.url}/#localbusiness`,
     name: BUSINESS_INFO.name,
     legalName: BUSINESS_INFO.legalName,
@@ -123,7 +123,7 @@ export function getServiceSchema(service: ServiceData) {
       price: service.offerPrice || service.originalPrice || "0",
       description: service.pricing,
       availability: "https://schema.org/InStock",
-      validFrom: "2025-01-01",
+      validFrom: "2026-01-01",
     },
     termsOfService: `${BUSINESS_INFO.url}/disclaimer`,
   };

@@ -18,20 +18,21 @@ const cardVariants: Variants = {
 
 export default function BlogPageContent() {
   return (
-    <div className="relative w-full max-w-7xl px-3 sm:px-6 lg:px-8">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#faf8fc] pt-8 sm:pt-12 pb-16 sm:pb-20">
       {/* Ambient background glow */}
       <div
         className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 h-[340px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-b from-purple-100/40 via-purple-50/20 to-transparent blur-3xl -z-10"
         aria-hidden="true"
       />
 
-      {/* Editorial Blog Hero Header - Staggered Motion */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto pt-20 pb-10 sm:pt-24 sm:pb-12"
-      >
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Editorial Blog Hero Header - Staggered Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto pt-4 pb-10 sm:pt-6 sm:pb-12"
+        >
         <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-4 py-1 text-xs font-bold text-[#800080] mb-3">
           <span>Nagpur Signage Tips &amp; Trends</span>
         </div>
@@ -98,6 +99,7 @@ export default function BlogPageContent() {
           </motion.div>
         ))}
       </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }

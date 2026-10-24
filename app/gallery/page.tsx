@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GalleryGrid from "@/components/GalleryGrid";
+import DiagonalSlantedDivider from "@/components/DiagonalSlantedDivider";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
@@ -28,10 +29,7 @@ export default function GalleryPage() {
   ]);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden pt-24 sm:pt-28">
-      {/* Background Shapes strictly isolated at z-0 */}
-      <AngledBackgroundShapes />
-
+    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 overflow-x-hidden pt-24 sm:pt-28">
       {/* Main Content strictly in front at z-10 */}
       <div className="relative z-10 w-full flex flex-col items-center">
         <script
@@ -40,6 +38,12 @@ export default function GalleryPage() {
         />
         <GalleryGrid />
         <CtaSection />
+        <DiagonalSlantedDivider
+          id="cta-to-footer-slant-gallery"
+          topColor="#0c0617"
+          bottomColor="#faf8fc"
+          reverse={true}
+        />
         <Footer />
       </div>
     </main>

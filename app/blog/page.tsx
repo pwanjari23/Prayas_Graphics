@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BlogPageContent from "@/components/BlogPageContent";
+import DiagonalSlantedDivider from "@/components/DiagonalSlantedDivider";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import AngledBackgroundShapes from "@/components/AngledBackgroundShapes";
@@ -28,10 +29,7 @@ export default function BlogPage() {
   ]);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-stone-50 pb-20 overflow-x-hidden pt-24 sm:pt-28">
-      {/* Background Shapes strictly isolated at z-0 */}
-      <AngledBackgroundShapes />
-
+    <main className="relative flex min-h-screen flex-col items-center bg-[#faf8fc] overflow-x-hidden pt-20 sm:pt-24">
       {/* Main Content strictly in front at z-10 */}
       <div className="relative z-10 w-full flex flex-col items-center">
         <script
@@ -40,7 +38,22 @@ export default function BlogPage() {
         />
 
         <BlogPageContent />
+
+        {/* Slanted Divider: Light Blog to Dark CtaSection */}
+        <DiagonalSlantedDivider
+          id="blog-to-cta-slant"
+          topColor="#faf8fc"
+          bottomColor="#0c0617"
+          reverse={false}
+        />
+
         <CtaSection />
+        <DiagonalSlantedDivider
+          id="cta-to-footer-slant-blog"
+          topColor="#0c0617"
+          bottomColor="#faf8fc"
+          reverse={true}
+        />
         <Footer />
       </div>
     </main>

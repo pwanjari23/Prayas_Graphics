@@ -15,13 +15,13 @@ const column1Items: CarouselItem[] = [
   {
     title: "Acrylic ACP Signboard",
     tag: "Flagship 3D",
-    src: "/services/Acrylic ACP Signboard.png",
+    src: "/services/acrylic-acp-signboard-nagpur.webp",
     href: "/services/acrylic-acp-signboard",
   },
   {
     title: "Golden Titanium Letters",
     tag: "Luxury Steel",
-    src: "/services/Golden Acrylic Letters.png",
+    src: "/services/golden-acrylic-letters-nagpur.webp",
     href: "/services/ss-letter-backlit-golden",
   },
   {
@@ -33,13 +33,13 @@ const column1Items: CarouselItem[] = [
   {
     title: "Lollipop Signboard",
     tag: "Dual-Sided",
-    src: "/services/lollipop-signboard.png",
+    src: "/services/lollipop-signboard-nagpur.webp",
     href: "/services/lollipop-signboard",
   },
   {
     title: "Backlit LED Letters",
     tag: "Halo Glow",
-    src: "/services/Back Lit Letters.png",
+    src: "/services/ss-golden-backlit-letters-nagpur.webp",
     href: "/services/ss-letter-backlit-golden",
   },
 ];
@@ -48,13 +48,13 @@ const column2Items: CarouselItem[] = [
   {
     title: "ACP Elevation Work",
     tag: "Facade Cladding",
-    src: "/services/acp-elevation-work.png",
+    src: "/services/acp-elevation-work-nagpur.webp",
     href: "/services/acp-elevation-work",
   },
   {
     title: "Inner Cut Signboard",
     tag: "Precision CNC",
-    src: "/services/Inner Cut ACP Signboard.png",
+    src: "/services/inner-cut-acp-signboard-nagpur.webp",
     href: "/services/inner-cut-acp-signboard",
   },
   {
@@ -66,7 +66,7 @@ const column2Items: CarouselItem[] = [
   {
     title: "Flex Backlit Sign",
     tag: "24/7 Visibility",
-    src: "/services/Flex Backlit Signboard.png",
+    src: "/services/flex-backlit-signboard-nagpur.webp",
     href: "/services/flex-backlit-signboard",
   },
   {

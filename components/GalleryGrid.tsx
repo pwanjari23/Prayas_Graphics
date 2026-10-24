@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, MessageCircle, Sparkles, ShieldCheck, Maximize2 } from "lucide-react";
+import { X, MessageCircle, Sparkles, Maximize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BUSINESS_INFO } from "@/lib/business-info";
 
@@ -16,7 +16,10 @@ export interface GalleryItem {
 }
 
 export const allGalleryItems: GalleryItem[] = [
-  // Signage (8 items)
+  // Signage (11 items)
+  { id: 27, title: "Aarti Wines Storefront", category: "Signage", src: "/gallery/signage/aarti-wines-acp-signboard.webp", spec: "High-Gloss Black ACP Box Fascia with Solid 3D Acrylic Frontlit Lettering" },
+  { id: 28, title: "Glam by Aish Studio Sign", category: "Signage", src: "/gallery/signage/glam-by-aish-acrylic-signboard.webp", spec: "White ACP Fascia with Dual-Tone 3D Acrylic Raised Letters & Red Trim" },
+  { id: 29, title: "Scope Corporate Values Wall", category: "Signage", src: "/gallery/signage/scope-corporate-values-branding.webp", spec: "Multi-Panel Frosted Cast Acrylic Corporate Wall Plaques" },
   { id: 6, title: "Titanium Finish Letters", category: "Signage", src: "/gallery/signage/titanium-finish-letters.webp", spec: "SS 304 Titanium Gold PVD Coated 3D Letters" },
   { id: 7, title: "Mirror Finish Acrylic", category: "Signage", src: "/gallery/signage/mirror-finish-acrylic.webp", spec: "High-Gloss Mirror Gold Acrylic with 3D Depth" },
   { id: 13, title: "3D Corporate Identity", category: "Signage", src: "/gallery/signage/3d-corporate-identity.webp", spec: "Multi-Layered Acrylic & Brushed Stainless Steel" },
@@ -26,14 +29,16 @@ export const allGalleryItems: GalleryItem[] = [
   { id: 22, title: "Architectural Lettering", category: "Signage", src: "/gallery/signage/architectural-lettering.webp", spec: "Deep-Profile Channel Letters with Halo Lighting" },
   { id: 26, title: "Premium Shop Sign", category: "Signage", src: "/gallery/signage/premium-shop-sign.jpg", spec: "Solid Acrylic 3D Frontlit Letters on Wood ACP" },
 
-  // LED Displays (5 items)
+  // LED Displays (6 items)
+  { id: 31, title: "Laundry Bros LED Signboard", category: "LED Displays", src: "/gallery/led-displays/laundry-bros-led-signboard.webp", spec: "Cobalt Blue ACP Fascia Box with High-Lumen 3D Acrylic LED Glow Letters" },
   { id: 1, title: "Backlit LED Signage", category: "LED Displays", src: "/gallery/led-displays/backlit-led-signage.webp", spec: "Cast Acrylic 3D Letters • Samsung LED Modules" },
   { id: 2, title: "Glow Sign Board", category: "LED Displays", src: "/gallery/led-displays/glow-sign-board.webp", spec: "Aluminium Frame • High-Lumen Outdoor Illumination" },
   { id: 9, title: "Neon Flexible Lights", category: "LED Displays", src: "/gallery/led-displays/neon-flexible-lights.webp", spec: "Custom Silicon Neon Flex • 12V Energy Efficient" },
   { id: 15, title: "Storefront LED Display", category: "LED Displays", src: "/gallery/led-displays/storefront-led-display.webp", spec: "Warm-White Commercial Storefront Glow Letters" },
   { id: 19, title: "Fabric Lightbox", category: "LED Displays", src: "/gallery/led-displays/fabric-lightbox.webp", spec: "Edge-lit Frameless SEG Architectural Lightbox" },
 
-  // ACP Work (6 items)
+  // ACP Work (7 items)
+  { id: 30, title: "Aarti Wines Entrance Canopy", category: "ACP Work", src: "/gallery/acp-work/aarti-wines-entrance-canopy-acp.webp", spec: "Architectural ACP Entrance Canopy with Pylon Pillars & Integrated Letters" },
   { id: 3, title: "Silver ACP Finish", category: "ACP Work", src: "/gallery/acp-work/silver-acp-finish.webp", spec: "3mm Metallic ACP Sheet • CNC Grooving & Beveling" },
   { id: 8, title: "Louvered ACP Cladding", category: "ACP Work", src: "/gallery/acp-work/louvered-acp-cladding.webp", spec: "Exterior Architectural Louver Panel Profiles" },
   { id: 10, title: "Marble Texture ACP", category: "ACP Work", src: "/gallery/acp-work/marble-texture-acp.webp", spec: "Premium Marble Pattern Exterior ACP Facade" },
@@ -55,11 +60,46 @@ export const allGalleryItems: GalleryItem[] = [
 
 const categories = ["All", "Signage", "LED Displays", "ACP Work", "Printing", "Facade"] as const;
 
+// Calibrated aspect ratios for natural optical masonry rhythm
+const itemAspectRatios: Record<number, string> = {
+  27: "aspect-[3/4.2]",
+  28: "aspect-[3/4.4]",
+  29: "aspect-[3/3.8]",
+  6: "aspect-[4/3]",
+  7: "aspect-[3/4]",
+  13: "aspect-[16/10]",
+  16: "aspect-[4/3.2]",
+  18: "aspect-[16/11]",
+  21: "aspect-[3/4]",
+  22: "aspect-[4/3]",
+  26: "aspect-[3/4.2]",
+  31: "aspect-[3/4.2]",
+  1: "aspect-[16/10]",
+  2: "aspect-[4/3]",
+  9: "aspect-[3/4]",
+  15: "aspect-[16/11]",
+  19: "aspect-[4/3]",
+  30: "aspect-[3/4]",
+  3: "aspect-[16/10]",
+  8: "aspect-[3/4]",
+  10: "aspect-[4/3.2]",
+  11: "aspect-[1/1]",
+  20: "aspect-[16/10]",
+  23: "aspect-[3/4]",
+  4: "aspect-[3/4.4]",
+  12: "aspect-[16/10]",
+  17: "aspect-[4/3]",
+  24: "aspect-[3/4]",
+  25: "aspect-[3/4.2]",
+  5: "aspect-[16/10]",
+  14: "aspect-[4/3]",
+};
+
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
 
-  // Filter items strictly by category with zero extra/fake padding
+  // Filter items strictly by category
   const filtered =
     activeCategory === "All"
       ? allGalleryItems
@@ -72,47 +112,48 @@ export default function GalleryGrid() {
     return `https://wa.me/${BUSINESS_INFO.contact.whatsappNumber}?text=${text}`;
   }
 
-  // Distribute the exact filtered items across the 5 bento columns
-  // Column 1 gets bottom image + 4 images in its empty space (taken from the bottom of cols 2-5)
-  const col1Bottom: GalleryItem[] = [];
-  const col1Space: GalleryItem[] = [];
-  const col2: GalleryItem[] = [];
-  const col3: GalleryItem[] = [];
-  const col4: GalleryItem[] = [];
-  const col5: GalleryItem[] = [];
-
-  const spaceCount = filtered.length >= 16 ? 4 : 0;
-
-  filtered.forEach((item, index) => {
-    if (index === 0) {
-      col1Bottom.push(item);
-    } else if (spaceCount > 0 && index >= filtered.length - spaceCount) {
-      // The 4 bottom-most images are moved into Column 1's empty space
-      col1Space.push(item);
-    } else {
-      const colIndex = (index - 1) % 4; // Cycles across columns 2, 3, 4, 5
-      if (colIndex === 0) col2.push(item);
-      else if (colIndex === 1) col3.push(item);
-      else if (colIndex === 2) col4.push(item);
-      else col5.push(item);
-    }
-  });
-
-  // Mobile 2-column staggered distribution matching reference image
-  const mobCol1 = filtered.filter((_, i) => i % 2 === 0);
-  const mobCol2 = filtered.filter((_, i) => i % 2 === 1);
-
   return (
-    <section className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 sm:pt-8 pb-20">
+    <section className="relative mx-auto w-full max-w-[1680px] px-3.5 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 pt-2 sm:pt-4 pb-20">
       {/* Background ambient subtle purple glow */}
       <div
-        className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 h-96 w-[650px] rounded-full bg-purple-100/30 blur-3xl -z-10"
+        className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 h-96 w-[750px] rounded-full bg-purple-100/35 blur-3xl -z-10"
         aria-hidden="true"
       />
 
-      {/* DESKTOP FILTER TABS (STRICT COUNT FOR EACH CATEGORY) */}
-      <div className="hidden lg:flex mb-10 flex-wrap items-center justify-between gap-4 border-b border-zinc-200/80 pb-5">
-        <div className="no-scrollbar flex items-center gap-2 overflow-x-auto p-0.5">
+      {/* ======================================================== */}
+      {/* 1. HEADER & INTRO SECTION (Full-Width, Left-Aligned)     */}
+      {/* ======================================================== */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-200/90 bg-purple-50/80 px-3.5 py-1 text-xs font-bold text-[#800080] mb-3">
+            <Sparkles className="h-3.5 w-3.5 text-[#800080]" />
+            <span>VERIFIED INSTALLATION ARCHIVE</span>
+          </div>
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-zinc-950 leading-tight">
+            The Signage <span className="text-[#800080]">Vault.</span>
+          </h1>
+          <p className="mt-3 text-sm sm:text-base text-zinc-600 leading-relaxed font-normal max-w-2xl">
+            From precision-cut 3D titanium letters to commercial ACP elevations, explore real project installations crafted at our Tukdoji Square workshop in Nagpur.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 shrink-0">
+          <a
+            href={`https://wa.me/${BUSINESS_INFO.contact.whatsappNumber}?text=${encodeURIComponent("Hello Prayas Graphics! I saw your portfolio and would like to get a quote for my business in Nagpur.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-xl sm:rounded-2xl bg-[#800080] px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white uppercase shadow-[0_12px_24px_-4px_rgba(128,0,128,0.35)] transition-all duration-200 hover:bg-[#6b006b] hover:shadow-[0_16px_30px_-4px_rgba(128,0,128,0.45)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer whitespace-nowrap"
+          >
+            Get a Custom Quote
+          </a>
+        </div>
+      </div>
+
+      {/* ======================================================== */}
+      {/* 2. FILTER TABS & COUNT BAR                               */}
+      {/* ======================================================== */}
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200/80 pb-5 mb-8 sm:mb-10">
+        <div className="no-scrollbar flex items-center gap-2 overflow-x-auto p-0.5 -mx-3.5 px-3.5 sm:mx-0 sm:px-0">
           {categories.map((cat) => {
             const count =
               cat === "All"
@@ -125,292 +166,16 @@ export default function GalleryGrid() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "relative flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-bold transition-all duration-200 whitespace-nowrap cursor-pointer select-none",
+                  "relative flex items-center gap-1.5 rounded-full px-4 py-2 text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap cursor-pointer select-none shrink-0",
                   isActive
-                    ? "bg-zinc-950 text-white shadow-xs"
-                    : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
+                    ? "bg-zinc-950 text-white shadow-sm"
+                    : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 bg-zinc-100/70"
                 )}
               >
                 <span>{cat}</span>
                 <span
                   className={cn(
-                    "rounded-full px-1.5 py-0.2 text-[10px] font-bold",
-                    isActive ? "bg-white/20 text-white" : "bg-zinc-100 text-zinc-500"
-                  )}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="text-xs font-semibold text-zinc-500">
-          Showing <span className="font-bold text-zinc-950">{filtered.length}</span> {activeCategory === "All" ? "Total Projects" : `${activeCategory} Projects`}
-        </div>
-      </div>
-
-      {/* ======================================================== */}
-      {/* LAPTOP / DESKTOP VIEW: EXACT 5-COLUMN BENTO GRID         */}
-      {/* (Zero Dummy Text, Exact Filter Count, Perfect Alignment)  */}
-      {/* ======================================================== */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -14 }}
-          transition={{ duration: 0.35 }}
-          className="hidden lg:grid grid-cols-[1.38fr_1fr_1fr_1fr_1fr] gap-3.5 xl:gap-4 items-end"
-        >
-          {/* ==================== COLUMN 1 ==================== */}
-          {/* Title (Big like About Us), Subtitle (Small like now), Purple Button, and Bottom Image */}
-          <div className="flex flex-col justify-between h-full space-y-6">
-            <div className="pt-1">
-              <h1 className="font-heading text-[30px] sm:text-[38px] md:text-[44px] lg:text-[48px] xl:text-[54px] font-black tracking-tight text-zinc-950 leading-tight mb-3 whitespace-nowrap">
-                The Signage <span className="text-[#800080]">Vault.</span>
-              </h1>
-              <p className="mt-3 text-xs sm:text-[13.5px] text-zinc-600 leading-relaxed font-normal max-w-sm">
-                From precision-cut 3D titanium letters to commercial ACP elevations, explore real project installations crafted at our Tukdoji Square workshop.
-              </p>
-              <div className="mt-5">
-                <a
-                  href={`https://wa.me/${BUSINESS_INFO.contact.whatsappNumber}?text=${encodeURIComponent("Hello Prayas Graphics! I saw your portfolio and would like to get a quote for my business in Nagpur.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl sm:rounded-2xl bg-[#800080] px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white uppercase shadow-[0_12px_24px_-4px_rgba(128,0,128,0.35)] transition-all duration-200 hover:bg-[#6b006b] hover:shadow-[0_16px_30px_-4px_rgba(128,0,128,0.45)] hover:-translate-y-0.5 cursor-pointer whitespace-nowrap"
-                >
-                  Get a Custom Quote
-                </a>
-              </div>
-            </div>
-
-            {/* Grouped photos with tight, consistent bento spacing */}
-            <div className="space-y-3.5 xl:space-y-4 pt-4">
-              {/* 4 Photos rendered into the empty space of Column 1 */}
-              {col1Space.length > 0 && (
-                <div className="grid grid-cols-2 gap-3 xl:gap-3.5">
-                  {col1Space.map((item) => (
-                    <div
-                      key={`col1-space-${item.id}`}
-                      onClick={() => setLightboxItem(item)}
-                      className="group relative aspect-[4/3] w-full overflow-hidden rounded-[22px] border border-zinc-200/90 bg-zinc-100 shadow-sm transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/10 cursor-pointer"
-                    >
-                      <Image
-                        src={item.src}
-                        alt={item.title}
-                        fill
-                        sizes="20vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                      <div className="absolute bottom-2.5 left-2.5 right-2.5 text-left opacity-0 transition-all duration-300 group-hover:opacity-100">
-                        <p className="text-xs font-bold text-white leading-tight line-clamp-1">{item.title}</p>
-                        <p className="text-[10px] text-purple-300 font-semibold mt-0.5">{item.category}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Col 1 Bottom Image (Slot 0) */}
-              {col1Bottom[0] && (
-                <div
-                  onClick={() => setLightboxItem(col1Bottom[0])}
-                  className="group relative aspect-[16/10] w-full overflow-hidden rounded-[28px] border border-zinc-200/90 bg-zinc-100 shadow-sm transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/10 cursor-pointer"
-                >
-                  <Image
-                    src={col1Bottom[0].src}
-                    alt={col1Bottom[0].title}
-                    fill
-                    sizes="30vw"
-                    priority
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="absolute bottom-3 left-3 right-3 text-left opacity-0 transition-all duration-300 group-hover:opacity-100">
-                    <p className="text-xs font-bold text-white leading-tight">{col1Bottom[0].title}</p>
-                    <p className="text-[10px] text-purple-300 font-semibold mt-0.5">{col1Bottom[0].category}</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* ==================== COLUMN 2 ==================== */}
-          <div className="flex flex-col space-y-3.5 xl:space-y-4 justify-end h-full">
-            {col2.map((item, idx) => (
-              <div
-                key={`col2-${item.id}`}
-                onClick={() => setLightboxItem(item)}
-                className={cn(
-                  "group relative w-full overflow-hidden rounded-[28px] border border-zinc-200/90 bg-zinc-100 shadow-sm transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/10 cursor-pointer",
-                  idx === 0 && col2.length > 1 ? "aspect-[3/3.8]" : "aspect-[4/3]"
-                )}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="20vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute bottom-3 left-3 right-3 text-left opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  <p className="text-xs font-bold text-white leading-tight">{item.title}</p>
-                  <p className="text-[10px] text-purple-300 font-semibold mt-0.5">{item.category}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ==================== COLUMN 3 ==================== */}
-          <div className="flex flex-col space-y-3.5 xl:space-y-4 justify-end h-full">
-            {col3.map((item, idx) => (
-              <div
-                key={`col3-${item.id}`}
-                onClick={() => setLightboxItem(item)}
-                className={cn(
-                  "group relative w-full overflow-hidden rounded-[28px] border border-zinc-200/90 bg-zinc-100 shadow-sm transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/10 cursor-pointer",
-                  idx === 0 && col3.length > 1 ? "aspect-[3/4.2]" : "aspect-[3/3.6]"
-                )}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="20vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute bottom-3 left-3 right-3 text-left opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  <p className="text-xs font-bold text-white leading-tight">{item.title}</p>
-                  <p className="text-[10px] text-purple-300 font-semibold mt-0.5">{item.category}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ==================== COLUMN 4 ==================== */}
-          <div className="flex flex-col space-y-3.5 xl:space-y-4 justify-end h-full">
-            {col4.map((item, idx) => (
-              <div
-                key={`col4-${item.id}`}
-                onClick={() => setLightboxItem(item)}
-                className={cn(
-                  "group relative w-full overflow-hidden rounded-[28px] border border-zinc-200/90 bg-zinc-100 shadow-sm transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/10 cursor-pointer",
-                  idx === 0 && col4.length > 1 ? "aspect-[3/4]" : "aspect-[3/4.4]"
-                )}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="20vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute bottom-3 left-3 right-3 text-left opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  <p className="text-xs font-bold text-white leading-tight">{item.title}</p>
-                  <p className="text-[10px] text-purple-300 font-semibold mt-0.5">{item.category}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ==================== COLUMN 5 ==================== */}
-          <div className="flex flex-col space-y-3 xl:space-y-3.5 justify-end h-full">
-            {col5.map((item, idx) => (
-              <div
-                key={`col5-${item.id}`}
-                onClick={() => setLightboxItem(item)}
-                className={cn(
-                  "group relative w-full overflow-hidden rounded-[26px] border border-zinc-200/90 bg-zinc-100 shadow-sm transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/10 cursor-pointer",
-                  idx === 0 ? "aspect-[16/10]" : "aspect-[3/4.6]"
-                )}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="20vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute bottom-2.5 left-2.5 right-10 text-left opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  <p className="text-[11px] font-bold text-white leading-tight">{item.title}</p>
-                  <p className="text-[9px] text-purple-300 font-semibold">{item.category}</p>
-                </div>
-
-                {/* Frosted Glass Circular Action Button on Featured Cards */}
-                {idx === 0 ? (
-                  <div
-                    className="absolute bottom-2.5 right-2.5 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-zinc-900 backdrop-blur-md border border-white/60 shadow-sm transition-all duration-300 group-hover:bg-[#800080] group-hover:text-white"
-                    aria-label="Explore details"
-                  >
-                    <Sparkles className="h-3.5 w-3.5" />
-                  </div>
-                ) : (
-                  <div
-                    className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-zinc-900 backdrop-blur-md border border-white/60 shadow-md transition-all duration-300 group-hover:bg-[#800080] group-hover:text-white group-hover:scale-110"
-                    aria-label="Expand photo"
-                  >
-                    <Maximize2 className="h-4 w-4" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* ======================================================== */}
-      {/* MOBILE / TABLET VIEW (EXACT MATCH TO REFERENCE IMAGE)     */}
-      {/* ======================================================== */}
-      <div className="lg:hidden space-y-6">
-        <div className="text-left">
-          <h1 className="font-heading text-2xl sm:text-3xl font-black tracking-tight text-zinc-950 leading-tight">
-            The Signage <span className="text-[#800080]">Vault.</span>
-          </h1>
-          <p className="mt-2 text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-            From precision-cut 3D titanium letters to commercial ACP elevations, explore real project installations crafted at our Tukdoji Square workshop.
-          </p>
-          <div className="mt-4">
-            <a
-              href={`https://wa.me/${BUSINESS_INFO.contact.whatsappNumber}?text=${encodeURIComponent("Hello Prayas Graphics! I saw your portfolio and would like to get a quote for my business in Nagpur.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-[#800080] px-6 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-[0_12px_24px_-4px_rgba(128,0,128,0.35)] active:scale-95 transition-transform"
-            >
-              Get a Custom Quote
-            </a>
-          </div>
-        </div>
-
-        {/* Mobile Filter Carousel Pills (Positioned below the heading & button) */}
-        <div className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0">
-          {categories.map((cat) => {
-            const count =
-              cat === "All"
-                ? allGalleryItems.length
-                : allGalleryItems.filter((i) => i.category === cat).length;
-            const isActive = activeCategory === cat;
-
-            return (
-              <button
-                key={`mob-filter-${cat}`}
-                onClick={() => setActiveCategory(cat)}
-                className={cn(
-                  "relative flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all duration-200 whitespace-nowrap cursor-pointer select-none shrink-0",
-                  isActive
-                    ? "bg-zinc-950 text-white shadow-xs"
-                    : "text-zinc-600 hover:text-zinc-950 bg-zinc-100"
-                )}
-              >
-                <span>{cat}</span>
-                <span
-                  className={cn(
-                    "rounded-full px-1.5 py-0.2 text-[10px] font-bold",
+                    "rounded-full px-2 py-0.5 text-[10px] sm:text-xs font-bold",
                     isActive ? "bg-white/20 text-white" : "bg-zinc-200 text-zinc-600"
                   )}
                 >
@@ -421,74 +186,79 @@ export default function GalleryGrid() {
           })}
         </div>
 
-        {/* Mobile 2-Column Staggered Bento Grid matching reference image */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-3.5 items-start">
-          {/* Column 1 (Left Column: starts tall, then landscape, alternating) */}
-          <div className="flex flex-col gap-3 sm:gap-3.5">
-            {mobCol1.map((item, idx) => (
-              <div
-                key={`mob-col1-${item.id}`}
-                onClick={() => setLightboxItem(item)}
-                className={cn(
-                  "group relative w-full overflow-hidden rounded-[20px] border border-zinc-200/90 bg-zinc-100 shadow-xs cursor-pointer active:scale-[0.98] transition-transform",
-                  idx % 2 === 0 ? "aspect-[3/4.2]" : "aspect-[4/3]"
-                )}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="50vw"
-                  className="object-cover"
-                />
-                {/* Top-Right Glassmorphism Badge from reference image */}
-                <div className="absolute top-2.5 right-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-black/45 text-white/95 backdrop-blur-md border border-white/20 shadow-xs pointer-events-none">
-                  <Maximize2 className="h-3.5 w-3.5" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-2.5 left-2.5 right-2.5 text-left pointer-events-none">
-                  <p className="text-xs font-bold text-white leading-tight drop-shadow-sm line-clamp-1">{item.title}</p>
-                  <p className="text-[10px] text-purple-300 font-medium mt-0.5">{item.category}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Column 2 (Right Column: starts landscape, then tall, alternating) */}
-          <div className="flex flex-col gap-3 sm:gap-3.5">
-            {mobCol2.map((item, idx) => (
-              <div
-                key={`mob-col2-${item.id}`}
-                onClick={() => setLightboxItem(item)}
-                className={cn(
-                  "group relative w-full overflow-hidden rounded-[20px] border border-zinc-200/90 bg-zinc-100 shadow-xs cursor-pointer active:scale-[0.98] transition-transform",
-                  idx % 2 === 0 ? "aspect-[4/3]" : "aspect-[3/4.4]"
-                )}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="50vw"
-                  className="object-cover"
-                />
-                {/* Top-Right Glassmorphism Badge from reference image */}
-                <div className="absolute top-2.5 right-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-black/45 text-white/95 backdrop-blur-md border border-white/20 shadow-xs pointer-events-none">
-                  <Maximize2 className="h-3.5 w-3.5" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-2.5 left-2.5 right-2.5 text-left pointer-events-none">
-                  <p className="text-xs font-bold text-white leading-tight drop-shadow-sm line-clamp-1">{item.title}</p>
-                  <p className="text-[10px] text-purple-300 font-medium mt-0.5">{item.category}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="text-xs sm:text-sm font-semibold text-zinc-500 hidden sm:block">
+          Showing <span className="font-bold text-zinc-950">{filtered.length}</span>{" "}
+          {activeCategory === "All" ? "Total Projects" : `${activeCategory} Projects`}
         </div>
       </div>
 
       {/* ======================================================== */}
-      {/* LUXURY EXHIBITION LIGHTBOX DIALOG                        */}
+      {/* 3. FLUID MASONRY GALLERY GRID (Framer Motion Layout)     */}
+      {/* (Fills available width edge-to-edge, starting at left)   */}
+      {/* ======================================================== */}
+      <motion.div
+        layout
+        className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-3.5 sm:gap-4 xl:gap-5 w-full"
+      >
+        <AnimatePresence mode="popLayout">
+          {filtered.map((item, index) => {
+            const aspectClass = itemAspectRatios[item.id] || "aspect-[4/3]";
+
+            return (
+              <motion.div
+                layout
+                key={item.id}
+                initial={{ opacity: 0, scale: 0.94 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                transition={{
+                  opacity: { duration: 0.25 },
+                  layout: { type: "spring", stiffness: 300, damping: 28 },
+                }}
+                className="break-inside-avoid mb-3.5 sm:mb-4 xl:mb-5"
+              >
+                <div
+                  onClick={() => setLightboxItem(item)}
+                  className={cn(
+                    "group relative w-full overflow-hidden rounded-[20px] sm:rounded-[24px] xl:rounded-[26px] border border-zinc-200/90 bg-zinc-100 shadow-xs transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/15 cursor-pointer select-none",
+                    aspectClass
+                  )}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    priority={index < 8}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1440px) 25vw, 20vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
+                  />
+
+                  {/* Top-Right Quick Expand Icon Badge */}
+                  <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-black/45 text-white/95 backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-xs pointer-events-none">
+                    <Maximize2 className="h-3.5 w-3.5" />
+                  </div>
+
+                  {/* Gradient Hover Protection */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+
+                  {/* Bottom Information Overlay */}
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3 sm:right-3 text-left opacity-0 transition-all duration-300 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 pointer-events-none">
+                    <p className="text-xs sm:text-sm font-bold text-white leading-tight line-clamp-1 drop-shadow-xs">
+                      {item.title}
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-purple-300 font-semibold mt-0.5 line-clamp-1">
+                      {item.spec}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </motion.div>
+
+      {/* ======================================================== */}
+      {/* 4. HIGH-RESOLUTION LIGHTBOX MODAL WITH INSTANT ACTION     */}
       {/* ======================================================== */}
       <AnimatePresence>
         {lightboxItem && (
@@ -496,83 +266,58 @@ export default function GalleryGrid() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/85 p-4 backdrop-blur-xl"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 p-3 sm:p-6 md:p-8 backdrop-blur-md"
             onClick={() => setLightboxItem(null)}
           >
             <motion.div
-              initial={{ scale: 0.94, opacity: 0, y: 16 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.94, opacity: 0, y: 16 }}
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 shadow-2xl"
+              className="relative flex flex-col items-center justify-center max-w-5xl max-h-[92vh] overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-zinc-950 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setLightboxItem(null)}
-                className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-md border border-white/10 transition-colors hover:bg-white hover:text-zinc-950 cursor-pointer"
-                aria-label="Close dialog"
+                className="absolute top-3.5 right-3.5 z-20 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-black/75 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-white hover:text-zinc-950 cursor-pointer shadow-lg"
+                aria-label="Close image modal"
               >
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-12">
-                {/* Photo Frame */}
-                <div className="relative aspect-[4/3] w-full md:aspect-auto md:min-h-[460px] md:col-span-7 bg-zinc-950">
-                  <Image
-                    src={lightboxItem.src}
-                    alt={lightboxItem.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 60vw"
-                    className="object-cover"
-                    priority
-                  />
+              {/* Main Photo */}
+              <div className="relative flex items-center justify-center max-h-[75vh] max-w-[90vw]">
+                <Image
+                  src={lightboxItem.src}
+                  alt={lightboxItem.title}
+                  width={1400}
+                  height={1050}
+                  className="max-h-[75vh] max-w-[90vw] w-auto h-auto object-contain rounded-t-2xl sm:rounded-t-3xl"
+                  priority
+                />
+              </div>
+
+              {/* Bottom Caption & WhatsApp Trigger */}
+              <div className="w-full bg-zinc-900/95 border-t border-white/10 px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-sm sm:text-base font-bold text-white leading-tight">
+                    {lightboxItem.title}
+                  </h3>
+                  <p className="text-xs text-purple-300 font-medium mt-0.5">
+                    {lightboxItem.spec}
+                  </p>
                 </div>
 
-                {/* Information Panel */}
-                <div className="flex flex-col justify-between p-6 sm:p-8 md:col-span-5 bg-gradient-to-b from-zinc-900 to-zinc-950 text-left">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-full bg-purple-500/20 px-3 py-1 text-xs font-bold text-purple-300 border border-purple-500/30">
-                        {lightboxItem.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-[11px] font-medium text-emerald-400">
-                        <ShieldCheck className="h-3.5 w-3.5" /> 100% Real Project
-                      </span>
-                    </div>
-
-                    <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold text-white">
-                      {lightboxItem.title}
-                    </h3>
-
-                    <div className="mt-4 space-y-2 border-t border-zinc-800 pt-4 text-xs text-zinc-300">
-                      <div className="flex justify-between">
-                        <span className="text-zinc-500">Fabrication:</span>
-                        <span className="font-semibold text-zinc-200">{lightboxItem.spec}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-zinc-500">Location:</span>
-                        <span className="font-semibold text-zinc-200">Nagpur, Maharashtra</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-zinc-500">Workshop:</span>
-                        <span className="font-semibold text-zinc-200">Prayas Graphics, Tukdoji Sq.</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-zinc-800">
-                    <a
-                      href={getWhatsAppUrl(lightboxItem.title)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#800080] py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-purple-950/30 transition-all hover:bg-[#6b006b] hover:shadow-purple-950/50 cursor-pointer"
-                    >
-                      <MessageCircle className="h-4 w-4" />
-                      Get WhatsApp Quote For This
-                    </a>
-                  </div>
-                </div>
+                <a
+                  href={getWhatsAppUrl(lightboxItem.title)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 px-4 py-2 text-xs font-bold transition-all shadow-md active:scale-95 whitespace-nowrap"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  <span>Inquire About This Sign</span>
+                </a>
               </div>
             </motion.div>
           </motion.div>

@@ -4,6 +4,10 @@ import { CheckCircle2, MessageCircle } from "lucide-react";
 export const metadata = {
   title: "Thank You | Prayas Graphics",
   description: "Your enquiry has been received.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ThankYouPage() {
