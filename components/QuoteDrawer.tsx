@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles } from "lucide-react";
 import QuoteForm from "./QuoteForm";
@@ -17,6 +18,12 @@ export default function QuoteDrawer({
   onClose,
   serviceSlug,
 }: QuoteDrawerProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Prevent background scroll while drawer is open
   useEffect(() => {
     if (isOpen) {
@@ -40,7 +47,9 @@ export default function QuoteDrawer({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  return (
+  if (!mounted || !isOpen) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <>
@@ -51,7 +60,7 @@ export default function QuoteDrawer({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[120] bg-zinc-950/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[150] bg-zinc-950/60 backdrop-blur-sm"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -63,14 +72,14 @@ export default function QuoteDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 260 }}
-            className="fixed right-0 top-0 z-[121] flex h-full w-[88vw] max-w-[540px] sm:w-[540px] md:w-[600px] flex-col bg-white shadow-2xl rounded-l-[28px] sm:rounded-l-[32px] border-l border-zinc-200 overflow-hidden"
+            className="fixed right-0 top-0 z-[151] flex h-full w-full sm:w-[540px] md:w-[600px] max-w-[100vw] flex-col bg-white shadow-2xl rounded-none sm:rounded-l-[32px] border-l border-zinc-200 overflow-hidden"
             aria-label="Request a custom quote drawer"
           >
             {/* Drawer Top Header (matching reference image) */}
-            <div className="relative border-b border-zinc-100 bg-stone-50/80 px-4 py-5 sm:px-8 sm:py-8 shrink-0 text-center">
+            <div className="relative border-b border-zinc-100 bg-stone-50/80 px-4 py-4 sm:px-8 sm:py-7 shrink-0 text-center">
               <button
                 onClick={onClose}
-                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white text-zinc-500 hover:bg-zinc-200 hover:text-zinc-900 transition-colors shadow-xs border border-zinc-200/80 cursor-pointer"
+                className="absolute right-3.5 top-3.5 sm:right-4 sm:top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-colors shadow-xs border border-zinc-200/80 cursor-pointer active:scale-95"
                 aria-label="Close drawer"
               >
                 <X className="h-4 w-4" />
@@ -101,6 +110,7 @@ export default function QuoteDrawer({
           </motion.aside>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

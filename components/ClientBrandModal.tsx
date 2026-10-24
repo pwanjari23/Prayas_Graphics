@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { X, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,8 +20,13 @@ export default function ClientBrandModal({
   onClose,
   triggerElementRef,
 }: ClientBrandModalProps) {
+  const [mounted, setMounted] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -69,12 +75,12 @@ export default function ClientBrandModal({
     };
   }, [isOpen, onClose, triggerElementRef]);
 
-  if (!isOpen || !brand) return null;
+  if (!mounted || !isOpen || !brand) return null;
 
-  return (
+  return createPortal(
     <AnimatePresence>
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-6 overflow-y-auto"
+        className="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-5 md:p-6 overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="brand-modal-title"
@@ -86,7 +92,7 @@ export default function ClientBrandModal({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
           onClick={onClose}
-          className="fixed inset-0 bg-zinc-950/60 backdrop-blur-sm cursor-pointer"
+          className="fixed inset-0 bg-zinc-950/75 backdrop-blur-sm cursor-pointer z-[150]"
           aria-hidden="true"
         />
 
@@ -98,12 +104,12 @@ export default function ClientBrandModal({
           exit={{ opacity: 0, scale: 0.96, y: 12 }}
           transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
-          className="relative z-10 w-full max-w-3xl max-h-[88vh] flex flex-col rounded-3xl bg-white border border-zinc-200/90 shadow-2xl overflow-hidden text-left"
+          className="relative z-[151] w-full max-w-3xl max-h-[90vh] sm:max-h-[88vh] flex flex-col rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/90 shadow-2xl overflow-hidden text-left my-auto mt-12 sm:mt-auto"
         >
-          {/* Header: Logo, Brand Name & Close Button */}
-          <div className="flex items-center justify-between border-b border-zinc-100 bg-white px-5 sm:px-6 py-4 shrink-0">
-            <div className="flex items-center gap-3">
-              <div className="relative flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-zinc-200/80 bg-zinc-50 p-1.5 shadow-2xs">
+          {/* Header: Logo, Brand Name & High-Affordance Close Button */}
+          <div className="flex items-center justify-between border-b border-zinc-100 bg-white px-4 sm:px-6 py-3.5 sm:py-4 shrink-0">
+            <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-2">
+              <div className="relative flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-zinc-200/80 bg-zinc-50 p-1 shadow-2xs">
                 <Image
                   src={brand.logo}
                   alt={`${brand.name} logo`}
@@ -112,12 +118,17 @@ export default function ClientBrandModal({
                   className="object-contain p-0.5"
                 />
               </div>
-              <h3
-                id="brand-modal-title"
-                className="font-heading text-base sm:text-lg font-bold tracking-tight text-zinc-950"
-              >
-                {brand.name}
-              </h3>
+              <div className="min-w-0">
+                <h3
+                  id="brand-modal-title"
+                  className="font-heading text-sm sm:text-lg font-bold tracking-tight text-zinc-950 truncate"
+                >
+                  {brand.name}
+                </h3>
+                <p className="text-[11px] sm:text-xs text-zinc-500 font-medium truncate">
+                  {brand.subtitle || "Verified Client Showcase"}
+                </p>
+              </div>
             </div>
 
             <button
@@ -125,20 +136,20 @@ export default function ClientBrandModal({
               type="button"
               onClick={onClose}
               aria-label={`Close ${brand.name} gallery`}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200/70 bg-zinc-100 text-zinc-500 transition-colors hover:bg-zinc-200 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080] cursor-pointer"
+              className="flex h-10 w-10 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 hover:text-zinc-950 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080] cursor-pointer shadow-xs active:scale-95"
             >
-              <X className="h-4 w-4" />
+              <X className="h-5 w-5 sm:h-4 sm:w-4" />
             </button>
           </div>
 
           {/* Body: Images and 1-line description per image */}
-          <div className="flex-1 overflow-y-auto p-5 sm:p-6 bg-stone-50/40">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 bg-stone-50/40">
             {brand.projects && brand.projects.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
                 {brand.projects.map((proj) => (
                   <div key={proj.id} className="flex flex-col">
                     {/* Project Image */}
-                    <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-200/80 shadow-xs">
+                    <div className="relative aspect-[16/10] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-200/80 shadow-xs">
                       <Image
                         src={proj.image}
                         alt={proj.alt || proj.description}
@@ -148,7 +159,7 @@ export default function ClientBrandModal({
                       />
                     </div>
                     {/* 1-Line Description */}
-                    <p className="mt-2 text-xs sm:text-[13px] font-medium text-zinc-700 leading-snug line-clamp-1">
+                    <p className="mt-2 text-xs sm:text-[13px] font-medium text-zinc-700 leading-snug line-clamp-2 sm:line-clamp-1">
                       {proj.description}
                     </p>
                   </div>
@@ -165,6 +176,7 @@ export default function ClientBrandModal({
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

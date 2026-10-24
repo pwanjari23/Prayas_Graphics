@@ -96,7 +96,7 @@ export default function CartPanel() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-100 bg-zinc-950/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[150] bg-zinc-950/40 backdrop-blur-sm"
             onClick={closeCart}
             aria-hidden="true"
           />
@@ -107,7 +107,7 @@ export default function CartPanel() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 260 }}
-            className="fixed right-0 top-0 z-101 flex h-full w-full flex-col bg-white shadow-2xl sm:w-[500px]"
+            className="fixed right-0 top-0 z-[151] flex h-full w-full flex-col bg-white shadow-2xl sm:w-[500px]"
             aria-label="Your quote request cart"
           >
             {/* Header */}

@@ -106,32 +106,40 @@ export default function QuoteForm({
     setServiceDetails((prev) => ({ ...prev, [key]: value }));
   };
 
-  const commonSelectClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
-  const commonInputClass = "w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
+  const commonSelectClass = "w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
+  const commonInputClass = "w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
 
   const renderDimensionInputs = (label = "Size (Width × Height)", hideArea = false) => (
-    <div>
-      <label className="block text-sm font-semibold text-zinc-700 mb-1">{label}</label>
-      <div className="flex gap-2 items-center">
-        <input 
-          type="number" 
-          placeholder="Width" 
-          value={dimensions.width} 
-          onChange={(e) => { setDimensions(prev => ({...prev, width: e.target.value})); setError(""); }} 
-          className={commonInputClass} 
-        />
-        <span className="text-zinc-400 font-medium font-mono text-sm">×</span>
-        <input 
-          type="number" 
-          placeholder="Height" 
-          value={dimensions.height} 
-          onChange={(e) => { setDimensions(prev => ({...prev, height: e.target.value})); setError(""); }} 
-          className={commonInputClass} 
-        />
+    <div className="space-y-1.5">
+      <label className="block text-xs sm:text-sm font-semibold text-zinc-700">{label}</label>
+      <div className="grid grid-cols-[1fr_auto_1fr_auto] gap-1.5 sm:gap-2 items-center">
+        <div className="relative">
+          <input 
+            type="number" 
+            inputMode="decimal"
+            placeholder="Width" 
+            value={dimensions.width} 
+            onChange={(e) => { setDimensions(prev => ({...prev, width: e.target.value})); setError(""); }} 
+            className={commonInputClass} 
+          />
+          <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-zinc-400 pointer-events-none">W</span>
+        </div>
+        <span className="text-zinc-400 font-bold font-mono text-xs sm:text-sm">×</span>
+        <div className="relative">
+          <input 
+            type="number" 
+            inputMode="decimal"
+            placeholder="Height" 
+            value={dimensions.height} 
+            onChange={(e) => { setDimensions(prev => ({...prev, height: e.target.value})); setError(""); }} 
+            className={commonInputClass} 
+          />
+          <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-zinc-400 pointer-events-none">H</span>
+        </div>
         <select 
           value={dimensions.unit} 
           onChange={(e) => { setDimensions(prev => ({...prev, unit: e.target.value as DimensionUnit})); setError(""); }} 
-          className="w-24 rounded-xl border border-zinc-200 bg-white px-3 py-3 text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors"
+          className="w-16 sm:w-22 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-white px-2 py-2.5 sm:px-3 sm:py-3 text-sm font-bold text-zinc-800 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors cursor-pointer"
         >
           <option value="ft">ft</option>
           <option value="in">in</option>
@@ -139,31 +147,27 @@ export default function QuoteForm({
       </div>
       
       {(area > 0 || (currentService?.offerPrice && currentService?.slug === "flex-roll-up-standee")) && (
-         <div className="mt-3 flex flex-col gap-2">
-           <div className="inline-flex flex-wrap items-center gap-4 text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/10 px-4 py-3 w-full">
+         <div className="mt-2.5 flex flex-col gap-1.5">
+           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/15 p-2.5 sm:px-4 sm:py-3 w-full">
              {!hideArea && area > 0 && (
-               <div className="flex items-center gap-1.5 min-w-max text-[#800080]">
-                 <span className="opacity-70 font-medium">Total Area:</span> 
-                 {area.toFixed(2)} sq.ft
+               <div className="flex items-center gap-1.5 text-[#800080]">
+                 <span className="opacity-75 font-medium">Total Area:</span> 
+                 <span className="font-bold">{area.toFixed(2)} sq.ft</span>
                </div>
              )}
              
              {estimatedPrice > 0 && (
-               <>
-                 {!hideArea && area > 0 && <div className="w-px h-4 bg-[#800080]/20 hidden sm:block"></div>}
-                 
-                 <div className="flex items-center gap-1.5 min-w-max text-emerald-700">
-                   <span className="opacity-70 font-medium">Approximate Rate:</span> 
-                   {currentService?.originalPrice && (
-                     <span className="text-zinc-400 line-through text-xs mr-0.5">₹{currentService.originalPrice.toLocaleString('en-IN')}</span>
-                   )}
-                   ₹{estimatedPrice.toLocaleString('en-IN')}
-                 </div>
-               </>
+               <div className="flex items-center gap-1.5 text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200/60 w-fit">
+                 <span className="opacity-80 font-medium text-[11px] sm:text-xs">Approx. Rate:</span> 
+                 {currentService?.originalPrice && (
+                   <span className="text-zinc-400 line-through text-[11px] mr-0.5">₹{currentService.originalPrice.toLocaleString('en-IN')}</span>
+                 )}
+                 <span className="font-black text-sm sm:text-base text-emerald-700">₹{estimatedPrice.toLocaleString('en-IN')}</span>
+               </div>
              )}
            </div>
            {selectedService === "acrylic-acp-signboard" && area < 32 && (
-             <div className="flex items-center gap-1.5 mt-1 text-sm font-medium text-red-600 px-1">
+             <div className="flex items-center gap-1.5 mt-0.5 text-xs sm:text-sm font-medium text-red-600 px-1">
                <span className="shrink-0">•</span>
                <span>Minimum area for Acrylic ACP should be 32 sq.ft</span>
              </div>
@@ -185,7 +189,7 @@ export default function QuoteForm({
               <span className="text-zinc-400 shrink-0 mt-0.5">ℹ️</span>
               <span>Note: Acrylic ACP Signboard in 10 by 4 sheet only 200 inches of letter would be provided if your calculation exceeds that more charges would be added.</span>
             </div>
-            <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
                 <input type="number" placeholder="1" className={commonInputClass} onChange={(e) => updateServiceDetail("Quantity", e.target.value)} />
@@ -199,7 +203,7 @@ export default function QuoteForm({
                 </select>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Have Design File?</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Has Design", e.target.value)}>
@@ -228,7 +232,7 @@ export default function QuoteForm({
               <label className="block text-sm font-semibold text-zinc-700 mb-1">Text/Logo to Cut</label>
               <input type="text" placeholder="What should it say?" className={commonInputClass} onChange={(e) => updateServiceDetail("Text/Logo", e.target.value)} />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Lighting</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Lighting", e.target.value)}>
@@ -249,7 +253,7 @@ export default function QuoteForm({
         return (
           <div className="space-y-4">
             {renderDimensionInputs()}
-            <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Components</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Components", e.target.value)}>
@@ -274,7 +278,7 @@ export default function QuoteForm({
         return (
           <div className="space-y-4">
             {renderDimensionInputs()}
-            <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Type</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Type", e.target.value)}>
@@ -301,7 +305,7 @@ export default function QuoteForm({
             </div>
             {/* We will still use the unified dimensions because the demoRatePerSqFt converts it realistically via area. For individual letters, total area coverage is standard proxy */}
             {renderDimensionInputs("Overall Wall Area for Letters")}
-            <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Lighting / Finish</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Lighting / Finish", e.target.value)}>
@@ -330,7 +334,7 @@ export default function QuoteForm({
           <div className="space-y-4">
             {/* For standee we override the unit manually via notes previously, but now we can just let them type dimensions */}
             {renderDimensionInputs("Target Size (Standard is 6x3 ft)", true)}
-            <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Have Design?</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Has Design", e.target.value)}>
@@ -357,7 +361,7 @@ export default function QuoteForm({
         return (
           <div className="space-y-4">
             {renderDimensionInputs("Facade Dimensions")}
-            <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Preferred Color/Finish</label>
                 <input type="text" placeholder="e.g. Metallic Silver" className={commonInputClass} onChange={(e) => updateServiceDetail("Color", e.target.value)} />
@@ -377,7 +381,7 @@ export default function QuoteForm({
       case "visiting-cards":
         return (
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Quantity", e.target.value)}>
@@ -410,7 +414,7 @@ export default function QuoteForm({
       case "lollipop-signboard":
         return (
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-sm font-semibold text-zinc-700 mb-1">Material Variant</label>
                 <select className={commonSelectClass} onChange={(e) => updateServiceDetail("Material", e.target.value)}>
@@ -450,10 +454,10 @@ export default function QuoteForm({
   };
 
   return (
-    <div className={isDrawer ? "w-full flex-1 flex flex-col justify-between overflow-hidden" : "w-full max-w-3xl mx-auto bg-white rounded-[32px] border border-zinc-100 shadow-xl overflow-hidden mt-8 mb-20"}>
-      <div className={isDrawer ? "p-4 sm:p-6 overflow-y-auto flex-1" : "p-8 md:p-12"}>
+    <div className={isDrawer ? "w-full flex-1 flex flex-col justify-between overflow-hidden" : "w-full max-w-3xl mx-auto bg-white rounded-2xl sm:rounded-[32px] border border-zinc-100 shadow-xl overflow-hidden mt-4 sm:mt-8 mb-10 sm:mb-20"}>
+      <div className={isDrawer ? "p-3.5 sm:p-6 overflow-y-auto flex-1" : "p-4 sm:p-8 md:p-12"}>
         {error && (
-          <div className="mb-6 p-4 rounded-xl bg-red-50 text-red-600 text-sm font-medium border border-red-100">
+          <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-red-50 text-red-600 text-xs sm:text-sm font-medium border border-red-100">
             {error}
           </div>
         )}
@@ -461,20 +465,20 @@ export default function QuoteForm({
         {/* Step 1: Select Service */}
         {step === 1 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-zinc-900 mb-2">What do you need a quote for?</h2>
-            <p className="text-zinc-500 mb-6 font-medium text-sm">Select a service below to configure your specific requirements.</p>
+            <h2 className="text-lg sm:text-2xl font-heading font-extrabold text-zinc-900 mb-1.5 sm:mb-2">What do you need a quote for?</h2>
+            <p className="text-zinc-500 mb-4 sm:mb-6 font-medium text-xs sm:text-sm">Select a service below to configure your specific requirements.</p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-4">
               {servicesData.map((s) => (
                 <button
                   key={s.slug}
                   onClick={() => setSelectedService(s.slug)}
-                  className={`text-left p-3.5 sm:p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-3.5 ${selectedService === s.slug ? "border-[#800080] bg-[#800080]/5 ring-4 ring-[#800080]/10" : "border-zinc-100 hover:border-zinc-300 bg-white"}`}
+                  className={`text-left p-3 sm:p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-3 ${selectedService === s.slug ? "border-[#800080] bg-[#800080]/5 ring-4 ring-[#800080]/10" : "border-zinc-100 hover:border-zinc-300 bg-white"}`}
                 >
-                  <div className={`p-2 rounded-lg ${selectedService === s.slug ? "bg-[#800080] text-white" : "bg-zinc-100 text-zinc-600"}`}>
-                     <s.icon className="w-5 h-5" />
+                  <div className={`p-2 rounded-lg shrink-0 ${selectedService === s.slug ? "bg-[#800080] text-white" : "bg-zinc-100 text-zinc-600"}`}>
+                     <s.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <span className="font-semibold text-zinc-900 text-sm sm:text-base">{s.title}</span>
+                  <span className="font-semibold text-zinc-900 text-xs sm:text-base leading-snug">{s.title}</span>
                 </button>
               ))}
             </div>
@@ -484,8 +488,8 @@ export default function QuoteForm({
         {/* Step 2: Service Specific Fields */}
         {step === 2 && (
           <div className="animate-in fade-in slide-in-from-right-8 duration-500">
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-zinc-900 mb-2">Configure Details</h2>
-            <p className="text-zinc-500 mb-6 font-medium text-xs sm:text-sm">Tell us a bit more about what you want for the <strong className="text-zinc-900">{servicesData.find(s=>s.slug===selectedService)?.title}</strong>.</p>
+            <h2 className="text-lg sm:text-2xl font-heading font-extrabold text-zinc-900 mb-1.5 sm:mb-2">Configure Details</h2>
+            <p className="text-zinc-500 mb-4 sm:mb-6 font-medium text-xs sm:text-sm">Tell us a bit more about what you want for the <strong className="text-zinc-900">{servicesData.find(s=>s.slug===selectedService)?.title}</strong>.</p>
             
             {renderServiceFields()}
           </div>
@@ -493,19 +497,19 @@ export default function QuoteForm({
       </div>
       
       {/* Footer Navigation */}
-      <div className={isDrawer ? "bg-white border-t border-zinc-100 px-4 sm:px-6 py-4 flex items-center justify-between shrink-0" : "bg-zinc-50 border-t border-zinc-100 px-6 py-4 flex items-center justify-between"}>
+      <div className={isDrawer ? "bg-white border-t border-zinc-100 px-3.5 sm:px-6 py-3 sm:py-4 flex items-center justify-between shrink-0 gap-2" : "bg-zinc-50 border-t border-zinc-100 px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between gap-2"}>
         {step === 2 && !initialService ? (
-          <button onClick={handleBack} className="flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-zinc-600 hover:bg-zinc-200 transition-colors text-sm">
-            <ArrowLeft className="w-4 h-4" /> Back
+          <button onClick={handleBack} className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-zinc-600 hover:bg-zinc-200 transition-colors text-xs sm:text-sm">
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Back
           </button>
-        ) : <div></div>}
+        ) : <div />}
 
         {step === 1 ? (
-          <button onClick={handleNext} className="flex items-center gap-2 px-7 py-3 rounded-full font-bold text-white bg-[#800080] hover:bg-[#800080]/90 transition-colors shadow-lg shadow-[#800080]/20 hover:scale-[1.02] text-sm">
-            Continue Details <ChevronRight className="w-4 h-4" />
+          <button onClick={handleNext} className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full font-bold text-white bg-[#800080] hover:bg-[#800080]/90 transition-colors shadow-lg shadow-[#800080]/20 hover:scale-[1.02] text-xs sm:text-sm">
+            Continue Details <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         ) : (
-          <button onClick={handleAddToCart} className="flex items-center gap-2 px-7 py-3 rounded-full font-bold text-white bg-zinc-900 hover:bg-zinc-950 transition-colors shadow-lg hover:scale-[1.02] text-sm">
+          <button onClick={handleAddToCart} className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full font-bold text-white bg-zinc-900 hover:bg-zinc-950 transition-colors shadow-lg hover:scale-[1.02] text-xs sm:text-sm">
             Add to Quote Cart
           </button>
         )}
