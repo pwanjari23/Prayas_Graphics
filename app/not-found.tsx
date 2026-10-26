@@ -15,7 +15,7 @@ export default function NotFound() {
   return (
     <main className="flex min-h-[80vh] flex-col items-center justify-center bg-stone-50 px-4 py-24 text-center">
       <div className="mx-auto max-w-lg rounded-3xl bg-white p-8 md:p-12 shadow-sm border border-zinc-100">
-        <span className="inline-flex items-center gap-2 rounded-full bg-[#800080]/10 px-3 py-1 text-xs font-bold text-[#800080] uppercase tracking-wider mb-6">
+        <span className="inline-flex items-center gap-2 rounded-full bg-zinc-100 border border-zinc-200 px-3 py-1 text-xs font-bold text-zinc-900 uppercase tracking-wider mb-6">
           404 Error
         </span>
         <h1 className="font-heading text-4xl font-extrabold text-zinc-900 tracking-tight mb-4">
@@ -45,7 +45,7 @@ export default function NotFound() {
             Need urgent assistance? Call us directly at{" "}
             <a
               href={`tel:${BUSINESS_INFO.contact.phoneRaw}`}
-              className="font-semibold text-zinc-700 hover:text-[#800080]"
+              className="font-semibold text-zinc-700 hover:text-black"
             >
               {BUSINESS_INFO.contact.phone}
             </a>

@@ -50,9 +50,9 @@ export default function ProductCard({ id, title, price, originalPrice, badges }:
                   key={idx}
                   className={cn(
                     "rounded-full px-3 py-1 text-xs font-semibold",
-                    badge.type === "sale" && "border border-[#800080]/20 text-[#800080] bg-white",
-                    badge.type === "popular" && "bg-[#800080] text-white",
-                    badge.type === "new" && "bg-[#800080] text-white",
+                    badge.type === "sale" && "border border-zinc-300 text-zinc-900 bg-zinc-100",
+                    badge.type === "popular" && "bg-black text-white",
+                    badge.type === "new" && "bg-black text-white",
                     idx > 0 && badge.type === "sale" ? "ml-auto" : "",
                     idx > 0 && badge.type !== "sale" ? "ml-auto" : ""
                   )}

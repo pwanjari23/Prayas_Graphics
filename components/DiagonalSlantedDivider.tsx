@@ -12,10 +12,10 @@ interface DiagonalSlantedDividerProps {
 export default function DiagonalSlantedDivider({
   id = "diagonal-slant",
   className = "",
-  topColor = "#faf8fc",
-  bottomColor = "#0c0617",
+  topColor = "#ffffff",
+  bottomColor = "#171717",
   reverse = false,
-  accentGradientColors = ["#800080", "#A855F7", "#D946EF", "#E879F9"],
+  accentGradientColors = ["#262626", "#525252", "#737373", "#404040"],
 }: DiagonalSlantedDividerProps) {
   const gradientId = `${id}-gradient`;
   const glowId = `${id}-glow`;
@@ -30,7 +30,7 @@ export default function DiagonalSlantedDivider({
     ? "M-10 40 L1210 8 L1210 52 L-10 52 Z"
     : "M-10 8 L1210 40 L1210 52 L-10 52 Z";
 
-  // Clean, consistent purple-to-magenta accent line coordinates
+  // Clean, consistent accent line coordinates
   const lineCoords = reverse
     ? { x1: "-10", y1: "40", x2: "1210", y2: "8" }
     : { x1: "-10", y1: "8", x2: "1210", y2: "40" };
@@ -48,7 +48,7 @@ export default function DiagonalSlantedDivider({
         style={{ shapeRendering: "geometricPrecision" }}
       >
         <defs>
-          {/* Consistent Purple-to-Magenta Accent Gradient */}
+          {/* Subtle Monochrome Grayscale Accent Gradient */}
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor={accentGradientColors[0]} />
             <stop offset="35%" stopColor={accentGradientColors[1]} />
@@ -56,11 +56,11 @@ export default function DiagonalSlantedDivider({
             <stop offset="100%" stopColor={accentGradientColors[3]} />
           </linearGradient>
 
-          {/* Soft Ambient Glow Gradient */}
+          {/* Soft Grayscale Ambient Seam Glow */}
           <linearGradient id={glowId} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#800080" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#D946EF" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#E879F9" stopOpacity="0.4" />
+            <stop offset="0%" stopColor="#262626" stopOpacity="0.2" />
+            <stop offset="50%" stopColor="#525252" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#262626" stopOpacity="0.2" />
           </linearGradient>
         </defs>
 
@@ -77,20 +77,20 @@ export default function DiagonalSlantedDivider({
           x2={lineCoords.x2}
           y2={lineCoords.y2}
           stroke={`url(#${glowId})`}
-          strokeWidth="6"
+          strokeWidth="4"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
           shapeRendering="geometricPrecision"
         />
 
-        {/* 4. Solid Purple-to-Magenta Core Accent Line (Consistent 2.5px width across all viewports) */}
+        {/* 4. Solid Monochrome Core Accent Line */}
         <line
           x1={lineCoords.x1}
           y1={lineCoords.y1}
           x2={lineCoords.x2}
           y2={lineCoords.y2}
           stroke={`url(#${gradientId})`}
-          strokeWidth="2.5"
+          strokeWidth="1.75"
           vectorEffect="non-scaling-stroke"
           shapeRendering="geometricPrecision"
         />
@@ -101,9 +101,9 @@ export default function DiagonalSlantedDivider({
           y1={lineCoords.y1}
           x2={lineCoords.x2}
           y2={lineCoords.y2}
-          stroke="#FDF4FF"
-          strokeWidth="0.75"
-          strokeOpacity="0.8"
+          stroke="#ffffff"
+          strokeWidth="0.5"
+          strokeOpacity="0.5"
           vectorEffect="non-scaling-stroke"
           shapeRendering="geometricPrecision"
         />

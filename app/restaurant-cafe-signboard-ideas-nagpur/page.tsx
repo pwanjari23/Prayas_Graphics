@@ -60,16 +60,16 @@ export default function RestaurantSignboardIdeasPage() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#800080]">Daytime Impact</span>
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <span className="text-xs font-bold uppercase tracking-wider text-zinc-900">Daytime Impact</span>
           <h3 className="text-base font-bold text-zinc-950 mt-1 mb-2">Architectural Relief & Shadow Play</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
-            By day, the signage relies on physical depth. 3D raised letters—such as 2-inch deep <Link href="/services/aluminium-channel-letters" className="text-purple-700 font-semibold underline">Aluminium Channel Letters</Link> or electroplated <Link href="/services/ss-letter-backlit-golden" className="text-purple-700 font-semibold underline">Golden SS Letters</Link>—cast crisp natural drop shadows against matte ACP cladding, ensuring razor-sharp legibility even under harsh midday Nagpur sun glare.
+            By day, the signage relies on physical depth. 3D raised letters—such as 2-inch deep <Link href="/services/aluminium-channel-letters" className="text-zinc-950 font-semibold underline">Aluminium Channel Letters</Link> or electroplated <Link href="/services/ss-letter-backlit-golden" className="text-zinc-950 font-semibold underline">Golden SS Letters</Link>—cast crisp natural drop shadows against matte ACP cladding, ensuring razor-sharp legibility even under harsh midday Nagpur sun glare.
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#800080]">Night-time Impact</span>
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <span className="text-xs font-bold uppercase tracking-wider text-zinc-900">Night-time Impact</span>
           <h3 className="text-base font-bold text-zinc-950 mt-1 mb-2">Controlled Optical Diffusion</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             At night, raw exposed LEDs blind oncoming traffic and destroy logo clarity. We utilize optical grade cast acrylic faces with specialized light-diffusing pigments that distribute luminescence evenly across 100% of the letter face without hotspots or dark corners.
@@ -93,22 +93,22 @@ export default function RestaurantSignboardIdeasPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-100">
-            <tr className="hover:bg-stone-50 transition-colors">
-              <td className="px-5 py-4 font-bold text-amber-700">2700K – 3000K (Warm White)</td>
+            <tr className="hover:bg-zinc-50 transition-colors">
+              <td className="px-5 py-4 font-bold text-zinc-900">2700K – 3000K (Warm White)</td>
               <td className="px-5 py-4">Golden, amber, candlelit glow</td>
-              <td className="px-5 py-4 text-emerald-700 font-medium">Increases appetite, relaxes diners, encourages longer stays</td>
+              <td className="px-5 py-4 text-zinc-700 font-medium">Increases appetite, relaxes diners, encourages longer stays</td>
               <td className="px-5 py-4">Fine dining, cafes, bakeries, cocktail lounges</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-bold text-zinc-900">4000K (Neutral Daylight)</td>
               <td className="px-5 py-4">Crisp, clean, natural white</td>
               <td className="px-5 py-4 text-zinc-700 font-medium">Conveys hygiene, promptness, freshness</td>
               <td className="px-5 py-4">QSRs, ice cream parlours, salad bars, juice bistros</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
-              <td className="px-5 py-4 font-bold text-blue-700">6500K (Cool White)</td>
+            <tr className="hover:bg-zinc-50 transition-colors">
+              <td className="px-5 py-4 font-bold text-zinc-900">6500K (Cool White)</td>
               <td className="px-5 py-4">Stark bluish-white</td>
-              <td className="px-5 py-4 text-red-600 font-medium">Feels clinical and cold; suppresses cozy ambiance</td>
+              <td className="px-5 py-4 text-zinc-700 font-medium">Feels clinical and cold; suppresses cozy ambiance</td>
               <td className="px-5 py-4">Pharmacies & clinics (AVOID for dining establishments)</td>
             </tr>
           </tbody>
@@ -136,23 +136,23 @@ export default function RestaurantSignboardIdeasPage() {
       <h2 id="case-studies">4. Real Nagpur F&B Case Studies</h2>
 
       <div className="space-y-6 my-6">
-        <div className="p-6 rounded-2xl bg-stone-50 border border-zinc-200/80">
+        <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200/80">
           <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
             <h3 className="text-base font-bold text-zinc-900 m-0">Artisan Coffee House & Patisserie — Dharampeth, Nagpur</h3>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-[#800080]">Halo SS & Neon Wall</span>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200">Halo SS & Neon Wall</span>
           </div>
           <p className="text-sm text-zinc-600 mt-2 leading-relaxed">
-            <strong>Execution:</strong> We crafted an architectural exterior fascia using Grade 304 Titanium PVD Gold Stainless Steel letters offset 30mm from a textured dark slate ACP base, producing a soft 3000K warm halo glow. Inside, we built a signature quote in custom pink and warm-white <Link href="/services/neon-signboard-nagpur" className="text-purple-700 font-semibold underline">Neon Signboard Nagpur</Link>. Within 90 days, the neon photo wall generated over 800 organic location tags on Instagram.
+            <strong>Execution:</strong> We crafted an architectural exterior fascia using Grade 304 Titanium PVD Gold Stainless Steel letters offset 30mm from a textured dark slate ACP base, producing a soft 3000K warm halo glow. Inside, we built a signature quote in custom pink and warm-white <Link href="/services/neon-signboard-nagpur" className="text-zinc-950 font-semibold underline">Neon Signboard Nagpur</Link>. Within 90 days, the neon photo wall generated over 800 organic location tags on Instagram.
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-stone-50 border border-zinc-200/80">
+        <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200/80">
           <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
             <h3 className="text-base font-bold text-zinc-900 m-0">Multi-Cuisine Family Restaurant — Medical Square / Manewada Road</h3>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-[#800080]">Acrylic ACP & Menu Box</span>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200">Acrylic ACP & Menu Box</span>
           </div>
           <p className="text-sm text-zinc-600 mt-2 leading-relaxed">
-            <strong>Execution:</strong> Designed a massive 28-foot <Link href="/services/acrylic-acp-signboard" className="text-purple-700 font-semibold underline">Acrylic ACP Signboard</Link> in royal burgundy and gold, paired with an illuminated weatherproof sidewalk menu display box. The high-contrast frontage boosted first-time evening walk-in traffic by an estimated 35%.
+            <strong>Execution:</strong> Designed a massive 28-foot <Link href="/services/acrylic-acp-signboard" className="text-zinc-950 font-semibold underline">Acrylic ACP Signboard</Link> in royal burgundy and gold, paired with an illuminated weatherproof sidewalk menu display box. The high-contrast frontage boosted first-time evening walk-in traffic by an estimated 35%.
           </p>
         </div>
       </div>
@@ -186,7 +186,7 @@ export default function RestaurantSignboardIdeasPage() {
 
       <Callout variant="blue" icon="☕" title="Opening or Renovating a Food Venue in Nagpur?">
         <p>
-          Let our creative engineering team visualize your storefront before you spend a single rupee on fabrication. We provide 3D CAD visualization renders and on-site visits anywhere in Nagpur. <Link href="/quote" className="text-purple-700 font-bold underline">Try Our Instant Signboard Calculator</Link> or connect directly with our Tukdoji Square studio on WhatsApp at <strong>+91 91724 87246</strong>.
+          Let our creative engineering team visualize your storefront before you spend a single rupee on fabrication. We provide 3D CAD visualization renders and on-site visits anywhere in Nagpur. <Link href="/quote" className="text-zinc-950 font-bold underline">Try Our Instant Signboard Calculator</Link> or connect directly with our Tukdoji Square studio on WhatsApp at <strong>+91 91724 87246</strong>.
         </p>
       </Callout>
     </BlogPostLayout>

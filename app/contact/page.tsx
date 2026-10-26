@@ -32,7 +32,7 @@ export default function ContactPage() {
   const faqSchema = getFaqSchema(flatFaqs);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-[#faf8fc] overflow-x-hidden pt-20 sm:pt-24">
+    <main className="relative flex min-h-screen flex-col items-center bg-[#F8F8F8] overflow-x-hidden pt-20 sm:pt-24">
       {/* Main Content strictly in front at z-10 */}
       <div className="relative z-10 w-full flex flex-col items-center">
         <script
@@ -50,8 +50,8 @@ export default function ContactPage() {
         {/* Slanted Divider 1: Light Contact to Dark FAQ */}
         <DiagonalSlantedDivider
           id="contact-to-faq-slant"
-          topColor="#faf8fc"
-          bottomColor="#0c0617"
+          topColor="#f8f8f8"
+          bottomColor="#171717"
           reverse={false}
         />
 
@@ -61,8 +61,8 @@ export default function ContactPage() {
         {/* Slanted Divider 2: Dark FAQ to Light Footer */}
         <DiagonalSlantedDivider
           id="faq-to-footer-slant"
-          topColor="#0c0617"
-          bottomColor="#faf8fc"
+          topColor="#171717"
+          bottomColor="#f8f8f8"
           reverse={true}
         />
 

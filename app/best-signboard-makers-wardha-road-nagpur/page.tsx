@@ -6,6 +6,24 @@ export const metadata: Metadata = {
   title: "Best Signboard Makers on Wardha Road Nagpur | Prayas Graphics",
   description:
     "Opening a showroom or clinic on Wardha Road? Discover why Prayas Graphics is the top choice for premium ACP boards, LED letters, and custom signboards in Nagpur.",
+  alternates: {
+    canonical: "https://prayasgraphics.com/best-signboard-makers-wardha-road-nagpur",
+  },
+  openGraph: {
+    title: "Best Signboard Makers on Wardha Road Nagpur — Prayas Graphics",
+    description:
+      "Opening a showroom, restaurant, or clinic on Wardha Road? Discover why top brands trust Prayas Graphics for high-visibility signboards.",
+    url: "https://prayasgraphics.com/best-signboard-makers-wardha-road-nagpur",
+    type: "article",
+    images: ["/blog/best-signboard-makers-wardha-road-nagpur.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Signboard Makers on Wardha Road Nagpur",
+    description:
+      "Opening a showroom or clinic on Wardha Road? Premium ACP boards, LED letters, and custom signboards.",
+    images: ["/blog/best-signboard-makers-wardha-road-nagpur.webp"],
+  },
 };
 
 export default function WardhaRoadSignboardsPage() {

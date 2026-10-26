@@ -6,6 +6,24 @@ export const metadata: Metadata = {
   title: "5 Signboard Mistakes Nagpur Businesses Make (And How to Avoid Them) | Prayas Graphics",
   description:
     "Is your signboard hurting your business? Discover the 5 most common and costly signboard mistakes made by Nagpur shop owners — and how to fix them.",
+  alternates: {
+    canonical: "https://prayasgraphics.com/signboard-mistakes-nagpur-businesses",
+  },
+  openGraph: {
+    title: "5 Signboard Mistakes Nagpur Businesses Make (And How to Avoid Them)",
+    description:
+      "Is your signboard hurting your business? Discover the 5 most common and costly signboard mistakes made by Nagpur shop owners — and how to fix them.",
+    url: "https://prayasgraphics.com/signboard-mistakes-nagpur-businesses",
+    type: "article",
+    images: ["/blog/5-costly-signboard-mistakes-nagpur.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "5 Signboard Mistakes Nagpur Businesses Make (And How to Avoid Them)",
+    description:
+      "Is your signboard hurting your business? Discover the 5 most common and costly signboard mistakes made by Nagpur shop owners — and how to fix them.",
+    images: ["/blog/5-costly-signboard-mistakes-nagpur.webp"],
+  },
 };
 
 export default function SignboardMistakesPage() {

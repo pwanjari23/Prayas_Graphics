@@ -3,9 +3,27 @@ import { Callout } from "@/components/blog/shared";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ACP Elevation Cladding Nagpur — Complete Guide for Building Owners & Architects",
+  title: "ACP Elevation Cladding Nagpur — Complete Guide for Building Owners & Architects | Prayas Graphics",
   description:
     "Planning ACP cladding for your commercial building in Nagpur? Complete guide on ACP elevation work — types of ACP panels, design options, structural requirements, and costs.",
+  alternates: {
+    canonical: "https://prayasgraphics.com/acp-elevation-cladding-nagpur-guide",
+  },
+  openGraph: {
+    title: "ACP Elevation Cladding in Nagpur — Complete Architecture & Cost Guide",
+    description:
+      "Planning ACP cladding for your commercial building in Nagpur? Complete guide on ACP elevation work, panel grades, structural framework, and costs.",
+    url: "https://prayasgraphics.com/acp-elevation-cladding-nagpur-guide",
+    type: "article",
+    images: ["/blog/acp-elevation-cladding-nagpur.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ACP Elevation Cladding in Nagpur — Complete Guide",
+    description:
+      "Planning ACP cladding for your commercial building in Nagpur? Panel grades, framework, and costs.",
+    images: ["/blog/acp-elevation-cladding-nagpur.webp"],
+  },
 };
 
 export default function AcpElevationGuidePage() {
@@ -59,40 +77,40 @@ export default function AcpElevationGuidePage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-100">
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Standard ACP</td>
               <td className="px-5 py-4">Polyethylene core</td>
-              <td className="px-5 py-4 font-bold text-red-600">Non FR</td>
+              <td className="px-5 py-4 font-bold text-zinc-900">Non FR</td>
               <td className="px-5 py-4">Low-rise commercial, interior</td>
-              <td className="px-5 py-4 font-medium text-amber-600">₹60–90/sq ft</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">₹60–90/sq ft</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Fire Retardant (FR) ACP</td>
               <td className="px-5 py-4">Mineral-filled core</td>
-              <td className="px-5 py-4 font-bold text-emerald-600">FR rated</td>
+              <td className="px-5 py-4 font-bold text-zinc-900">FR rated</td>
               <td className="px-5 py-4">Hospitals, offices, schools</td>
-              <td className="px-5 py-4 font-medium text-amber-600">₹90–130/sq ft</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">₹90–130/sq ft</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">A2 (Non-Combustible)</td>
               <td className="px-5 py-4">Mineral core</td>
-              <td className="px-5 py-4 font-bold text-emerald-600">A2 rated</td>
+              <td className="px-5 py-4 font-bold text-zinc-900">A2 rated</td>
               <td className="px-5 py-4">High-rise, healthcare, govt</td>
-              <td className="px-5 py-4 font-medium text-amber-600">₹150–250/sq ft</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">₹150–250/sq ft</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">PVDF Coated ACP</td>
               <td className="px-5 py-4">PE or FR core</td>
               <td className="px-5 py-4 text-zinc-400">Varies</td>
               <td className="px-5 py-4">Coastal & extreme UV zones</td>
-              <td className="px-5 py-4 font-medium text-amber-600">₹120–200/sq ft</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">₹120–200/sq ft</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Wooden/Finish ACP</td>
               <td className="px-5 py-4">PE core</td>
               <td className="px-5 py-4 text-zinc-400">Standard</td>
               <td className="px-5 py-4">Design-led facades</td>
-              <td className="px-5 py-4 font-medium text-amber-600">₹100–180/sq ft</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">₹100–180/sq ft</td>
             </tr>
           </tbody>
         </table>

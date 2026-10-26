@@ -13,60 +13,60 @@ export default function AngledBackgroundShapes() {
           Evenly distributed with GPU acceleration & mobile optimization
           ======================================================== */}
       {/* 1. Top Section Glow */}
-      <div className="absolute top-10 left-1/4 w-[360px] sm:w-[650px] lg:w-[850px] h-[340px] sm:h-[480px] lg:h-[580px] rounded-full bg-gradient-to-br from-purple-300/20 via-violet-200/15 to-transparent blur-2xl lg:blur-3xl transform-gpu pointer-events-none" />
+      <div className="absolute top-10 left-1/4 w-[360px] sm:w-[650px] lg:w-[850px] h-[340px] sm:h-[480px] lg:h-[580px] rounded-full bg-gradient-to-br from-zinc-200/20 via-zinc-100/10 to-transparent blur-2xl lg:blur-3xl transform-gpu pointer-events-none" />
       
       {/* 2. Upper-Mid Glow (Right side) */}
-      <div className="absolute top-[850px] -right-24 w-[360px] sm:w-[600px] lg:w-[750px] h-[340px] sm:h-[450px] lg:h-[550px] rounded-full bg-gradient-to-bl from-purple-200/25 via-violet-100/15 to-transparent blur-2xl lg:blur-3xl transform-gpu pointer-events-none" />
+      <div className="absolute top-[850px] -right-24 w-[360px] sm:w-[600px] lg:w-[750px] h-[340px] sm:h-[450px] lg:h-[550px] rounded-full bg-gradient-to-bl from-zinc-200/20 via-zinc-100/10 to-transparent blur-2xl lg:blur-3xl transform-gpu pointer-events-none" />
       
       {/* 3. Mid / Subpage Above-Footer Glow (Left side) */}
-      <div className="hidden sm:block absolute top-[1650px] -left-20 w-[800px] h-[580px] rounded-full bg-gradient-to-tr from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
+      <div className="hidden sm:block absolute top-[1650px] -left-20 w-[800px] h-[580px] rounded-full bg-gradient-to-tr from-zinc-200/20 via-zinc-100/10 to-transparent blur-3xl transform-gpu pointer-events-none" />
       
       {/* 4. Lower-Mid Glow (Right side) */}
-      <div className="hidden sm:block absolute top-[2500px] -right-20 w-[850px] h-[600px] rounded-full bg-gradient-to-tl from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
+      <div className="hidden sm:block absolute top-[2500px] -right-20 w-[850px] h-[600px] rounded-full bg-gradient-to-tl from-zinc-200/20 via-zinc-100/10 to-transparent blur-3xl transform-gpu pointer-events-none" />
       
       {/* 5. Lower Page Glow (Left side) */}
-      <div className="hidden sm:block absolute top-[3350px] -left-20 w-[800px] h-[550px] rounded-full bg-gradient-to-br from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
+      <div className="hidden sm:block absolute top-[3350px] -left-20 w-[800px] h-[550px] rounded-full bg-gradient-to-br from-zinc-200/20 via-zinc-100/10 to-transparent blur-3xl transform-gpu pointer-events-none" />
       
       {/* 6. Deep Homepage Above-Footer Glow (Center-Right) */}
-      <div className="hidden sm:block absolute top-[4100px] right-1/4 w-[850px] h-[580px] rounded-full bg-gradient-to-tl from-purple-200/25 via-violet-100/15 to-transparent blur-3xl transform-gpu pointer-events-none" />
+      <div className="hidden sm:block absolute top-[4100px] right-1/4 w-[850px] h-[580px] rounded-full bg-gradient-to-tl from-zinc-200/20 via-zinc-100/10 to-transparent blur-3xl transform-gpu pointer-events-none" />
 
       {/* ========================================================
           MULTI-TIER MISMATCHED NEON WAVE RIBBONS
           Alternating crests, dips, and angles throughout all sections
           ======================================================== */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-70"
+        className="absolute inset-0 w-full h-full opacity-60"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Luminous Neon Contour Gradient 1 (Purple - Violet) */}
+          {/* Grayscale Contour Gradient 1 */}
           <linearGradient id="neonGlow1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#c084fc" stopOpacity="0.1" />
-            <stop offset="30%" stopColor="#a855f7" stopOpacity="0.8" />
-            <stop offset="70%" stopColor="#800080" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#c084fc" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#d4d4d8" stopOpacity="0.1" />
+            <stop offset="30%" stopColor="#71717a" stopOpacity="0.8" />
+            <stop offset="70%" stopColor="#18181b" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#d4d4d8" stopOpacity="0.1" />
           </linearGradient>
 
-          {/* Luminous Neon Contour Gradient 2 (Fuchsia - Deep Purple Accent) */}
+          {/* Grayscale Contour Gradient 2 */}
           <linearGradient id="neonGlow2" x1="100%" y1="0%" x2="0%" y2="0%">
-            <stop offset="0%" stopColor="#d946ef" stopOpacity="0.1" />
-            <stop offset="35%" stopColor="#800080" stopOpacity="0.8" />
-            <stop offset="65%" stopColor="#9333ea" stopOpacity="0.75" />
-            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#a1a1aa" stopOpacity="0.1" />
+            <stop offset="35%" stopColor="#27272a" stopOpacity="0.8" />
+            <stop offset="65%" stopColor="#52525b" stopOpacity="0.75" />
+            <stop offset="100%" stopColor="#a1a1aa" stopOpacity="0.1" />
           </linearGradient>
 
           {/* Fluid Translucent Light Wave Fill */}
           <linearGradient id="waveFill1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FAF5FF" stopOpacity="0.85" />
-            <stop offset="50%" stopColor="#F3E8FF" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#EDE9FE" stopOpacity="0.25" />
+            <stop offset="0%" stopColor="#FAFAFA" stopOpacity="0.85" />
+            <stop offset="50%" stopColor="#F4F4F5" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#E4E4E7" stopOpacity="0.25" />
           </linearGradient>
 
           {/* Secondary Soft Translucent Fill */}
           <linearGradient id="waveFill2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#FDF4FF" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#FAF5FF" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#F3E8FF" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#FBFBFB" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#F4F4F5" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#ECECEE" stopOpacity="0.2" />
           </linearGradient>
 
           {/* Lightweight Neon Glow Diffusion Filter */}

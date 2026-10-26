@@ -31,9 +31,8 @@ export default function BrandLogosMarquee() {
   const [selectedBrand, setSelectedBrand] = useState<ClientBrand | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const activeTriggerRef = useRef<HTMLElement | null>(null);
-
-  // Quadrupled list ensures seamless continuous looping across any screen size without gaps
-  const marqueeLogos = [...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos];
+  // Sequence sized to guarantee 4K / 3840px screens have zero gaps
+  const displayLogos = [...brandLogos, ...brandLogos];
 
   const handleCardClick = (brandId: string, e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
     activeTriggerRef.current = e.currentTarget;
@@ -55,20 +54,41 @@ export default function BrandLogosMarquee() {
     }
   };
 
+  const renderCard = (logo: BrandLogoItem, index: number, isDuplicate: boolean) => (
+    <div
+      key={`${isDuplicate ? "clone" : "orig"}-${logo.id}-${index}`}
+      role="button"
+      tabIndex={isDuplicate ? -1 : 0}
+      aria-label={`View signage projects completed for ${logo.name}`}
+      aria-hidden={isDuplicate ? true : undefined}
+      onClick={(e) => handleCardClick(logo.id, e)}
+      onKeyDown={(e) => handleKeyDown(logo.id, e)}
+      className="relative aspect-square w-26 h-26 sm:w-30 sm:h-30 md:w-34 md:h-34 rounded-2xl border border-zinc-700/80 bg-white p-3 sm:p-3.5 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-zinc-300 hover:scale-105 hover:-translate-y-1 active:scale-95 flex flex-col items-center justify-center shrink-0 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 group/card"
+    >
+      {/* Logo Image */}
+      <div className="relative h-full w-full flex items-center justify-center">
+        <Image
+          src={logo.src}
+          alt={logo.alt}
+          fill
+          sizes="(max-width: 640px) 104px, (max-width: 768px) 120px, 136px"
+          className="object-contain p-1 filter contrast-105 opacity-90 transition-all duration-300 group-hover/card:opacity-100 group-hover/card:scale-105"
+        />
+      </div>
+
+      {/* Subtle Hover / Active Indicator */}
+      <span className="absolute bottom-1 text-[9px] font-bold text-zinc-950 opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity whitespace-nowrap">
+        View Work &rarr;
+      </span>
+    </div>
+  );
+
   return (
     <>
-      <section className="relative w-full pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-18 md:pb-20 overflow-hidden bg-gradient-to-b from-[#0c0617] via-[#090412] to-[#0c0617]">
-        {/* Ambient Volumetric Glows */}
-        <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
-          <div className="absolute top-1/4 left-1/3 w-[600px] h-[350px] bg-purple-600/[0.08] blur-[140px] rounded-full transform-gpu" />
-          <div className="absolute bottom-1/4 -right-16 w-[500px] h-[300px] bg-fuchsia-600/[0.06] blur-[130px] rounded-full transform-gpu" />
-        </div>
-
-        {/* ========================================================
-            SECTION HEADER: Centered Heading & Supporting Subtitle
-            ======================================================== */}
+      <section className="relative w-full pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-18 md:pb-20 overflow-hidden bg-[#171717]">
+        {/* SECTION HEADER: Centered Heading & Supporting Subtitle */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center mb-7 sm:mb-9 px-4 max-w-7xl mx-auto">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/80 border border-purple-500/40 text-purple-300 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-300 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
             Our Valued Clients
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-heading font-extrabold text-white tracking-tight leading-tight">
@@ -77,55 +97,32 @@ export default function BrandLogosMarquee() {
           <p className="mt-2 text-xs sm:text-sm md:text-base text-zinc-400 max-w-lg leading-relaxed">
             From national finance enterprises and banks to local retail leaders, we engineer signage that commands attention.
           </p>
-          <p className="mt-1 text-[11px] sm:text-xs text-purple-300 font-semibold">
+          <p className="mt-1 text-[11px] sm:text-xs text-zinc-400 font-semibold">
             Click any client card to view completed signage projects
           </p>
         </div>
 
-        {/* ========================================================
-            INTERACTIVE LOGO CAROUSEL: Clickable Brand Cards
-            Pauses on hover and keyboard focus for effortless clicks
-            ======================================================== */}
-        <div className="relative z-10 w-full flex overflow-x-hidden group py-3">
-          <div className="flex gap-3.5 sm:gap-5 md:gap-6 items-center animate-gpu-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]">
-            {marqueeLogos.map((logo, i) => (
-              <div
-                key={`${logo.id}-${i}`}
-                role="button"
-                tabIndex={0}
-                aria-label={`View signage projects completed for ${logo.name}`}
-                onClick={(e) => handleCardClick(logo.id, e)}
-                onKeyDown={(e) => handleKeyDown(logo.id, e)}
-                className="relative aspect-square w-26 h-26 sm:w-30 sm:h-30 md:w-34 md:h-34 rounded-2xl border border-zinc-700/80 bg-white p-3 sm:p-3.5 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-purple-400 hover:scale-105 hover:-translate-y-1 active:scale-95 flex flex-col items-center justify-center shrink-0 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080] focus-visible:ring-offset-2 group/card"
-              >
-                {/* Logo Image */}
-                <div className="relative h-full w-full flex items-center justify-center">
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    fill
-                    sizes="(max-width: 640px) 104px, (max-width: 768px) 120px, 136px"
-                    className="object-contain p-1 filter contrast-105 opacity-90 transition-all duration-300 group-hover/card:opacity-100 group-hover/card:scale-105"
-                  />
-                </div>
+        {/* INTERACTIVE LOGO CAROUSEL: Infinite Dual-Group Continuous Marquee */}
+        <div className="logo-marquee relative z-10 w-full py-3">
+          <div className="logo-marquee__track">
+            {/* Primary Sequence Group */}
+            <div className="logo-marquee__group">
+              {displayLogos.map((logo, i) => renderCard(logo, i, false))}
+            </div>
 
-                {/* Subtle Hover / Active Indicator */}
-                <span className="absolute bottom-1 text-[9px] font-bold text-[#800080] opacity-0 group-hover/card:opacity-100 group-focus-visible/card:opacity-100 transition-opacity whitespace-nowrap">
-                  View Work &rarr;
-                </span>
-              </div>
-            ))}
+            {/* Identical Cloned Group for 100% Seamless -50% Loop */}
+            <div className="logo-marquee__group" aria-hidden="true">
+              {displayLogos.map((logo, i) => renderCard(logo, i, true))}
+            </div>
           </div>
 
           {/* Left & Right Gradient Overlays for Smooth Edge Fade */}
-          <div className="absolute inset-y-0 left-0 w-14 sm:w-24 md:w-32 bg-gradient-to-r from-[#0e0717] via-[#0e0717]/85 to-transparent pointer-events-none z-10" />
-          <div className="absolute inset-y-0 right-0 w-14 sm:w-24 md:w-32 bg-gradient-to-l from-[#0e0717] via-[#0e0717]/85 to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 left-0 w-14 sm:w-24 md:w-32 bg-gradient-to-r from-[#171717] via-[#171717]/85 to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 right-0 w-14 sm:w-24 md:w-32 bg-gradient-to-l from-[#171717] via-[#171717]/85 to-transparent pointer-events-none z-10" />
         </div>
       </section>
 
-      {/* ========================================================
-          PORTFOLIO MODAL: Accessible Dialog with Case Studies
-          ======================================================== */}
+      {/* PORTFOLIO MODAL: Accessible Dialog with Case Studies */}
       <ClientBrandModal
         brand={selectedBrand}
         isOpen={isModalOpen}

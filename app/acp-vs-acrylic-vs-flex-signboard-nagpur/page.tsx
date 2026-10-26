@@ -60,36 +60,36 @@ export default function AcpVsAcrylicVsFlexPage() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-6">
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#800080]">Structural Backbone</span>
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <span className="text-xs font-bold uppercase tracking-wider text-zinc-900">Structural Backbone</span>
           <h3 className="text-lg font-bold text-zinc-950 mt-1 mb-2">Aluminium Composite Panel (ACP)</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             Consists of two 0.25mm–0.50mm virgin aluminium sheets permanently bonded under heat to a high-density polyethylene (LDPE/mineral) core. Coated with factory-applied <strong>PVDF (Polyvinylidene Fluoride)</strong> fluoropolymer resin that provides 10–15 years of zero-chalking UV resistance.
           </p>
           <div className="mt-3 text-xs font-semibold text-zinc-800">
-            <span className="text-purple-700">Standard Thickness:</span> 3mm / 4mm exterior grade.
+            <span className="text-zinc-950">Standard Thickness:</span> 3mm / 4mm exterior grade.
           </div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#800080]">Optical & Dimensional</span>
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <span className="text-xs font-bold uppercase tracking-wider text-zinc-900">Optical &amp; Dimensional</span>
           <h3 className="text-lg font-bold text-zinc-950 mt-1 mb-2">Cast Acrylic (PMMA)</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             High molecular weight 100% virgin polymethyl methacrylate sheets produced via cell casting. Provides <strong>92% light transmittance</strong> (higher than standard glass), exceptional scratch resistance, and laser-polished edges. Does not crack or yellow under intense Nagpur solar irradiance.
           </p>
           <div className="mt-3 text-xs font-semibold text-zinc-800">
-            <span className="text-purple-700">Standard Thickness:</span> 3mm, 5mm, up to 10mm for 3D raised letters.
+            <span className="text-zinc-950">Standard Thickness:</span> 3mm, 5mm, up to 10mm for 3D raised letters.
           </div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#800080]">Flexible Substrate</span>
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <span className="text-xs font-bold uppercase tracking-wider text-zinc-900">Flexible Substrate</span>
           <h3 className="text-lg font-bold text-zinc-950 mt-1 mb-2">High-Tension Flex (PVC)</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             Polyester woven scrim embedded between two calendered PVC vinyl layers. Quality grades like <strong>Star Backlit Flex (510–540 GSM)</strong> feature anti-wicking threads, smooth gloss surfaces, and high tensile tear resistance, printed with solvent or eco-solvent UV-curable inks.
           </p>
           <div className="mt-3 text-xs font-semibold text-zinc-800">
-            <span className="text-purple-700">Standard Density:</span> 440 GSM (promotional) to 540 GSM (backlit).
+            <span className="text-zinc-950">Standard Density:</span> 440 GSM (promotional) to 540 GSM (backlit).
           </div>
         </div>
       </div>
@@ -139,45 +139,45 @@ export default function AcpVsAcrylicVsFlexPage() {
           <tbody className="divide-y divide-zinc-100">
             <tr className="hover:bg-stone-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Nagpur Heat Tolerance (47°C)</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Rated up to 80°C continuous</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Stable up to 75°C without warping</td>
-              <td className="px-5 py-4 font-medium text-amber-500">Expands slightly; needs spring tension</td>
-              <td className="px-5 py-4 font-medium text-red-600">Sags and ripples in direct sun</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Rated up to 80°C continuous</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Stable up to 75°C without warping</td>
+              <td className="px-5 py-4 font-medium text-zinc-600">Expands slightly; needs spring tension</td>
+              <td className="px-5 py-4 font-medium text-zinc-500">Sags and ripples in direct sun</td>
             </tr>
             <tr className="hover:bg-stone-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Monsoon & Water Ingress</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">100% Waterproof, zero rust</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Impermeable; IP67 sealed letters</td>
-              <td className="px-5 py-4 font-medium text-amber-500">Waterproof if box has drain vents</td>
-              <td className="px-5 py-4 font-medium text-red-600">Moisture collects along rusted frame</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">100% Waterproof, zero rust</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Impermeable; IP67 sealed letters</td>
+              <td className="px-5 py-4 font-medium text-zinc-600">Waterproof if box has drain vents</td>
+              <td className="px-5 py-4 font-medium text-zinc-500">Moisture collects along rusted frame</td>
             </tr>
             <tr className="hover:bg-stone-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">UV Colour Fastness</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">10–12 Years (PVDF)</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">8–10 Years (Virgin Cast)</td>
-              <td className="px-5 py-4 font-medium text-amber-500">3–4 Years (Solvent Ink)</td>
-              <td className="px-5 py-4 font-medium text-red-600">1–2 Years before fading</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">10–12 Years (PVDF)</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">8–10 Years (Virgin Cast)</td>
+              <td className="px-5 py-4 font-medium text-zinc-600">3–4 Years (Solvent Ink)</td>
+              <td className="px-5 py-4 font-medium text-zinc-500">1–2 Years before fading</td>
             </tr>
             <tr className="hover:bg-stone-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Approx. Price in Nagpur</td>
-              <td className="px-5 py-4 font-semibold text-purple-700">₹650 – ₹1,200 / sq. ft.</td>
-              <td className="px-5 py-4 font-semibold text-purple-700">₹850 – ₹1,600 / sq. ft. (3D LED)</td>
-              <td className="px-5 py-4 font-semibold text-purple-700">₹140 – ₹240 / sq. ft.</td>
-              <td className="px-5 py-4 font-semibold text-purple-700">₹45 – ₹85 / sq. ft.</td>
+              <td className="px-5 py-4 font-semibold text-zinc-950">₹650 – ₹1,200 / sq. ft.</td>
+              <td className="px-5 py-4 font-semibold text-zinc-950">₹850 – ₹1,600 / sq. ft. (3D LED)</td>
+              <td className="px-5 py-4 font-semibold text-zinc-950">₹140 – ₹240 / sq. ft.</td>
+              <td className="px-5 py-4 font-semibold text-zinc-950">₹45 – ₹85 / sq. ft.</td>
             </tr>
             <tr className="hover:bg-stone-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Expected Lifespan</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">10–15 Years</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">8–12 Years</td>
-              <td className="px-5 py-4 font-medium text-amber-500">3–5 Years</td>
-              <td className="px-5 py-4 font-medium text-red-600">1–2 Years</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">10–15 Years</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">8–12 Years</td>
+              <td className="px-5 py-4 font-medium text-zinc-600">3–5 Years</td>
+              <td className="px-5 py-4 font-medium text-zinc-500">1–2 Years</td>
             </tr>
             <tr className="hover:bg-stone-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Maintenance Need</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Annual surface wipe-down</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Clean face with microfiber & water</td>
-              <td className="px-5 py-4 font-medium text-amber-500">Re-tensioning and bulb replacement</td>
-              <td className="px-5 py-4 font-medium text-red-600">Frequent replacement required</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Annual surface wipe-down</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Clean face with microfiber & water</td>
+              <td className="px-5 py-4 font-medium text-zinc-600">Re-tensioning and bulb replacement</td>
+              <td className="px-5 py-4 font-medium text-zinc-500">Frequent replacement required</td>
             </tr>
           </tbody>
         </table>
@@ -189,39 +189,39 @@ export default function AcpVsAcrylicVsFlexPage() {
         <div className="p-6 rounded-2xl bg-stone-50 border border-zinc-200/80">
           <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
             <h3 className="text-base font-bold text-zinc-900 m-0">Case Study 1: Multi-Brand Retail Showroom — Wardha Road, Nagpur</h3>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-[#800080]">Acrylic ACP Signboard</span>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200">Acrylic ACP Signboard</span>
           </div>
           <p className="text-sm text-zinc-600 mt-2 leading-relaxed">
             <strong>Challenge:</strong> A 32-foot commercial facade facing direct afternoon western sunlight with high traffic visibility required high contrast day and night.
           </p>
           <p className="text-sm text-zinc-600 mt-1 leading-relaxed">
-            <strong>Solution:</strong> We fabricated a 4mm charcoal grey PVDF <Link href="/services/acrylic-acp-signboard" className="text-purple-700 font-semibold underline">Acrylic ACP Signboard</Link> backed by 1.5-inch MS anti-rust framework. Raised 3D letters were laser-cut from 5mm white virgin cast acrylic illuminated with IP67 Samsung 1.2W lens LED modules. After 4 summers, the sign retains 100% colour saturation with zero thermal deformation.
+            <strong>Solution:</strong> We fabricated a 4mm charcoal grey PVDF <Link href="/services/acrylic-acp-signboard" className="text-zinc-950 font-semibold underline">Acrylic ACP Signboard</Link> backed by 1.5-inch MS anti-rust framework. Raised 3D letters were laser-cut from 5mm white virgin cast acrylic illuminated with IP67 Samsung 1.2W lens LED modules. After 4 summers, the sign retains 100% colour saturation with zero thermal deformation.
           </p>
         </div>
 
         <div className="p-6 rounded-2xl bg-stone-50 border border-zinc-200/80">
           <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
             <h3 className="text-base font-bold text-zinc-900 m-0">Case Study 2: Specialty Dental Care Clinic — Manewada / Tukdoji Square</h3>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-[#800080]">Inner Cut ACP</span>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200">Inner Cut ACP</span>
           </div>
           <p className="text-sm text-zinc-600 mt-2 leading-relaxed">
             <strong>Challenge:</strong> The clinic required clean medical aesthetic without protruding letters that collect roadway soot and dust.
           </p>
           <p className="text-sm text-zinc-600 mt-1 leading-relaxed">
-            <strong>Solution:</strong> Fabricated an <Link href="/services/inner-cut-acp-signboard" className="text-purple-700 font-semibold underline">Inner Cut ACP Signboard</Link> using CNC routing on matte white ACP, backed by diffused milky acrylic. Flush surface design allows effortless quarterly cleaning with zero dust accumulation niches.
+            <strong>Solution:</strong> Fabricated an <Link href="/services/inner-cut-acp-signboard" className="text-zinc-950 font-semibold underline">Inner Cut ACP Signboard</Link> using CNC routing on matte white ACP, backed by diffused milky acrylic. Flush surface design allows effortless quarterly cleaning with zero dust accumulation niches.
           </p>
         </div>
 
         <div className="p-6 rounded-2xl bg-stone-50 border border-zinc-200/80">
           <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
             <h3 className="text-base font-bold text-zinc-900 m-0">Case Study 3: Regional Hardware & Electrical Wholesaler — Gandhibagh / Mahal</h3>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-[#800080]">Flex Backlit Signboard</span>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200">Flex Backlit Signboard</span>
           </div>
           <p className="text-sm text-zinc-600 mt-2 leading-relaxed">
             <strong>Challenge:</strong> 40-foot wide exterior display needing multi-brand logos and authorized dealer certifications on a conservative budget.
           </p>
           <p className="text-sm text-zinc-600 mt-1 leading-relaxed">
-            <strong>Solution:</strong> Installed a heavy-gauge 1-inch MS box frame with internal Philips LED batten lighting and a <Link href="/services/flex-backlit-signboard" className="text-purple-700 font-semibold underline">Star Flex Backlit Signboard</Link> printed at 1440 DPI. Incorporating monsoon drainage weeping holes prevented internal moisture buildup, delivering reliable service at one-third the cost of full dimensional lettering.
+            <strong>Solution:</strong> Installed a heavy-gauge 1-inch MS box frame with internal Philips LED batten lighting and a <Link href="/services/flex-backlit-signboard" className="text-zinc-950 font-semibold underline">Star Flex Backlit Signboard</Link> printed at 1440 DPI. Incorporating monsoon drainage weeping holes prevented internal moisture buildup, delivering reliable service at one-third the cost of full dimensional lettering.
           </p>
         </div>
       </div>
@@ -246,24 +246,24 @@ export default function AcpVsAcrylicVsFlexPage() {
       <h2 id="recommendations">6. Decision Framework: Which Is Right for Your Business?</h2>
 
       <div className="space-y-4 my-6">
-        <div className="p-5 rounded-xl border-l-4 border-emerald-500 bg-emerald-50/40">
-          <h3 className="text-base font-bold text-emerald-950 m-0">Choose Branded ACP with 3D Letters When:</h3>
+        <div className="p-5 rounded-xl border-l-4 border-zinc-950 bg-zinc-50">
+          <h3 className="text-base font-bold text-zinc-950 m-0">Choose Branded ACP with 3D Letters When:</h3>
           <p className="text-sm text-zinc-700 mt-1">
-            You own or hold a long-term lease (3+ years) on a retail store, clinic, corporate office, or restaurant. You want maximum curb appeal, premium evening illumination, and zero maintenance headaches. Explore our <Link href="/services/acrylic-acp-signboard" className="text-emerald-800 font-bold underline">Acrylic ACP Signboard Services</Link> or <Link href="/services/acp-elevation-work" className="text-emerald-800 font-bold underline">Complete ACP Elevation Cladding</Link>.
+            You own or hold a long-term lease (3+ years) on a retail store, clinic, corporate office, or restaurant. You want maximum curb appeal, premium evening illumination, and zero maintenance headaches. Explore our <Link href="/services/acrylic-acp-signboard" className="text-zinc-950 font-bold underline">Acrylic ACP Signboard Services</Link> or <Link href="/services/acp-elevation-work" className="text-zinc-950 font-bold underline">Complete ACP Elevation Cladding</Link>.
           </p>
         </div>
 
-        <div className="p-5 rounded-xl border-l-4 border-amber-500 bg-amber-50/40">
-          <h3 className="text-base font-bold text-amber-950 m-0">Choose Flex Backlit Signboards When:</h3>
+        <div className="p-5 rounded-xl border-l-4 border-zinc-500 bg-zinc-50">
+          <h3 className="text-base font-bold text-zinc-950 m-0">Choose Flex Backlit Signboards When:</h3>
           <p className="text-sm text-zinc-700 mt-1">
-            Your fascia is exceptionally wide (20+ feet), your brand artwork has complex photo gradients, or you are testing a new retail concept where budget optimization is critical. Explore our <Link href="/services/flex-backlit-signboard" className="text-amber-900 font-bold underline">Flex Backlit Signboard Solutions</Link> and express <Link href="/services/flex-printing-nagpur" className="text-amber-900 font-bold underline">Flex Printing Nagpur</Link>.
+            Your fascia is exceptionally wide (20+ feet), your brand artwork has complex photo gradients, or you are testing a new retail concept where budget optimization is critical. Explore our <Link href="/services/flex-backlit-signboard" className="text-zinc-950 font-bold underline">Flex Backlit Signboard Solutions</Link> and express <Link href="/services/flex-printing-nagpur" className="text-zinc-950 font-bold underline">Flex Printing Nagpur</Link>.
           </p>
         </div>
       </div>
 
       <Callout variant="blue" icon="💡" title="Need a Precise Site Measurement in Nagpur?">
         <p>
-          At <strong>Prayas Graphics</strong>, we don't believe in guessing. We provide complimentary on-site measurement consultations across Nagpur—including Wardha Road, Dharampeth, Sadar, Manewada, and MIDC Hingna. <Link href="/quote" className="text-purple-700 font-bold underline">Calculate Your Estimated Signboard Cost</Link> or contact our workshop at Tukdoji Square directly via WhatsApp at <strong>+91 91724 87246</strong>.
+          At <strong>Prayas Graphics</strong>, we don't believe in guessing. We provide complimentary on-site measurement consultations across Nagpur—including Wardha Road, Dharampeth, Sadar, Manewada, and MIDC Hingna. <Link href="/quote" className="text-zinc-950 font-bold underline">Calculate Your Estimated Signboard Cost</Link> or contact our workshop at Tukdoji Square directly via WhatsApp at <strong>+91 91724 87246</strong>.
         </p>
       </Callout>
     </BlogPostLayout>

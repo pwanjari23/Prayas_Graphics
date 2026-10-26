@@ -136,7 +136,7 @@ export default function ClientBrandModal({
               type="button"
               onClick={onClose}
               aria-label={`Close ${brand.name} gallery`}
-              className="flex h-10 w-10 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 hover:text-zinc-950 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080] cursor-pointer shadow-xs active:scale-95"
+              className="flex h-10 w-10 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 hover:text-zinc-950 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 cursor-pointer shadow-xs active:scale-95"
             >
               <X className="h-5 w-5 sm:h-4 sm:w-4" />
             </button>
@@ -150,16 +150,30 @@ export default function ClientBrandModal({
                   <div key={proj.id} className="flex flex-col">
                     {/* Project Image */}
                     <div className="relative aspect-[16/10] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-200/80 shadow-xs">
+                      {proj.objectFit === "contain" && (
+                        <Image
+                          src={proj.image}
+                          alt=""
+                          fill
+                          aria-hidden="true"
+                          sizes="30px"
+                          className="object-cover filter blur-xl opacity-20 scale-110 pointer-events-none"
+                        />
+                      )}
                       <Image
                         src={proj.image}
                         alt={proj.alt || proj.description}
                         fill
                         sizes="(max-width: 640px) 100vw, 420px"
-                        className="object-cover object-center transition-transform duration-300 hover:scale-103"
+                        className={`transition-transform duration-300 hover:scale-103 ${
+                          proj.objectFit === "contain"
+                            ? "object-contain p-1.5 relative z-10"
+                            : "object-cover object-center"
+                        }`}
                       />
                     </div>
                     {/* 1-Line Description */}
-                    <p className="mt-2 text-xs sm:text-[13px] font-medium text-zinc-700 leading-snug line-clamp-2 sm:line-clamp-1">
+                    <p className="mt-2 text-xs sm:text-[13px] font-medium text-zinc-700 leading-snug line-clamp-2">
                       {proj.description}
                     </p>
                   </div>

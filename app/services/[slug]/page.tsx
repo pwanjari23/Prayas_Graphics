@@ -73,19 +73,19 @@ export default async function ServiceDetailPage({
   const faqSchema = service.faqs && service.faqs.length > 0 ? getFaqSchema(service.faqs) : null;
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-[#faf8fc] overflow-x-hidden pt-20 sm:pt-24">
+    <main className="relative flex min-h-screen flex-col items-center bg-white overflow-x-hidden pt-20 sm:pt-24">
       {/* Background Volumetric Lighting & CAD Matrix */}
       <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-1/6 left-1/2 -translate-x-1/2 w-[750px] h-[450px] rounded-full bg-purple-500/[0.10] blur-[140px] transform-gpu" />
-        <div className="absolute top-1/3 -left-20 w-[550px] h-[550px] rounded-full bg-fuchsia-500/[0.08] blur-[130px] transform-gpu" />
-        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-[#800080]/[0.08] blur-[120px] transform-gpu" />
+        <div className="absolute top-1/6 left-1/2 -translate-x-1/2 w-[750px] h-[450px] rounded-full bg-zinc-200/30 blur-[140px] transform-gpu" />
+        <div className="absolute top-1/3 -left-20 w-[550px] h-[550px] rounded-full bg-zinc-100/30 blur-[130px] transform-gpu" />
+        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-zinc-200/20 blur-[120px] transform-gpu" />
         
         {/* CAD dot grid */}
-        <div className="absolute inset-0 opacity-[0.22] [background-image:radial-gradient(#800080_0.75px,transparent_0.75px)] [background-size:24px_24px]" />
+        <div className="absolute inset-0 opacity-[0.25] [background-image:radial-gradient(#a3a3a3_0.75px,transparent_0.75px)] [background-size:24px_24px]" />
 
         {/* Delicate Blueprint Alignment Crosshairs */}
-        <div className="absolute top-24 left-8 text-purple-400/25 text-xs font-mono font-light select-none hidden sm:block">+ 01_SPECIFICATION</div>
-        <div className="absolute top-24 right-8 text-purple-400/25 text-xs font-mono font-light select-none hidden sm:block">+ 02_FABRICATION</div>
+        <div className="absolute top-24 left-8 text-zinc-400/30 text-xs font-mono font-light select-none hidden sm:block">+ 01_SPECIFICATION</div>
+        <div className="absolute top-24 right-8 text-zinc-400/30 text-xs font-mono font-light select-none hidden sm:block">+ 02_FABRICATION</div>
       </div>
 
       <div className="relative z-10 w-full flex flex-col items-center">
@@ -111,8 +111,8 @@ export default async function ServiceDetailPage({
         {/* Seamless Slanted Separator 1: Light to Dark Obsidian */}
         <DiagonalSlantedDivider
           id="service-detail-to-cta-slant"
-          topColor="#faf8fc"
-          bottomColor="#0c0617"
+          topColor="#ffffff"
+          bottomColor="#171717"
           reverse={false}
         />
 
@@ -122,8 +122,8 @@ export default async function ServiceDetailPage({
         {/* Seamless Slanted Separator 2: Dark Obsidian to Light Footer */}
         <DiagonalSlantedDivider
           id="cta-to-footer-slant"
-          topColor="#0c0617"
-          bottomColor="#faf8fc"
+          topColor="#171717"
+          bottomColor="#f8f8f8"
           reverse={true}
         />
 

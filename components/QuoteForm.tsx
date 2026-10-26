@@ -106,8 +106,8 @@ export default function QuoteForm({
     setServiceDetails((prev) => ({ ...prev, [key]: value }));
   };
 
-  const commonSelectClass = "w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
-  const commonInputClass = "w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm text-zinc-900 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors";
+  const commonSelectClass = "w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm text-zinc-900 focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors";
+  const commonInputClass = "w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-base sm:text-sm text-zinc-900 focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors";
 
   const renderDimensionInputs = (label = "Size (Width × Height)", hideArea = false) => (
     <div className="space-y-1.5">
@@ -139,7 +139,7 @@ export default function QuoteForm({
         <select 
           value={dimensions.unit} 
           onChange={(e) => { setDimensions(prev => ({...prev, unit: e.target.value as DimensionUnit})); setError(""); }} 
-          className="w-16 sm:w-22 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-white px-2 py-2.5 sm:px-3 sm:py-3 text-sm font-bold text-zinc-800 focus:border-[#800080] focus:outline-none focus:ring-1 focus:ring-[#800080] transition-colors cursor-pointer"
+          className="w-16 sm:w-22 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-white px-2 py-2.5 sm:px-3 sm:py-3 text-sm font-bold text-zinc-800 focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors cursor-pointer"
         >
           <option value="ft">ft</option>
           <option value="in">in</option>
@@ -148,26 +148,26 @@ export default function QuoteForm({
       
       {(area > 0 || (currentService?.offerPrice && currentService?.slug === "flex-roll-up-standee")) && (
          <div className="mt-2.5 flex flex-col gap-1.5">
-           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm font-semibold rounded-xl bg-[#800080]/5 border border-[#800080]/15 p-2.5 sm:px-4 sm:py-3 w-full">
+           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm font-semibold rounded-xl bg-zinc-100 border border-zinc-200 p-2.5 sm:px-4 sm:py-3 w-full">
              {!hideArea && area > 0 && (
-               <div className="flex items-center gap-1.5 text-[#800080]">
+               <div className="flex items-center gap-1.5 text-zinc-900">
                  <span className="opacity-75 font-medium">Total Area:</span> 
                  <span className="font-bold">{area.toFixed(2)} sq.ft</span>
                </div>
              )}
              
              {estimatedPrice > 0 && (
-               <div className="flex items-center gap-1.5 text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200/60 w-fit">
+               <div className="flex items-center gap-1.5 text-zinc-950 bg-white px-2.5 py-1 rounded-lg border border-zinc-300 w-fit">
                  <span className="opacity-80 font-medium text-[11px] sm:text-xs">Approx. Rate:</span> 
                  {currentService?.originalPrice && (
                    <span className="text-zinc-400 line-through text-[11px] mr-0.5">₹{currentService.originalPrice.toLocaleString('en-IN')}</span>
                  )}
-                 <span className="font-black text-sm sm:text-base text-emerald-700">₹{estimatedPrice.toLocaleString('en-IN')}</span>
+                 <span className="font-black text-sm sm:text-base text-zinc-950">₹{estimatedPrice.toLocaleString('en-IN')}</span>
                </div>
              )}
            </div>
            {selectedService === "acrylic-acp-signboard" && area < 32 && (
-             <div className="flex items-center gap-1.5 mt-0.5 text-xs sm:text-sm font-medium text-red-600 px-1">
+             <div className="flex items-center gap-1.5 mt-0.5 text-xs sm:text-sm font-medium text-zinc-700 px-1">
                <span className="shrink-0">•</span>
                <span>Minimum area for Acrylic ACP should be 32 sq.ft</span>
              </div>
@@ -457,7 +457,7 @@ export default function QuoteForm({
     <div className={isDrawer ? "w-full flex-1 flex flex-col justify-between overflow-hidden" : "w-full max-w-3xl mx-auto bg-white rounded-2xl sm:rounded-[32px] border border-zinc-100 shadow-xl overflow-hidden mt-4 sm:mt-8 mb-10 sm:mb-20"}>
       <div className={isDrawer ? "p-3.5 sm:p-6 overflow-y-auto flex-1" : "p-4 sm:p-8 md:p-12"}>
         {error && (
-          <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-red-50 text-red-600 text-xs sm:text-sm font-medium border border-red-100">
+          <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-zinc-100 text-zinc-950 text-xs sm:text-sm font-semibold border border-zinc-300">
             {error}
           </div>
         )}
@@ -473,9 +473,9 @@ export default function QuoteForm({
                 <button
                   key={s.slug}
                   onClick={() => setSelectedService(s.slug)}
-                  className={`text-left p-3 sm:p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-3 ${selectedService === s.slug ? "border-[#800080] bg-[#800080]/5 ring-4 ring-[#800080]/10" : "border-zinc-100 hover:border-zinc-300 bg-white"}`}
+                  className={`text-left p-3 sm:p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-3 ${selectedService === s.slug ? "border-black bg-zinc-100 ring-2 ring-zinc-300" : "border-zinc-200 hover:border-zinc-400 bg-white"}`}
                 >
-                  <div className={`p-2 rounded-lg shrink-0 ${selectedService === s.slug ? "bg-[#800080] text-white" : "bg-zinc-100 text-zinc-600"}`}>
+                  <div className={`p-2 rounded-lg shrink-0 ${selectedService === s.slug ? "bg-black text-white" : "bg-zinc-100 text-zinc-600"}`}>
                      <s.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <span className="font-semibold text-zinc-900 text-xs sm:text-base leading-snug">{s.title}</span>
@@ -505,7 +505,7 @@ export default function QuoteForm({
         ) : <div />}
 
         {step === 1 ? (
-          <button onClick={handleNext} className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full font-bold text-white bg-[#800080] hover:bg-[#800080]/90 transition-colors shadow-lg shadow-[#800080]/20 hover:scale-[1.02] text-xs sm:text-sm">
+          <button onClick={handleNext} className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full font-bold text-white bg-zinc-950 hover:bg-zinc-800 transition-colors shadow-md hover:scale-[1.02] text-xs sm:text-sm">
             Continue Details <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         ) : (

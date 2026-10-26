@@ -182,8 +182,8 @@ export default function DimensionModal({
                     Area: {area.toFixed(2)} sq.ft
                   </p>
                   {errorMessage && (
-                    <div className="flex items-start gap-2 rounded-xl bg-red-50 px-4 py-2.5 text-sm font-medium text-red-600">
-                      <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-2 rounded-xl bg-zinc-100 border border-zinc-300 px-4 py-2.5 text-sm font-semibold text-zinc-950">
+                      <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-zinc-900" />
                       <span>{errorMessage}</span>
                     </div>
                   )}

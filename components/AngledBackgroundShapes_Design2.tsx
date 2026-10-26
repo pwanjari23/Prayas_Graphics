@@ -14,8 +14,8 @@ export default function AngledBackgroundShapes() {
         }}
       />
 
-      {/* Atmospheric Soft Violet Glow */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full bg-gradient-to-b from-purple-200/35 via-violet-100/20 to-transparent blur-3xl" />
+      {/* Atmospheric Soft Grayscale Glow */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full bg-gradient-to-b from-zinc-200/35 via-zinc-100/20 to-transparent blur-3xl" />
 
       {/* ========================================================
           ZIGZAG RIBBON 1: HERO & MARQUEE FLOW (Top)
@@ -24,17 +24,17 @@ export default function AngledBackgroundShapes() {
         <svg className="w-full h-full opacity-90" viewBox="0 0 1440 620" fill="none" preserveAspectRatio="none">
           <defs>
             <linearGradient id="d2_zigzag1" x1="0%" y1="0%" x2="100%" y2="80%">
-              <stop offset="0%" stopColor="#F5EEF8" stopOpacity="0.95" />
-              <stop offset="25%" stopColor="#EDE9FE" stopOpacity="0.8" />
-              <stop offset="55%" stopColor="#F3E8FF" stopOpacity="0.88" />
-              <stop offset="85%" stopColor="#FAF5FF" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#F1F5F9" stopOpacity="0.4" />
+              <stop offset="0%" stopColor="#FAFAFA" stopOpacity="0.95" />
+              <stop offset="25%" stopColor="#F4F4F5" stopOpacity="0.8" />
+              <stop offset="55%" stopColor="#E4E4E7" stopOpacity="0.88" />
+              <stop offset="85%" stopColor="#F4F4F5" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#FAFAFA" stopOpacity="0.4" />
             </linearGradient>
             <linearGradient id="d2_zigzag1_accent" x1="100%" y1="10%" x2="0%" y2="90%">
-              <stop offset="0%" stopColor="#DDD6FE" stopOpacity="0.55" />
-              <stop offset="40%" stopColor="#EDE9FE" stopOpacity="0.65" />
-              <stop offset="80%" stopColor="#F5EEF8" stopOpacity="0.75" />
-              <stop offset="100%" stopColor="#FAF5FF" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="#E4E4E7" stopOpacity="0.55" />
+              <stop offset="40%" stopColor="#F4F4F5" stopOpacity="0.65" />
+              <stop offset="80%" stopColor="#E4E4E7" stopOpacity="0.75" />
+              <stop offset="100%" stopColor="#FAFAFA" stopOpacity="0.3" />
             </linearGradient>
           </defs>
 
@@ -56,14 +56,14 @@ export default function AngledBackgroundShapes() {
           ZIGZAG RIBBON 2: POSTERS & STORY SECTION (Mid)
           ======================================================== */}
       <div className="absolute top-[1900px] left-0 right-0 h-[650px]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full bg-gradient-to-r from-purple-200/30 via-violet-100/20 to-purple-200/25 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full bg-gradient-to-r from-zinc-200/30 via-zinc-100/20 to-zinc-200/25 blur-3xl" />
         <svg className="w-full h-full opacity-85" viewBox="0 0 1440 650" fill="none" preserveAspectRatio="none">
           <defs>
             <linearGradient id="d2_zigzag2" x1="0%" y1="50%" x2="100%" y2="50%">
               <stop offset="0%" stopColor="#F8FAFC" stopOpacity="0.2" />
-              <stop offset="20%" stopColor="#EDE9FE" stopOpacity="0.7" />
-              <stop offset="50%" stopColor="#F5EEF8" stopOpacity="0.85" />
-              <stop offset="80%" stopColor="#F3E8FF" stopOpacity="0.7" />
+              <stop offset="20%" stopColor="#F4F4F5" stopOpacity="0.7" />
+              <stop offset="50%" stopColor="#E4E4E7" stopOpacity="0.85" />
+              <stop offset="80%" stopColor="#F4F4F5" stopOpacity="0.7" />
               <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.2" />
             </linearGradient>
           </defs>
@@ -79,14 +79,14 @@ export default function AngledBackgroundShapes() {
           ZIGZAG RIBBON 3: WORKFLOW & BLOG SECTION (Lower)
           ======================================================== */}
       <div className="absolute top-[3300px] left-0 right-0 h-[600px]">
-        <div className="absolute top-1/3 left-1/3 w-[700px] h-[400px] rounded-full bg-purple-200/25 blur-3xl" />
+        <div className="absolute top-1/3 left-1/3 w-[700px] h-[400px] rounded-full bg-zinc-200/25 blur-3xl" />
         <svg className="w-full h-full opacity-80" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
           <defs>
             <linearGradient id="d2_zigzag3" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#FAF5FF" stopOpacity="0.8" />
-              <stop offset="35%" stopColor="#EDE9FE" stopOpacity="0.65" />
-              <stop offset="70%" stopColor="#F5EEF8" stopOpacity="0.75" />
-              <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0.2" />
+              <stop offset="0%" stopColor="#FAFAFA" stopOpacity="0.8" />
+              <stop offset="35%" stopColor="#F4F4F5" stopOpacity="0.65" />
+              <stop offset="70%" stopColor="#E4E4E7" stopOpacity="0.75" />
+              <stop offset="100%" stopColor="#FAFAFA" stopOpacity="0.2" />
             </linearGradient>
           </defs>
 

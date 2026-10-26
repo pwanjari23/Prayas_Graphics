@@ -60,15 +60,15 @@ export default function AcpSignboardCostNagpurPage() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-purple-100 text-[#800080] mb-2">
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-zinc-100 text-zinc-900 border border-zinc-200 mb-2">
             Method A: All-Inclusive Sq. Ft. Bundle
           </div>
           <h3 className="text-base font-bold text-zinc-900 mb-2">Flat Square-Foot Rate</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             The total height of the board is multiplied by the width, and a blended rate is applied covering the ACP tray, MS frame, standard letter count, and LED modules:
           </p>
-          <div className="mt-3 p-3 rounded-xl bg-purple-50/60 font-mono text-xs text-purple-900 font-bold">
+          <div className="mt-3 p-3 rounded-xl bg-zinc-100 font-mono text-xs text-zinc-900 font-bold border border-zinc-200">
             Total Cost = (Width in ft × Height in ft) × Rate (₹850 – ₹1,350/sq. ft.)
           </div>
           <p className="text-xs text-zinc-500 mt-2">
@@ -76,15 +76,15 @@ export default function AcpSignboardCostNagpurPage() {
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-purple-100 text-[#800080] mb-2">
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-zinc-100 text-zinc-900 border border-zinc-200 mb-2">
             Method B: Component-Level Precision
           </div>
           <h3 className="text-base font-bold text-zinc-900 mb-2">Tray + Per-Inch Letter Formula</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             The background ACP panel tray is billed per square foot, and each 3D acrylic letter is measured and billed per vertical running inch:
           </p>
-          <div className="mt-3 p-3 rounded-xl bg-purple-50/60 font-mono text-xs text-purple-900 font-bold">
+          <div className="mt-3 p-3 rounded-xl bg-zinc-100 font-mono text-xs text-zinc-900 font-bold border border-zinc-200">
             Total Cost = [ACP Tray Sq. Ft. × Rate] + [Total Letter Height in Inches × ₹85–₹115] + SMPS
           </div>
           <p className="text-xs text-zinc-500 mt-2">
@@ -104,35 +104,35 @@ export default function AcpSignboardCostNagpurPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-100">
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">ACP Tray Panel (Base)</td>
               <td className="px-5 py-4">3mm exterior grade with 0.25mm coil + 1" MS framework</td>
-              <td className="px-5 py-4 font-bold text-purple-700">₹240 – ₹320 / sq. ft.</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">₹240 – ₹320 / sq. ft.</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Heavy-Duty ACP Tray</td>
               <td className="px-5 py-4">4mm PVDF architectural grade with 0.50mm coil + 1.5" MS frame</td>
-              <td className="px-5 py-4 font-bold text-purple-700">₹320 – ₹420 / sq. ft.</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">₹320 – ₹420 / sq. ft.</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">3D Cast Acrylic Letters (LED Backlit)</td>
               <td className="px-5 py-4">3mm virgin cast face + 2" returns + Samsung IP67 LED modules</td>
-              <td className="px-5 py-4 font-bold text-purple-700">₹85 – ₹120 / vertical inch</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">₹85 – ₹120 / vertical inch</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Inner Cut ACP Fabrication</td>
               <td className="px-5 py-4">CNC routed ACP with milky translucent acrylic backing + internal LEDs</td>
-              <td className="px-5 py-4 font-bold text-purple-700">₹650 – ₹950 / sq. ft. complete</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">₹650 – ₹950 / sq. ft. complete</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">12V Rainproof SMPS Adapter</td>
               <td className="px-5 py-4">30A / 400W industrial power supply with surge protection</td>
-              <td className="px-5 py-4 font-bold text-purple-700">₹2,200 – ₹3,200 / unit</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">₹2,200 – ₹3,200 / unit</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Site Installation (Ground/1st Floor)</td>
               <td className="px-5 py-4">Chemical wall anchoring, welding, power connection within Nagpur</td>
-              <td className="px-5 py-4 font-bold text-purple-700">₹2,000 – ₹4,000 / site</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">₹2,000 – ₹4,000 / site</td>
             </tr>
           </tbody>
         </table>
@@ -144,10 +144,10 @@ export default function AcpSignboardCostNagpurPage() {
       </p>
 
       <div className="space-y-6 my-6">
-        <div className="p-6 rounded-2xl bg-stone-50 border border-zinc-200/80">
+        <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200/80">
           <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
             <h3 className="text-base font-bold text-zinc-900 m-0">Example 1: High Street Fashion Store (10 ft × 3 ft = 30 sq. ft.)</h3>
-            <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full">3D Acrylic on ACP</span>
+            <span className="text-xs font-bold text-zinc-900 bg-zinc-100 border border-zinc-200 px-3 py-1 rounded-full">3D Acrylic on ACP</span>
           </div>
           <p className="text-xs text-zinc-600 mb-3">
             Signboard Details: 10 ft width × 3 ft height. Brand name "STYLE HUB" (8 letters @ 14 inches height) + Tagline "MEN & WOMEN" (10 letters @ 5 inches height).
@@ -158,16 +158,16 @@ export default function AcpSignboardCostNagpurPage() {
             <div>• Tagline Letters: 10 letters × 5" = 50 inches @ ₹90/inch: <strong>₹4,500</strong></div>
             <div>• 12V 30A Rainproof Power Supply (Mean Well type): <strong>₹2,400</strong></div>
             <div>• Professional Installation & Rigging: <strong>₹2,500</strong></div>
-            <div className="border-t border-zinc-200 pt-2 mt-2 font-bold text-sm text-purple-800">
+            <div className="border-t border-zinc-200 pt-2 mt-2 font-bold text-sm text-zinc-950">
               ESTIMATED TOTAL (Excl. GST): ₹28,440 (Approx. ₹948 per sq. ft.)
             </div>
           </div>
         </div>
 
-        <div className="p-6 rounded-2xl bg-stone-50 border border-zinc-200/80">
+        <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200/80">
           <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
             <h3 className="text-base font-bold text-zinc-900 m-0">Example 2: Diagnostic Laboratory (15 ft × 4 ft = 60 sq. ft.)</h3>
-            <span className="text-xs font-bold text-purple-800 bg-purple-100 px-3 py-1 rounded-full">Inner Cut ACP Glow Sign</span>
+            <span className="text-xs font-bold text-zinc-900 bg-zinc-100 border border-zinc-200 px-3 py-1 rounded-full">Inner Cut ACP Glow Sign</span>
           </div>
           <p className="text-xs text-zinc-600 mb-3">
             Signboard Details: 15 ft width × 4 ft height. Flush CNC route cut board with clean medical aesthetic and diffused internal illumination.
@@ -178,7 +178,7 @@ export default function AcpSignboardCostNagpurPage() {
             <div>• Internal High-Density LED Matrix & Milky Acrylic Backing: <strong>Included</strong></div>
             <div>• 2× 12V 25A SMPS Adapters (Dual Circuit redundancy): <strong>₹4,200</strong></div>
             <div>• Installation & Alignment at 1st-Floor Height: <strong>₹3,500</strong></div>
-            <div className="border-t border-zinc-200 pt-2 mt-2 font-bold text-sm text-purple-800">
+            <div className="border-t border-zinc-200 pt-2 mt-2 font-bold text-sm text-zinc-950">
               ESTIMATED TOTAL (Excl. GST): ₹52,700 (Approx. ₹878 per sq. ft.)
             </div>
           </div>
@@ -224,12 +224,12 @@ export default function AcpSignboardCostNagpurPage() {
 
       <h2 id="get-quote">6. Get an Exact Written Estimate from Prayas Graphics</h2>
       <p>
-        Whether you need a classic <Link href="/services/acrylic-acp-signboard" className="text-purple-700 font-semibold underline">Acrylic ACP Signboard</Link> or a sleek <Link href="/services/inner-cut-acp-signboard" className="text-purple-700 font-semibold underline">Inner Cut ACP Glow Signboard</Link>, our in-house manufacturing workshop at Tukdoji Square gives you factory-direct pricing with zero middlemen margins.
+        Whether you need a classic <Link href="/services/acrylic-acp-signboard" className="text-zinc-950 font-semibold underline">Acrylic ACP Signboard</Link> or a sleek <Link href="/services/inner-cut-acp-signboard" className="text-zinc-950 font-semibold underline">Inner Cut ACP Glow Signboard</Link>, our in-house manufacturing workshop at Tukdoji Square gives you factory-direct pricing with zero middlemen margins.
       </p>
 
       <Callout variant="blue" icon="📐" title="Complimentary On-Site Measurement Consultation">
         <p>
-          Send us your shopfront photo and approximate dimensions. We will generate a scaled 2D visual layout and itemized price breakdown within 24 hours. <Link href="/quote" className="text-purple-700 font-bold underline">Try Our Instant Cost Estimator</Link> or contact our technical team directly on WhatsApp at <strong>+91 91724 87246</strong>.
+          Send us your shopfront photo and approximate dimensions. We will generate a scaled 2D visual layout and itemized price breakdown within 24 hours. <Link href="/quote" className="text-zinc-950 font-bold underline">Try Our Instant Cost Estimator</Link> or contact our technical team directly on WhatsApp at <strong>+91 91724 87246</strong>.
         </p>
       </Callout>
     </BlogPostLayout>

@@ -82,8 +82,8 @@ export default function NmcRulesPage() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
-        <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-xs">
-          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 mb-2">
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-zinc-100 text-zinc-900 border border-zinc-200 mb-2">
             Standard Identification Signage (Streamlined)
           </div>
           <h3 className="text-base font-bold text-zinc-900 mb-2">Flush-Mounted Shopfront Fascia</h3>
@@ -92,8 +92,8 @@ export default function NmcRulesPage() {
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-red-100 shadow-xs">
-          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-red-100 text-red-800 mb-2">
+        <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-xs">
+          <div className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-zinc-100 text-zinc-900 border border-zinc-200 mb-2">
             Mandatory Sky-Sign Clearance Required
           </div>
           <h3 className="text-base font-bold text-zinc-900 mb-2">Projecting, Rooftop & Large Fascias</h3>
@@ -119,25 +119,25 @@ export default function NmcRulesPage() {
               <td className="px-5 py-4 font-semibold text-zinc-900">Standard Retail Fascia (ACP / 3D Letters)</td>
               <td className="px-5 py-4">Total shop width; height typically capped at 3–4 ft</td>
               <td className="px-5 py-4">Max 6 to 9 inches (flush tray)</td>
-              <td className="px-5 py-4 font-bold text-emerald-600">Trade License Integration</td>
+              <td className="px-5 py-4 font-bold text-zinc-900">Trade License Integration</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Cantilevered / Lollipop Sign</td>
               <td className="px-5 py-4">24" × 24" or 36" × 36" round/square</td>
               <td className="px-5 py-4">Max 2.5 ft, min 10 ft vertical road clearance</td>
-              <td className="px-5 py-4 font-bold text-amber-600">Zonal Permission Needed</td>
+              <td className="px-5 py-4 font-bold text-zinc-800">Zonal Permission Needed</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Rooftop Sky Sign (Building Terrace)</td>
               <td className="px-5 py-4">Proportionate to structural terrace load rating</td>
               <td className="px-5 py-4">Must stay strictly within building boundary</td>
-              <td className="px-5 py-4 font-bold text-red-600">Mandatory Head Office Clearance</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">Mandatory Head Office Clearance</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Free-Standing Pylon Display</td>
               <td className="px-5 py-4">Subject to compound plot setback & driveway clearance</td>
               <td className="px-5 py-4">Zero encroachment onto public footpath</td>
-              <td className="px-5 py-4 font-bold text-red-600">Town Planning & Fire NOC</td>
+              <td className="px-5 py-4 font-bold text-zinc-950">Town Planning & Fire NOC</td>
             </tr>
           </tbody>
         </table>
@@ -150,7 +150,7 @@ export default function NmcRulesPage() {
 
       <div className="space-y-4 my-6">
         <div className="p-4 rounded-xl bg-stone-50 border border-zinc-200 flex items-start gap-3">
-          <span className="text-purple-700 font-bold text-lg mt-0.5">✓</span>
+          <span className="text-zinc-900 font-bold text-lg mt-0.5">✓</span>
           <div>
             <h4 className="font-bold text-zinc-900 text-sm m-0">Landlord / Society No-Objection Certificate (NOC)</h4>
             <p className="text-xs text-zinc-600 mt-1">
@@ -160,7 +160,7 @@ export default function NmcRulesPage() {
         </div>
 
         <div className="p-4 rounded-xl bg-stone-50 border border-zinc-200 flex items-start gap-3">
-          <span className="text-purple-700 font-bold text-lg mt-0.5">✓</span>
+          <span className="text-zinc-900 font-bold text-lg mt-0.5">✓</span>
           <div>
             <h4 className="font-bold text-zinc-900 text-sm m-0">MSEDCL Power Overhead Line Clearances</h4>
             <p className="text-xs text-zinc-600 mt-1">
@@ -170,7 +170,7 @@ export default function NmcRulesPage() {
         </div>
 
         <div className="p-4 rounded-xl bg-stone-50 border border-zinc-200 flex items-start gap-3">
-          <span className="text-purple-700 font-bold text-lg mt-0.5">✓</span>
+          <span className="text-zinc-900 font-bold text-lg mt-0.5">✓</span>
           <div>
             <h4 className="font-bold text-zinc-900 text-sm m-0">Structural Stability Certification (For Large Sky Signs)</h4>
             <p className="text-xs text-zinc-600 mt-1">
@@ -209,19 +209,19 @@ export default function NmcRulesPage() {
 
       <ul className="list-disc pl-6 space-y-2 text-zinc-700 my-4 text-sm leading-relaxed">
         <li>
-          <strong>Non-Combustible Class B1/A2 Materials:</strong> We use branded <Link href="/services/acrylic-acp-signboard" className="text-purple-700 font-semibold underline">Acrylic ACP Signboards</Link> and fire-retardant aluminium composite panels.
+          <strong>Non-Combustible Class B1/A2 Materials:</strong> We use branded <Link href="/services/acrylic-acp-signboard" className="text-zinc-950 font-semibold underline">Acrylic ACP Signboards</Link> and fire-retardant aluminium composite panels.
         </li>
         <li>
           <strong>Engineered MS Framework:</strong> Welded 1-inch and 1.5-inch MS hollow square pipes primed with anti-corrosive zinc chromate red oxide to withstand squalls without metal fatigue.
         </li>
         <li>
-          <strong>Full Architectural Elevation Integration:</strong> Seamless coordination with our <Link href="/services/acp-elevation-work" className="text-purple-700 font-semibold underline">ACP Elevation Cladding Services</Link> to ensure all conduits and transformers remain concealed and fully protected inside the building line.
+          <strong>Full Architectural Elevation Integration:</strong> Seamless coordination with our <Link href="/services/acp-elevation-work" className="text-zinc-950 font-semibold underline">ACP Elevation Cladding Services</Link> to ensure all conduits and transformers remain concealed and fully protected inside the building line.
         </li>
       </ul>
 
       <Callout variant="blue" icon="🏛️" title="Planning a Commercial Installation in Nagpur?">
         <p>
-          Don't leave compliance to chance. Discuss your shopfront dimensions with our engineering team at Tukdoji Square. We conduct detailed site inspections across all 10 NMC zones. Reach out directly via our <Link href="/contact" className="text-purple-700 font-bold underline">Contact Page</Link> or WhatsApp our senior fabrication coordinator at <strong>+91 91724 87246</strong>.
+          Don't leave compliance to chance. Discuss your shopfront dimensions with our engineering team at Tukdoji Square. We conduct detailed site inspections across all 10 NMC zones. Reach out directly via our <Link href="/contact" className="text-zinc-950 font-bold underline">Contact Page</Link> or WhatsApp our senior fabrication coordinator at <strong>+91 91724 87246</strong>.
         </p>
       </Callout>
     </BlogPostLayout>

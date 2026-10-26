@@ -31,39 +31,29 @@ export default function PopularPosters() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#faf8fc] via-white to-[#faf8fc] pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20">
-      {/* ========================================================
-          BACKGROUND EFFECTS: Subtle Purple-Magenta Gradients,
-          Soft Lighting Flares & CAD Architectural Matrix
-          ======================================================== */}
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#f8f8f8] via-white to-[#f8f8f8] pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20">
+      {/* Background CAD Architectural Matrix */}
       <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
-        {/* Soft atmospheric lighting pools */}
-        <div className="absolute -top-24 -left-20 w-[550px] h-[550px] rounded-full bg-purple-500/[0.12] blur-[120px] transform-gpu" />
-        <div className="absolute top-1/3 -right-24 w-[650px] h-[650px] rounded-full bg-fuchsia-500/[0.09] blur-[140px] transform-gpu" />
-        <div className="absolute -bottom-20 left-1/4 w-[500px] h-[500px] rounded-full bg-[#800080]/[0.10] blur-[110px] transform-gpu" />
-
         {/* Architectural precision dot matrix CAD grid */}
-        <div className="absolute inset-0 opacity-[0.28] [background-image:radial-gradient(#800080_0.75px,transparent_0.75px)] [background-size:24px_24px]" />
+        <div className="absolute inset-0 opacity-[0.20] [background-image:radial-gradient(#a3a3a3_0.75px,transparent_0.75px)] [background-size:24px_24px]" />
 
-        {/* Delicate Blueprint Alignment Crosshairs */}
-        <div className="absolute top-8 left-8 text-purple-400/30 text-xs font-mono font-light select-none">+ 01_SRV</div>
-        <div className="absolute top-8 right-8 text-purple-400/30 text-xs font-mono font-light select-none">+ 02_FAB</div>
-        <div className="absolute bottom-12 left-12 text-purple-400/30 text-xs font-mono font-light select-none">+ 03_CNC</div>
-        <div className="absolute bottom-12 right-12 text-purple-400/30 text-xs font-mono font-light select-none">+ 04_NAGPUR</div>
+        {/* Blueprint Alignment Crosshairs */}
+        <div className="absolute top-8 left-8 text-zinc-400/40 text-xs font-mono font-light select-none">+ 01_SRV</div>
+        <div className="absolute top-8 right-8 text-zinc-400/40 text-xs font-mono font-light select-none">+ 02_FAB</div>
+        <div className="absolute bottom-12 left-12 text-zinc-400/40 text-xs font-mono font-light select-none">+ 03_CNC</div>
+        <div className="absolute bottom-12 right-12 text-zinc-400/40 text-xs font-mono font-light select-none">+ 04_NAGPUR</div>
 
         {/* Subtle architectural arcs */}
-        <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full border border-purple-300/20" />
-        <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full border border-fuchsia-300/20" />
+        <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full border border-zinc-200/60" />
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full border border-zinc-200/60" />
       </div>
 
-      {/* ========================================================
-          CONTENT CONTAINER (max-w-7xl centered)
-          ======================================================== */}
+      {/* CONTENT CONTAINER */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-6">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-200/90 bg-white/85 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-[#800080] shadow-xs mb-3.5">
-            <Sparkles className="h-3.5 w-3.5 text-[#800080]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/95 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-zinc-950 shadow-xs mb-3.5">
+            <Sparkles className="h-3.5 w-3.5 text-zinc-950" />
             <span>FLAGSHIP SIGNAGE SOLUTIONS</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-950 leading-tight">
@@ -74,7 +64,7 @@ export default function PopularPosters() {
           </p>
         </div>
 
-        {/* Normal 4 Vertical Cards Grid (2 cards per line on mobile, 4 on desktop) */}
+        {/* Normal 4 Vertical Cards Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
           {featuredServices.map((service, idx) => {
             const stepNumber = `0${idx + 1}`;
@@ -89,7 +79,7 @@ export default function PopularPosters() {
             return (
               <div
                 key={service.slug}
-                className="flex flex-col justify-between rounded-2xl sm:rounded-[28px] border border-purple-100/90 bg-white/95 backdrop-blur-xs p-3 sm:p-5 lg:p-6 shadow-[0_4px_20px_rgba(128,0,128,0.04)] hover:shadow-[0_16px_36px_rgba(128,0,128,0.12)] hover:border-purple-300 transition-all duration-300 group"
+                className="flex flex-col justify-between rounded-2xl sm:rounded-[28px] border border-zinc-200 bg-white/95 backdrop-blur-xs p-3 sm:p-5 lg:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.1)] hover:border-zinc-400 transition-all duration-300 group"
               >
                 <div>
                   {/* 1. FIRST: Name & Category Badge */}
@@ -97,7 +87,7 @@ export default function PopularPosters() {
                     <span className="font-heading text-[10px] sm:text-xs font-black text-zinc-400 tracking-wider">
                       {stepNumber}
                     </span>
-                    <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider text-[#800080] bg-[#800080]/10 px-1.5 sm:px-2 py-0.5 rounded-full truncate max-w-[85px] sm:max-w-none">
+                    <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider text-zinc-800 bg-zinc-100 border border-zinc-200 px-1.5 sm:px-2 py-0.5 rounded-full truncate max-w-[85px] sm:max-w-none">
                       {servicePillBadge[service.slug] || service.tag}
                     </span>
                   </div>
@@ -124,8 +114,8 @@ export default function PopularPosters() {
 
                     {/* Corner Badge */}
                     <div className="absolute top-1.5 right-1.5 sm:top-2.5 sm:right-2.5 pointer-events-none">
-                      <span className="inline-flex items-center gap-1 text-[8px] sm:text-[10px] font-semibold text-emerald-800 bg-white/95 backdrop-blur-xs border border-emerald-200/70 px-1.5 sm:px-2 py-0.5 rounded-full shadow-2xs">
-                        <ShieldCheck className="h-2 w-2 sm:h-2.5 sm:w-2.5 text-emerald-600" />
+                      <span className="inline-flex items-center gap-1 text-[8px] sm:text-[10px] font-semibold text-zinc-800 bg-white/95 backdrop-blur-xs border border-zinc-200 px-1.5 sm:px-2 py-0.5 rounded-full shadow-2xs">
+                        <ShieldCheck className="h-2 w-2 sm:h-2.5 sm:w-2.5 text-zinc-700" />
                         NMC Verified
                       </span>
                     </div>
@@ -138,14 +128,14 @@ export default function PopularPosters() {
                         key={bIdx}
                         className="inline-flex items-center gap-1 rounded-md bg-zinc-50 border border-zinc-200/70 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[11px] font-medium text-zinc-600"
                       >
-                        <CheckCircle2 className="h-2 w-2 sm:h-2.5 sm:w-2.5 text-emerald-600 shrink-0" />
+                        <CheckCircle2 className="h-2 w-2 sm:h-2.5 sm:w-2.5 text-zinc-700 shrink-0" />
                         <span className="truncate max-w-[70px] sm:max-w-none">{badge}</span>
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* 3. THEN: Pricing & That Button */}
+                {/* 3. THEN: Pricing & Action Button */}
                 <div className="pt-2.5 sm:pt-4 border-t border-zinc-100 flex flex-col gap-2 sm:gap-3 mt-auto">
                   <div>
                     <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-0.5">
@@ -166,7 +156,7 @@ export default function PopularPosters() {
 
                   <Link
                     href={`/services/${service.slug}`}
-                    className="group/btn w-full inline-flex items-center justify-center gap-1 sm:gap-2 rounded-xl bg-zinc-950 px-2.5 py-2 sm:px-4 sm:py-3 text-[11px] sm:text-sm font-bold text-white shadow-xs hover:bg-[#800080] hover:shadow-md transition-all duration-200 cursor-pointer"
+                    className="group/btn w-full inline-flex items-center justify-center gap-1 sm:gap-2 rounded-xl bg-zinc-950 px-2.5 py-2 sm:px-4 sm:py-3 text-[11px] sm:text-sm font-bold text-white shadow-xs hover:bg-zinc-800 hover:shadow-md transition-all duration-200 cursor-pointer"
                   >
                     <span>Configure<span className="hidden sm:inline"> & Quote</span></span>
                     <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 shrink-0" />
@@ -178,13 +168,13 @@ export default function PopularPosters() {
         </div>
 
         {/* Bottom Footer Bar */}
-        <div className="mt-10 sm:mt-12 pt-5 border-t border-purple-200/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <div className="mt-10 sm:mt-12 pt-5 border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <span className="text-xs sm:text-sm text-zinc-600 font-medium">
             Need custom dimensions or bespoke architectural cladding?
           </span>
           <Link
             href="/services"
-            className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-zinc-900 hover:text-[#800080] transition-colors"
+            className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-zinc-900 hover:text-black hover:underline transition-colors"
           >
             <span>Explore All 12 Signage Services</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

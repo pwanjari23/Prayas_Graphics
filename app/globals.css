@@ -4,14 +4,14 @@
   --font-sans: var(--font-dm-sans);
   --font-heading: var(--font-bricolage-grotesque);
   --font-inter: var(--font-inter);
-  --color-primary: #800080;
+  --color-primary: #000000;
 }
 
 @layer base {
   :root {
-    --background: #fdfdfd;
-    --foreground: #121212;
-    --primary: #800080;
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary: #000000;
   }
 
   html {
@@ -60,6 +60,67 @@ body {
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+/* Logo Marquee: Seamless Infinite Continuous Scrolling */
+.logo-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-marquee__track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: logo-marquee-scroll 48s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo-marquee__track:hover {
+    animation-play-state: paused;
+  }
+}
+
+.logo-marquee__group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .logo-marquee__group {
+    gap: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-marquee__group {
+    gap: 24px;
+    padding-right: 24px;
+  }
+}
+
+@keyframes logo-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track {
+    animation: none;
+    overflow-x: auto;
+  }
 }
 
 @keyframes spin-cw {

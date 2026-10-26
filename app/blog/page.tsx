@@ -29,7 +29,7 @@ export default function BlogPage() {
   ]);
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center bg-[#faf8fc] overflow-x-hidden pt-20 sm:pt-24">
+    <main className="relative flex min-h-screen flex-col items-center bg-[#F8F8F8] overflow-x-hidden pt-20 sm:pt-24">
       {/* Main Content strictly in front at z-10 */}
       <div className="relative z-10 w-full flex flex-col items-center">
         <script
@@ -42,16 +42,16 @@ export default function BlogPage() {
         {/* Slanted Divider: Light Blog to Dark CtaSection */}
         <DiagonalSlantedDivider
           id="blog-to-cta-slant"
-          topColor="#faf8fc"
-          bottomColor="#0c0617"
+          topColor="#f8f8f8"
+          bottomColor="#171717"
           reverse={false}
         />
 
         <CtaSection />
         <DiagonalSlantedDivider
           id="cta-to-footer-slant-blog"
-          topColor="#0c0617"
-          bottomColor="#faf8fc"
+          topColor="#171717"
+          bottomColor="#f8f8f8"
           reverse={true}
         />
         <Footer />

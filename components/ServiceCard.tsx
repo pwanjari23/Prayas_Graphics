@@ -61,8 +61,8 @@ export default function ServiceCard({
                   key={idx}
                   className={cn(
                     "rounded-full px-3 py-1 text-xs font-semibold shadow-sm",
-                    badge.type === "popular" && "bg-[#800080] text-white",
-                    badge.type === "new" && "bg-[#800080] text-white",
+                    badge.type === "popular" && "bg-black text-white",
+                    badge.type === "new" && "bg-black text-white",
                     idx > 0 ? "ml-auto" : ""
                   )}
                 >
@@ -113,7 +113,7 @@ export default function ServiceCard({
                 <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Offer Price</span>
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs text-zinc-400 line-through font-medium">₹{originalPrice.toLocaleString('en-IN')}</span>
-                  <span className="text-sm font-bold text-[#800080]">
+                  <span className="text-sm font-bold text-zinc-950">
                     {offerPrice ? `₹${offerPrice.toLocaleString('en-IN')}` : "Special Rate"}
                   </span>
                 </div>

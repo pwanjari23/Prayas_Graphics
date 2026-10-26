@@ -23,7 +23,7 @@ export async function sendContactEmail(formData: FormData) {
 
     const emailHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 25px; border-radius: 12px; background-color: #fff;">
-        <h2 style="color: #800080; border-bottom: 2px solid #800080; padding-bottom: 10px;">New Contact Message</h2>
+        <h2 style="color: #171717; border-bottom: 2px solid #171717; padding-bottom: 10px;">New Contact Message</h2>
         <p><strong>Name:</strong> ${validatedData.name}</p>
         <p><strong>Email:</strong> ${validatedData.email}</p>
         <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">

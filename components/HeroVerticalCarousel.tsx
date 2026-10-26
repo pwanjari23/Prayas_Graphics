@@ -80,7 +80,7 @@ const column2Items: CarouselItem[] = [
 const VerticalCard = ({ item }: { item: CarouselItem }) => (
   <Link
     href={item.href}
-    className="group relative w-full aspect-[9/13.5] rounded-xl overflow-hidden border border-zinc-200/90 bg-zinc-950 shadow-xs hover:border-purple-400 hover:shadow-md hover:shadow-purple-900/20 transition-all duration-300 shrink-0 block"
+    className="group relative w-full aspect-[9/13.5] rounded-xl overflow-hidden border border-zinc-200/90 bg-zinc-950 shadow-xs hover:border-zinc-400 hover:shadow-md transition-all duration-300 shrink-0 block"
   >
     <Image
       src={item.src}
@@ -95,8 +95,8 @@ const VerticalCard = ({ item }: { item: CarouselItem }) => (
 
     {/* Top Tag Pill */}
     <div className="absolute top-1.5 left-1.5 right-1.5 z-10 flex items-center justify-between pointer-events-none">
-      <span className="inline-flex items-center gap-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 px-1.5 py-0.5 text-[8.5px] font-bold text-purple-200 shadow-xs">
-        <Sparkles className="h-2 w-2 text-purple-300 shrink-0" />
+      <span className="inline-flex items-center gap-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 px-1.5 py-0.5 text-[8.5px] font-bold text-zinc-200 shadow-xs">
+        <Sparkles className="h-2 w-2 text-zinc-300 shrink-0" />
         <span className="truncate max-w-[60px]">{item.tag}</span>
       </span>
       <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white/20 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
@@ -106,7 +106,7 @@ const VerticalCard = ({ item }: { item: CarouselItem }) => (
 
     {/* Bottom Caption Title */}
     <div className="absolute bottom-1.5 left-1.5 right-1.5 z-10">
-      <h3 className="font-heading text-[10px] sm:text-[11px] font-bold text-white tracking-tight leading-tight drop-shadow-sm group-hover:text-purple-200 transition-colors line-clamp-2">
+      <h3 className="font-heading text-[10px] sm:text-[11px] font-bold text-white tracking-tight leading-tight drop-shadow-sm group-hover:text-zinc-200 transition-colors line-clamp-2">
         {item.title}
       </h3>
     </div>

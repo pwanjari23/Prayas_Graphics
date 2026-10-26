@@ -114,23 +114,17 @@ export default function GalleryGrid() {
 
   return (
     <section className="relative mx-auto w-full max-w-[1680px] px-3.5 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 pt-2 sm:pt-4 pb-20">
-      {/* Background ambient subtle purple glow */}
-      <div
-        className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 h-96 w-[750px] rounded-full bg-purple-100/35 blur-3xl -z-10"
-        aria-hidden="true"
-      />
-
       {/* ======================================================== */}
       {/* 1. HEADER & INTRO SECTION (Full-Width, Left-Aligned)     */}
       {/* ======================================================== */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-200/90 bg-purple-50/80 px-3.5 py-1 text-xs font-bold text-[#800080] mb-3">
-            <Sparkles className="h-3.5 w-3.5 text-[#800080]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-100 px-3.5 py-1 text-xs font-bold text-zinc-950 mb-3">
+            <Sparkles className="h-3.5 w-3.5 text-zinc-950" />
             <span>VERIFIED INSTALLATION ARCHIVE</span>
           </div>
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-zinc-950 leading-tight">
-            The Signage <span className="text-[#800080]">Vault.</span>
+            The Signage <span className="text-zinc-950">Vault.</span>
           </h1>
           <p className="mt-3 text-sm sm:text-base text-zinc-600 leading-relaxed font-normal max-w-2xl">
             From precision-cut 3D titanium letters to commercial ACP elevations, explore real project installations crafted at our Tukdoji Square workshop in Nagpur.
@@ -142,7 +136,7 @@ export default function GalleryGrid() {
             href={`https://wa.me/${BUSINESS_INFO.contact.whatsappNumber}?text=${encodeURIComponent("Hello Prayas Graphics! I saw your portfolio and would like to get a quote for my business in Nagpur.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-xl sm:rounded-2xl bg-[#800080] px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white uppercase shadow-[0_12px_24px_-4px_rgba(128,0,128,0.35)] transition-all duration-200 hover:bg-[#6b006b] hover:shadow-[0_16px_30px_-4px_rgba(128,0,128,0.45)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center justify-center rounded-xl sm:rounded-2xl bg-zinc-950 px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white uppercase shadow-md transition-all duration-200 hover:bg-zinc-800 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer whitespace-nowrap"
           >
             Get a Custom Quote
           </a>
@@ -220,7 +214,7 @@ export default function GalleryGrid() {
                 <div
                   onClick={() => setLightboxItem(item)}
                   className={cn(
-                    "group relative w-full overflow-hidden rounded-[20px] sm:rounded-[24px] xl:rounded-[26px] border border-zinc-200/90 bg-zinc-100 shadow-xs transition-all duration-500 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-950/15 cursor-pointer select-none",
+                    "group relative w-full overflow-hidden rounded-[20px] sm:rounded-[24px] xl:rounded-[26px] border border-zinc-200/90 bg-zinc-100 shadow-xs transition-all duration-500 hover:border-zinc-400 hover:shadow-xl cursor-pointer select-none",
                     aspectClass
                   )}
                 >
@@ -246,7 +240,7 @@ export default function GalleryGrid() {
                     <p className="text-xs sm:text-sm font-bold text-white leading-tight line-clamp-1 drop-shadow-xs">
                       {item.title}
                     </p>
-                    <p className="text-[10px] sm:text-xs text-purple-300 font-semibold mt-0.5 line-clamp-1">
+                    <p className="text-[10px] sm:text-xs text-zinc-300 font-semibold mt-0.5 line-clamp-1">
                       {item.spec}
                     </p>
                   </div>
@@ -304,7 +298,7 @@ export default function GalleryGrid() {
                   <h3 className="text-sm sm:text-base font-bold text-white leading-tight">
                     {lightboxItem.title}
                   </h3>
-                  <p className="text-xs text-purple-300 font-medium mt-0.5">
+                  <p className="text-xs text-zinc-300 font-medium mt-0.5">
                     {lightboxItem.spec}
                   </p>
                 </div>
@@ -313,7 +307,7 @@ export default function GalleryGrid() {
                   href={getWhatsAppUrl(lightboxItem.title)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-zinc-950 px-4 py-2 text-xs font-bold transition-all shadow-md active:scale-95 whitespace-nowrap"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 px-4 py-2 text-xs font-bold transition-all shadow-md active:scale-95 whitespace-nowrap"
                 >
                   <MessageCircle className="h-4 w-4" />
                   <span>Inquire About This Sign</span>

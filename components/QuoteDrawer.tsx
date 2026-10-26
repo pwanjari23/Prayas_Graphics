@@ -85,8 +85,8 @@ export default function QuoteDrawer({
                 <X className="h-4 w-4" />
               </button>
 
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-[11px] font-bold text-[#800080] mb-3">
-                <Sparkles className="h-3 w-3 text-[#800080]" />
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1 text-[11px] font-bold text-zinc-950 mb-3">
+                <Sparkles className="h-3 w-3 text-zinc-950" />
                 <span>Quick Estimate</span>
               </div>
 

@@ -3,9 +3,27 @@ import { MistakeBox, Callout } from "@/components/blog/shared";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Is Your Signboard Killing Your Sales? 7 Signs It's Time to Upgrade",
+  title: "Is Your Signboard Killing Your Sales? 7 Signs It's Time to Upgrade | Prayas Graphics",
   description:
     "Discover the 7 clear signs your business signboard in Nagpur is losing you customers — and what Prayas Graphics recommends as the ideal replacement.",
+  alternates: {
+    canonical: "https://prayasgraphics.com/signboard-killing-sales-nagpur-upgrade",
+  },
+  openGraph: {
+    title: "Is Your Signboard Killing Your Sales? 7 Signs It's Time to Upgrade",
+    description:
+      "Discover the 7 clear signs your business signboard in Nagpur is losing you customers — and what Prayas Graphics recommends as the ideal replacement.",
+    url: "https://prayasgraphics.com/signboard-killing-sales-nagpur-upgrade",
+    type: "article",
+    images: ["/blog/5-costly-signboard-mistakes-nagpur.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Is Your Signboard Killing Your Sales? 7 Signs to Upgrade",
+    description:
+      "Discover the 7 clear signs your business signboard in Nagpur is losing you customers.",
+    images: ["/blog/5-costly-signboard-mistakes-nagpur.webp"],
+  },
 };
 
 export default function SignboardUpgradePage() {

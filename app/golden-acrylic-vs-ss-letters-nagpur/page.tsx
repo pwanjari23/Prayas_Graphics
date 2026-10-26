@@ -3,9 +3,27 @@ import { VsGrid, Callout } from "@/components/blog/shared";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Golden Acrylic vs Stainless Steel Letters Nagpur — Which Looks More Luxurious?",
+  title: "Golden Acrylic vs Stainless Steel Letters Nagpur — Which Looks More Luxurious? | Prayas Graphics",
   description:
     "Comparing golden acrylic letters vs stainless steel (SS) letters for your Nagpur shopfront or office. Cost, durability, aesthetics, and which suits jewellers, law firms, and premium brands better.",
+  alternates: {
+    canonical: "https://prayasgraphics.com/golden-acrylic-vs-ss-letters-nagpur",
+  },
+  openGraph: {
+    title: "Golden Acrylic Letters vs Stainless Steel Letters Nagpur — Luxury Signage Comparison",
+    description:
+      "Comparing golden acrylic letters vs stainless steel (SS) letters for your Nagpur shopfront or office. Cost, durability, aesthetics, and luxury branding.",
+    url: "https://prayasgraphics.com/golden-acrylic-vs-ss-letters-nagpur",
+    type: "article",
+    images: ["/blog/golden-acrylic-vs-ss-letters-nagpur.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Golden Acrylic vs Stainless Steel Letters Nagpur",
+    description:
+      "Comparing golden acrylic letters vs stainless steel (SS) letters for your Nagpur shopfront or office.",
+    images: ["/blog/golden-acrylic-vs-ss-letters-nagpur.webp"],
+  },
 };
 
 export default function GoldenVsSSLettersPage() {
@@ -76,45 +94,45 @@ export default function GoldenVsSSLettersPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-100">
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Brand Aesthetic</td>
               <td className="px-5 py-4">Warm, traditional, prestigious</td>
               <td className="px-5 py-4">Modern, corporate, minimal</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Illumination Options</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Face-lit + backlit</td>
-              <td className="px-5 py-4 font-medium text-amber-500">Halo/backlit only</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Face-lit + backlit</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Halo/backlit only</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Cost (relative)</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Lower</td>
-              <td className="px-5 py-4 font-medium text-red-600">Higher</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Lower</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Higher</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Outdoor Durability</td>
-              <td className="px-5 py-4 font-medium text-amber-500">Good (coated)</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Excellent</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Good (coated)</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Excellent</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Indoor Use</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Excellent</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Excellent</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Excellent</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Excellent</td>
             </tr>
-             <tr className="hover:bg-stone-50 transition-colors">
+             <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Weight</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Light</td>
-              <td className="px-5 py-4 font-medium text-red-600">Heavy</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Light</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Heavy</td>
             </tr>
-            <tr className="hover:bg-stone-50 transition-colors">
+            <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Nagpur Jewellers Use</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Very Popular</td>
-              <td className="px-5 py-4 font-medium text-amber-500">Occasionally</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Very Popular</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Occasionally</td>
             </tr>
-             <tr className="hover:bg-stone-50 transition-colors">
+             <tr className="hover:bg-zinc-50 transition-colors">
               <td className="px-5 py-4 font-semibold text-zinc-900">Corporate Offices Use</td>
-              <td className="px-5 py-4 font-medium text-amber-500">Often</td>
-              <td className="px-5 py-4 font-medium text-emerald-600">Very Popular</td>
+              <td className="px-5 py-4 font-medium text-zinc-700">Often</td>
+              <td className="px-5 py-4 font-medium text-zinc-900">Very Popular</td>
             </tr>
           </tbody>
         </table>

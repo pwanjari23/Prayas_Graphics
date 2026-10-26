@@ -50,131 +50,131 @@ export default function Navbar() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full flex items-center justify-between gap-2.5 sm:gap-4"
           >
-          {/* Island 1: Left Brand Identity (Slightly more compact length) */}
-          <div
-            className={cn(
-              "pointer-events-auto flex items-center h-14 sm:h-[58px] px-3 sm:px-4 rounded-full border transform-gpu",
-              "backdrop-blur-md md:backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
-              scrolled
-                ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
-                : "bg-white/95 border-zinc-200/90 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.1),0_4px_14px_-2px_rgba(128,0,128,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
-            )}
-          >
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              aria-label="Prayas Graphics Home"
-              prefetch={true}
-              className="group flex items-center gap-2 sm:gap-2.5 transition-opacity duration-150 hover:opacity-90"
+            {/* Island 1: Left Brand Identity */}
+            <div
+              className={cn(
+                "pointer-events-auto flex items-center h-14 sm:h-[58px] px-3 sm:px-4 rounded-full border transform-gpu",
+                "backdrop-blur-md md:backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
+                scrolled
+                  ? "bg-white/98 border-zinc-300 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.04)]"
+                  : "bg-white/95 border-zinc-200 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
+              )}
             >
-              {/* Logo Emblem */}
-              <div className="relative flex items-center justify-center shrink-0">
-                <Image
-                  src="/Prayas-Graphics-Logo-Cropped.svg"
-                  alt="Prayas Graphics"
-                  width={52}
-                  height={44}
-                  className="w-9 h-8 sm:w-10 sm:h-9 md:w-11 md:h-9.5 transition-transform duration-200 group-hover:scale-105 object-contain"
-                  priority
-                />
-              </div>
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Prayas Graphics Home"
+                prefetch={true}
+                className="group flex items-center gap-2 sm:gap-2.5 transition-opacity duration-150 hover:opacity-90"
+              >
+                {/* Logo Emblem */}
+                <div className="relative flex items-center justify-center shrink-0">
+                  <Image
+                    src="/Prayas-Graphics-Logo-Cropped.svg"
+                    alt="Prayas Graphics"
+                    width={52}
+                    height={44}
+                    className="w-9 h-8 sm:w-10 sm:h-9 md:w-11 md:h-9.5 transition-transform duration-200 group-hover:scale-105 object-contain"
+                    priority
+                  />
+                </div>
 
-              {/* Brand Typography */}
-              <div className="flex flex-col justify-center select-none">
-                <span className="font-heading font-black tracking-tight text-zinc-950 text-[13px] sm:text-[15px] md:text-base uppercase leading-tight">
-                  Prayas Graphics
-                </span>
-                <span className="text-[9px] sm:text-[9.5px] md:text-[10px] font-bold tracking-wider text-[#800080] uppercase leading-tight mt-0.5">
-                  Design that get noticed
-                </span>
-              </div>
-            </Link>
-          </div>
+                {/* Brand Typography */}
+                <div className="flex flex-col justify-center select-none">
+                  <span className="font-heading font-black tracking-tight text-zinc-950 text-[13px] sm:text-[15px] md:text-base uppercase leading-tight">
+                    Prayas Graphics
+                  </span>
+                  <span className="text-[9px] sm:text-[9.5px] md:text-[10px] font-bold tracking-wider text-zinc-500 uppercase leading-tight mt-0.5">
+                    Design that get noticed
+                  </span>
+                </div>
+              </Link>
+            </div>
 
-          {/* Island 2: Middle Navigation Links (Untouched styles, perfectly centered) */}
-          <nav
-            aria-label="Main Navigation"
-            className={cn(
-              "pointer-events-auto hidden md:flex items-center gap-1 h-14 sm:h-[58px] px-3 sm:px-3.5 rounded-full border absolute left-1/2 -translate-x-1/2",
-              "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
-              scrolled
-                ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
-                : "bg-white/95 border-zinc-200/90 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.1),0_4px_14px_-2px_rgba(128,0,128,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
-            )}
-          >
-            {NAV_LINKS.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  prefetch={true}
-                  className={cn(
-                    "relative rounded-full px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold transition-all duration-150",
-                    active
-                      ? "bg-zinc-950 text-white shadow-xs font-bold"
-                      : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
-                  )}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Island 3: Right Action Island in a round capsule (slightly more compact length) */}
-          <div
-            className={cn(
-              "pointer-events-auto flex items-center gap-1.5 h-14 sm:h-[58px] px-2 sm:px-2.5 rounded-full border transform-gpu",
-              "backdrop-blur-md md:backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
-              scrolled
-                ? "bg-white/98 border-zinc-300/90 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14),0_6px_18px_-2px_rgba(128,0,128,0.14),0_0_0_1px_rgba(0,0,0,0.05)]"
-                : "bg-white/95 border-zinc-200/90 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.1),0_4px_14px_-2px_rgba(128,0,128,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
-            )}
-          >
-            {/* Shopping Cart Button */}
-            <button
-              type="button"
-              onClick={openCart}
-              aria-label={`Open cart, ${totalCount} items selected`}
-              className="group relative flex items-center gap-1.5 sm:gap-2 rounded-full border border-zinc-200/80 bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 sm:px-3 sm:py-1.5 text-zinc-700 transition-all duration-150 cursor-pointer shadow-2xs hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#800080]"
+            {/* Island 2: Middle Navigation Links */}
+            <nav
+              aria-label="Main Navigation"
+              className={cn(
+                "pointer-events-auto hidden md:flex items-center gap-1 h-14 sm:h-[58px] px-3 sm:px-3.5 rounded-full border absolute left-1/2 -translate-x-1/2",
+                "backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
+                scrolled
+                  ? "bg-white/98 border-zinc-300 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.04)]"
+                  : "bg-white/95 border-zinc-200 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
+              )}
             >
-              <ShoppingCart className="h-4 w-4 text-[#800080] transition-transform duration-150 group-hover:scale-110" />
-              <span className="hidden sm:inline text-xs font-bold text-zinc-800">Cart</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={totalCount}
-                  initial={{ scale: 0.6, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.6, opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                  className={cn(
-                    "flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[11px] font-bold tabular-nums transition-colors",
-                    totalCount > 0
-                      ? "bg-[#800080] text-white shadow-xs"
-                      : "bg-zinc-200 text-zinc-500"
-                  )}
-                >
-                  {totalCount}
-                </motion.span>
-              </AnimatePresence>
-            </button>
+              {NAV_LINKS.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    prefetch={true}
+                    className={cn(
+                      "relative rounded-full px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold transition-all duration-150",
+                      active
+                        ? "bg-zinc-950 text-white shadow-xs font-bold"
+                        : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </nav>
 
-            {/* Mobile Menu Toggle Button */}
-            <button
-              type="button"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200/80 bg-white text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-950 md:hidden cursor-pointer"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            {/* Island 3: Right Action Island in a round capsule */}
+            <div
+              className={cn(
+                "pointer-events-auto flex items-center gap-1.5 h-14 sm:h-[58px] px-2 sm:px-2.5 rounded-full border transform-gpu",
+                "backdrop-blur-md md:backdrop-blur-xl transition-[background-color,border-color,box-shadow,transform] duration-200",
+                scrolled
+                  ? "bg-white/98 border-zinc-300 shadow-[0_16px_36px_-6px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.04)]"
+                  : "bg-white/95 border-zinc-200 shadow-[0_10px_30px_-6px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
+              )}
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          </div>
-        </motion.div>
-      </div>
-    </header>
+              {/* Shopping Cart Button */}
+              <button
+                type="button"
+                onClick={openCart}
+                aria-label={`Open cart, ${totalCount} items selected`}
+                className="group relative flex items-center gap-1.5 sm:gap-2 rounded-full border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 sm:px-3 sm:py-1.5 text-zinc-700 transition-all duration-150 cursor-pointer shadow-2xs hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950"
+              >
+                <ShoppingCart className="h-4 w-4 text-zinc-900 transition-transform duration-150 group-hover:scale-110" />
+                <span className="hidden sm:inline text-xs font-bold text-zinc-800">Cart</span>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={totalCount}
+                    initial={{ scale: 0.6, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.6, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className={cn(
+                      "flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[11px] font-bold tabular-nums transition-colors",
+                      totalCount > 0
+                        ? "bg-zinc-950 text-white shadow-xs"
+                        : "bg-zinc-200 text-zinc-600"
+                    )}
+                  >
+                    {totalCount}
+                  </motion.span>
+                </AnimatePresence>
+              </button>
 
-      {/* Floating Mobile Dropdown Menu (Compact, not full page, with NO Call Button) */}
+              {/* Mobile Menu Toggle Button */}
+              <button
+                type="button"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-950 md:hidden cursor-pointer"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </header>
+
+      {/* Floating Mobile Dropdown Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -194,7 +194,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.96 }}
               transition={{ duration: 0.16, ease: "easeOut" }}
-              className="fixed top-20 right-3 sm:right-6 z-50 w-[230px] rounded-3xl border border-zinc-200/90 bg-white/98 p-2.5 shadow-[0_20px_45px_-8px_rgba(0,0,0,0.18),0_8px_20px_-3px_rgba(128,0,128,0.15)] backdrop-blur-md md:hidden"
+              className="fixed top-20 right-3 sm:right-6 z-50 w-[230px] rounded-3xl border border-zinc-200 bg-white/98 p-2.5 shadow-[0_20px_45px_-8px_rgba(0,0,0,0.18)] backdrop-blur-md md:hidden"
             >
               <div className="flex flex-col gap-0.5">
                 {NAV_LINKS.map((link) => {
@@ -218,7 +218,7 @@ export default function Navbar() {
                   );
                 })}
 
-                {/* Direct Cart Button inside dropdown (No Call button) */}
+                {/* Direct Cart Button inside dropdown */}
                 <div className="mt-1.5 border-t border-zinc-100 pt-1.5">
                   <button
                     type="button"
@@ -226,13 +226,13 @@ export default function Navbar() {
                       setMobileMenuOpen(false);
                       openCart();
                     }}
-                    className="flex w-full items-center justify-between rounded-xl bg-purple-50 hover:bg-purple-100 px-3 py-2 text-xs font-bold text-[#800080] transition-colors cursor-pointer"
+                    className="flex w-full items-center justify-between rounded-xl bg-zinc-100 hover:bg-zinc-200 px-3 py-2 text-xs font-bold text-zinc-950 transition-colors cursor-pointer"
                   >
                     <span className="flex items-center gap-1.5">
-                      <ShoppingCart className="h-3.5 w-3.5" />
+                      <ShoppingCart className="h-3.5 w-3.5 text-zinc-900" />
                       View Cart
                     </span>
-                    <span className="flex h-4.5 min-w-[18px] items-center justify-center rounded-full bg-[#800080] text-[10px] font-bold text-white px-1">
+                    <span className="flex h-4.5 min-w-[18px] items-center justify-center rounded-full bg-zinc-950 text-[10px] font-bold text-white px-1">
                       {totalCount}
                     </span>
                   </button>
@@ -245,6 +245,3 @@ export default function Navbar() {
     </>
   );
 }
-
-
-

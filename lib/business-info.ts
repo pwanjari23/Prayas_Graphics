@@ -46,6 +46,7 @@ export const BUSINESS_INFO = {
 
   socials: {
     googleReviewUrl: "https://g.page/r/CbL_ssLkBR47EAI/review",
+    googleMapsUrl: "https://maps.google.com/?cid=4259837583713075122",
     googleMapsEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.7443020843207!2d79.10267937420798!3d21.12275798454544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c147e4d218c3%3A0x3b1e05e4c2b2ffb2!2sPRAYAS%20GRAPHICS%20%7C%20ACP%20Sheet%20Work%20%7C%20Signages%20Board%20%7C%20LED%20Glow%20Sign%20Board%20%7C%20Flex%20Printing%20%7C%20Manufacturers%20in%20Nagpur!5e0!3m2!1sen!2sin!4v1775206503124!5m2!1sen!2sin",
     instagram: "https://www.instagram.com/prayas_graphics_77/",

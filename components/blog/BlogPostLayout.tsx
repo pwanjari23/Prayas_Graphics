@@ -41,7 +41,7 @@ export default function BlogPostLayout({
     : "";
 
   return (
-    <main className="relative flex min-h-screen flex-col bg-[#F9F9FA] overflow-x-hidden pt-20 sm:pt-24 font-sans text-zinc-900 selection:bg-purple-100 selection:text-purple-900">
+    <main className="relative flex min-h-screen flex-col bg-[#F9F9FA] overflow-x-hidden pt-20 sm:pt-24 font-sans text-zinc-900 selection:bg-zinc-200 selection:text-zinc-950">
       <StructuredData
         title={title}
         description={metaDescription}
@@ -64,7 +64,7 @@ export default function BlogPostLayout({
 
       {/* Subtle Asymmetric Slanted Top Backdrop (One side higher, one side lower) */}
       <div
-        className="absolute top-0 left-0 right-0 h-[480px] bg-gradient-to-br from-purple-100/50 via-zinc-100/60 to-transparent pointer-events-none z-0"
+        className="absolute top-0 left-0 right-0 h-[480px] bg-gradient-to-br from-zinc-200/50 via-zinc-100/60 to-transparent pointer-events-none z-0"
         style={{
           clipPath: "polygon(0 0, 100% 0, 100% 86%, 0 100%)",
         }}
@@ -74,9 +74,9 @@ export default function BlogPostLayout({
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-6 mb-6 mt-4">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-200/90 bg-white/90 backdrop-blur-xs px-3.5 py-1.5 text-xs font-semibold text-zinc-600 hover:text-[#800080] hover:border-purple-200 hover:bg-white transition-all shadow-2xs group"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-200/90 bg-white/90 backdrop-blur-xs px-3.5 py-1.5 text-xs font-semibold text-zinc-600 hover:text-black hover:border-zinc-400 hover:bg-white transition-all shadow-2xs group"
         >
-          <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5 text-zinc-500 group-hover:text-[#800080]" />
+          <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5 text-zinc-500 group-hover:text-black" />
           <span>Back to All Articles</span>
         </Link>
       </div>
@@ -89,7 +89,7 @@ export default function BlogPostLayout({
             {/* Hero Header */}
             <header className="mb-8">
               {/* Eyebrow Badge */}
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-200/90 bg-purple-50 px-3.5 py-1 text-xs font-bold text-[#800080] mb-4">
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-300 bg-zinc-100 px-3.5 py-1 text-xs font-bold text-zinc-900 mb-4">
                 <span>{eyebrow}</span>
               </div>
 
@@ -102,12 +102,12 @@ export default function BlogPostLayout({
               <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-zinc-500 pb-5 border-b border-zinc-200/80 mb-6">
                 {location && (
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="h-3.5 w-3.5 text-[#800080]" />
+                    <MapPin className="h-3.5 w-3.5 text-zinc-700" />
                     {location}
                   </span>
                 )}
                 <span className="flex items-center gap-1.5">
-                  <Clock className="h-3.5 w-3.5 text-[#800080]" />
+                  <Clock className="h-3.5 w-3.5 text-zinc-700" />
                   {readTime}
                 </span>
                 {formattedDate && (
@@ -119,7 +119,7 @@ export default function BlogPostLayout({
               </div>
 
               {/* Lede Quote / Highlight Box */}
-              <div className="rounded-2xl border-l-4 border-[#800080] bg-white/90 backdrop-blur-xs p-4 sm:p-5 shadow-2xs mb-6">
+              <div className="rounded-2xl border-l-4 border-zinc-950 bg-white/90 backdrop-blur-xs p-4 sm:p-5 shadow-2xs mb-6">
                 <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal m-0">
                   {lede}
                 </p>
@@ -147,7 +147,7 @@ export default function BlogPostLayout({
                 prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pt-8 prose-h2:border-t prose-h2:border-zinc-100
                 prose-h3:text-lg sm:prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
                 prose-p:mb-4 prose-p:leading-relaxed
-                prose-a:text-[#800080] prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
+                prose-a:text-black prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
                 prose-strong:font-bold prose-strong:text-zinc-950
                 prose-ul:my-5 prose-ul:pl-5
                 prose-li:my-1.5
@@ -167,7 +167,7 @@ export default function BlogPostLayout({
                   <p className="text-xs font-bold uppercase tracking-wider text-zinc-400">
                     Jump To Section
                   </p>
-                  <span className="text-[10px] font-semibold text-[#800080] bg-purple-50 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] font-semibold text-zinc-800 bg-zinc-100 px-2 py-0.5 rounded-full">
                     {toc.length} points
                   </span>
                 </div>
@@ -176,9 +176,9 @@ export default function BlogPostLayout({
                     <li key={idx}>
                       <a
                         href={"#" + item.id}
-                        className="group flex items-start gap-2 text-xs font-medium text-zinc-600 hover:text-[#800080] transition-colors leading-snug py-0.5"
+                        className="group flex items-start gap-2 text-xs font-medium text-zinc-600 hover:text-black transition-colors leading-snug py-0.5"
                       >
-                        <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300 group-hover:text-[#800080] group-hover:translate-x-0.5 transition-all mt-0.5" />
+                        <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-300 group-hover:text-black group-hover:translate-x-0.5 transition-all mt-0.5" />
                         <span>{item.title}</span>
                       </a>
                     </li>

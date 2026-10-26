@@ -74,7 +74,7 @@ export default function CustomSignboardQuotationChecklistPage() {
 
       <h2 id="quotation-checklist">2. The 6-Point Signboard Quotation Checklist</h2>
       <p>
-        When you reach out to Prayas Graphics via our <Link href="/quote" className="text-purple-700 font-semibold underline">Online Quote Calculator</Link> or WhatsApp, have the following 6 details ready:
+        When you reach out to Prayas Graphics via our <Link href="/quote" className="text-zinc-950 font-semibold underline">Online Quote Calculator</Link> or WhatsApp, have the following 6 details ready:
       </p>
 
       <StepBox
@@ -115,17 +115,17 @@ export default function CustomSignboardQuotationChecklistPage() {
 
       <h2 id="artwork-formats">3. Vector Artwork vs. Low-Resolution Screenshots</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
-        <div className="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200">
-          <div className="text-xs font-bold uppercase text-emerald-800 tracking-wider mb-1">Recommended</div>
-          <h3 className="text-base font-bold text-emerald-950 mb-2">Vector Artwork (.CDR, .AI, .PDF, .EPS)</h3>
+        <div className="p-5 rounded-2xl bg-zinc-50 border border-zinc-200">
+          <div className="text-xs font-bold uppercase text-zinc-700 tracking-wider mb-1">Recommended</div>
+          <h3 className="text-base font-bold text-zinc-950 mb-2">Vector Artwork (.CDR, .AI, .PDF, .EPS)</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             Vector files contain mathematical geometric paths. Our industrial CNC routers and CO2 laser cutters read vector curves directly, allowing instant letter profile scaling with micro-millimeter precision.
           </p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-amber-50/50 border border-amber-200">
-          <div className="text-xs font-bold uppercase text-amber-800 tracking-wider mb-1">Needs Vectorization</div>
-          <h3 className="text-base font-bold text-amber-950 mb-2">Bitmap Images (.JPG, .PNG, WhatsApp Photos)</h3>
+        <div className="p-5 rounded-2xl bg-zinc-50 border border-zinc-200">
+          <div className="text-xs font-bold uppercase text-zinc-700 tracking-wider mb-1">Needs Vectorization</div>
+          <h3 className="text-base font-bold text-zinc-950 mb-2">Bitmap Images (.JPG, .PNG, WhatsApp Photos)</h3>
           <p className="text-sm text-zinc-600 leading-relaxed">
             Pixelated photographs or business card screenshots cannot be directly sent to laser cutting machines. They require manual vector tracing by our graphic designers, which adds a brief pre-press redraw step.
           </p>
@@ -134,8 +134,8 @@ export default function CustomSignboardQuotationChecklistPage() {
 
       <h2 id="workflow">4. The 3-Step Quote-to-Installation Workflow at Prayas Graphics</h2>
       <div className="space-y-4 my-6">
-        <div className="p-4 rounded-xl bg-stone-50 border border-zinc-200 flex items-start gap-3">
-          <span className="text-purple-700 font-bold text-lg mt-0.5">Step 1</span>
+        <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-start gap-3">
+          <span className="text-zinc-950 font-bold text-lg mt-0.5">Step 1</span>
           <div>
             <h4 className="font-bold text-zinc-900 text-sm m-0">Inquiry & 2-Hour Itemized Estimate</h4>
             <p className="text-xs text-zinc-600 mt-1">
@@ -144,8 +144,8 @@ export default function CustomSignboardQuotationChecklistPage() {
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-stone-50 border border-zinc-200 flex items-start gap-3">
-          <span className="text-purple-700 font-bold text-lg mt-0.5">Step 2</span>
+        <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-start gap-3">
+          <span className="text-zinc-950 font-bold text-lg mt-0.5">Step 2</span>
           <div>
             <h4 className="font-bold text-zinc-900 text-sm m-0">On-Site Physical Audit & 3D CAD Mockup</h4>
             <p className="text-xs text-zinc-600 mt-1">
@@ -154,8 +154,8 @@ export default function CustomSignboardQuotationChecklistPage() {
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-stone-50 border border-zinc-200 flex items-start gap-3">
-          <span className="text-purple-700 font-bold text-lg mt-0.5">Step 3</span>
+        <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 flex items-start gap-3">
+          <span className="text-zinc-950 font-bold text-lg mt-0.5">Step 3</span>
           <div>
             <h4 className="font-bold text-zinc-900 text-sm m-0">In-House Workshop Fabrication & Rigging</h4>
             <p className="text-xs text-zinc-600 mt-1">
@@ -183,16 +183,16 @@ export default function CustomSignboardQuotationChecklistPage() {
         Explore our specialized fabrication options:
       </p>
       <ul className="list-disc pl-6 space-y-1.5 text-zinc-700 my-3 text-sm">
-        <li><Link href="/services/acrylic-acp-signboard" className="text-purple-700 font-semibold hover:underline">Acrylic ACP Signboards in Nagpur</Link></li>
-        <li><Link href="/services/inner-cut-acp-signboard" className="text-purple-700 font-semibold hover:underline">Inner Cut ACP Signboards</Link></li>
-        <li><Link href="/services/ss-letter-backlit-golden" className="text-purple-700 font-semibold hover:underline">Stainless Steel Halo Backlit Letters</Link></li>
-        <li><Link href="/services/neon-signboard-nagpur" className="text-purple-700 font-semibold hover:underline">Custom LED Neon Signs</Link></li>
-        <li><Link href="/services/flex-backlit-signboard" className="text-purple-700 font-semibold hover:underline">Flex Backlit Signboards</Link></li>
+        <li><Link href="/services/acrylic-acp-signboard" className="text-zinc-950 font-semibold hover:underline">Acrylic ACP Signboards in Nagpur</Link></li>
+        <li><Link href="/services/inner-cut-acp-signboard" className="text-zinc-950 font-semibold hover:underline">Inner Cut ACP Signboards</Link></li>
+        <li><Link href="/services/ss-letter-backlit-golden" className="text-zinc-950 font-semibold hover:underline">Stainless Steel Halo Backlit Letters</Link></li>
+        <li><Link href="/services/neon-signboard-nagpur" className="text-zinc-950 font-semibold hover:underline">Custom LED Neon Signs</Link></li>
+        <li><Link href="/services/flex-backlit-signboard" className="text-zinc-950 font-semibold hover:underline">Flex Backlit Signboards</Link></li>
       </ul>
 
       <Callout variant="blue" icon="💬" title="Ready to Get Your Exact Estimate?">
         <p>
-          Skip the delay. Use our interactive <Link href="/quote" className="text-purple-700 font-bold underline">Online Signboard Cost Calculator</Link> to estimate pricing instantly, or message your photos directly to our senior project engineer on WhatsApp at <strong>+91 91724 87246</strong>.
+          Skip the delay. Use our interactive <Link href="/quote" className="text-zinc-950 font-bold underline">Online Signboard Cost Calculator</Link> to estimate pricing instantly, or message your photos directly to our senior project engineer on WhatsApp at <strong>+91 91724 87246</strong>.
         </p>
       </Callout>
     </BlogPostLayout>

@@ -19,7 +19,7 @@ export default function GlobalError({
   return (
     <main className="flex min-h-[80vh] flex-col items-center justify-center bg-stone-50 px-4 py-24 text-center">
       <div className="mx-auto max-w-lg rounded-3xl bg-white p-8 md:p-12 shadow-sm border border-zinc-100">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600 mb-6">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200 mb-6">
           <AlertCircle className="h-6 w-6" />
         </div>
         <h1 className="font-heading text-3xl font-extrabold text-zinc-900 tracking-tight mb-4">
@@ -49,7 +49,7 @@ export default function GlobalError({
             For urgent orders, reach our team directly at{" "}
             <a
               href={`tel:${BUSINESS_INFO.contact.phoneRaw}`}
-              className="font-semibold text-zinc-700 hover:text-[#800080]"
+              className="font-semibold text-zinc-700 hover:text-black"
             >
               {BUSINESS_INFO.contact.phone}
             </a>

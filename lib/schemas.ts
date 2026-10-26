@@ -1,5 +1,7 @@
 import { BUSINESS_INFO } from "./business-info";
+import { servicesData } from "./services-data";
 import type { ServiceData } from "./services-data";
+import { faqsData } from "./faqs-data";
 
 /**
  * Generates LocalBusiness Schema (SignShop / ProfessionalService) for Google & AI search
@@ -37,21 +39,61 @@ export function getLocalBusinessSchema() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: BUSINESS_INFO.hours.daysOpen,
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         opens: BUSINESS_INFO.hours.openingTime,
         closes: BUSINESS_INFO.hours.closingTime,
       },
     ],
-    areaServed: BUSINESS_INFO.areasServed.map((area) => ({
-      "@type": "AdministrativeArea",
-      name: area,
-    })),
+    areaServed: [
+      ...BUSINESS_INFO.areasServed.map((area) => ({
+        "@type": "AdministrativeArea",
+        name: area,
+      })),
+      {
+        "@type": "GeoCircle",
+        geoMidpoint: {
+          "@type": "GeoCoordinates",
+          latitude: BUSINESS_INFO.geo.latitude,
+          longitude: BUSINESS_INFO.geo.longitude,
+        },
+        geoRadius: "35000",
+      },
+    ],
     sameAs: [
       BUSINESS_INFO.socials.facebook,
       BUSINESS_INFO.socials.instagram,
       BUSINESS_INFO.socials.googleReviewUrl,
+      BUSINESS_INFO.socials.googleMapsUrl,
     ],
-    hasMap: BUSINESS_INFO.socials.googleReviewUrl,
+    hasMap: BUSINESS_INFO.socials.googleMapsUrl,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Signboard Manufacturing & Architectural Branding Services",
+      itemListElement: servicesData.map((service, index) => ({
+        "@type": "OfferCatalog",
+        name: service.title,
+        position: index + 1,
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: `${service.title} in Nagpur`,
+              url: `${BUSINESS_INFO.url}/services/${service.slug}`,
+              description: service.description,
+            },
+            priceCurrency: "INR",
+            price: service.offerPrice || service.originalPrice || "0",
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: service.offerPrice || service.originalPrice || "0",
+              priceCurrency: "INR",
+              unitText: "SQFT",
+            },
+          },
+        ],
+      })),
+    },
   };
 }
 
@@ -162,3 +204,12 @@ export function getFaqSchema(faqs: { q: string; a: string }[]) {
     })),
   };
 }
+
+/**
+ * Generates Global FAQ Schema for Homepage & Services Hubs
+ */
+export function getGlobalFaqSchema() {
+  const flatFaqs = faqsData.flatMap((f) => f.items);
+  return getFaqSchema(flatFaqs);
+}
+

@@ -18,10 +18,10 @@ const cardVariants: Variants = {
 
 export default function BlogPageContent() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#faf8fc] pt-8 sm:pt-12 pb-16 sm:pb-20">
+    <section className="relative w-full overflow-hidden bg-white pt-8 sm:pt-12 pb-16 sm:pb-20">
       {/* Ambient background glow */}
       <div
-        className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 h-[340px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-b from-purple-100/40 via-purple-50/20 to-transparent blur-3xl -z-10"
+        className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 h-[340px] w-[500px] sm:w-[700px] rounded-full bg-gradient-to-b from-zinc-200/40 via-zinc-100/20 to-transparent blur-3xl -z-10"
         aria-hidden="true"
       />
 
@@ -33,7 +33,7 @@ export default function BlogPageContent() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto pt-4 pb-10 sm:pt-6 sm:pb-12"
         >
-        <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-4 py-1 text-xs font-bold text-[#800080] mb-3">
+        <div className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-zinc-100 px-4 py-1 text-xs font-bold text-zinc-900 mb-3">
           <span>Nagpur Signage Tips &amp; Trends</span>
         </div>
         <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold tracking-tight text-zinc-950 leading-[1.12] text-center">
@@ -78,7 +78,7 @@ export default function BlogPageContent() {
                   <span>4 min</span>
                 </div>
 
-                <h2 className="font-heading text-xs sm:text-base font-bold text-zinc-950 group-hover:text-[#800080] transition-colors leading-snug mb-1 sm:mb-1.5 px-0.5 line-clamp-2">
+                <h2 className="font-heading text-xs sm:text-base font-bold text-zinc-950 group-hover:text-black transition-colors leading-snug mb-1 sm:mb-1.5 px-0.5 line-clamp-2">
                   {post.title}
                 </h2>
 
@@ -88,7 +88,7 @@ export default function BlogPageContent() {
               </div>
 
               <div className="pt-2.5 sm:pt-3.5 mt-2.5 sm:mt-3.5 border-t border-zinc-100 flex items-center justify-between px-0.5">
-                <span className="text-[10px] sm:text-xs font-bold text-zinc-700 group-hover:text-[#800080] transition-colors">
+                <span className="text-[10px] sm:text-xs font-bold text-zinc-700 group-hover:text-black transition-colors">
                   Read Guide
                 </span>
                 <div className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 group-hover:bg-zinc-950 group-hover:text-white transition-all duration-200">
